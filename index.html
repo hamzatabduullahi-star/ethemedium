@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>🔮 Ethemedium — Home</title>
     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -20,10 +24,10 @@
         </a>
         <ul class="nav-links">
             <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="readings.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
+            <li><a href="reading.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
             <li><a href="about.html"><i class="fas fa-star"></i> About</a></li>
-            <li><a href="crystals.html"><i class="fas fa-gem"></i> Crystals</a></li>
-            <li><a href="testimonials.html"><i class="fas fa-heart"></i> Testimonials</a></li>
+            <li><a href="crystal.html"><i class="fas fa-gem"></i> Crystals</a></li>
+            <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
         <div class="nav-cta">
             <a href="booking.html" class="btn-primary">
@@ -43,6 +47,7 @@
     <div class="hero-overlay"></div>
     
     <div class="slideshow-container">
+        <!-- Slide 1 -->
         <div class="slide fade" style="background: linear-gradient(135deg, #6B2D5C, #2D1F3F);">
             <div class="slide-content">
                 <span class="slide-tag">✨ Divine Guidance</span>
@@ -50,6 +55,7 @@
                 <p>Let the universe speak through me</p>
             </div>
         </div>
+        <!-- Slide 2 -->
         <div class="slide fade" style="background: linear-gradient(135deg, #8B4D7A, #4A1F3F);">
             <div class="slide-content">
                 <span class="slide-tag">❤️ Healing Energy</span>
@@ -57,6 +63,7 @@
                 <p>Let go of what no longer serves you</p>
             </div>
         </div>
+        <!-- Slide 3 -->
         <div class="slide fade" style="background: linear-gradient(135deg, #C9A84C, #6B2D5C);">
             <div class="slide-content">
                 <span class="slide-tag">🔮 Spiritual Connection</span>
@@ -65,16 +72,19 @@
             </div>
         </div>
         
+        <!-- Slide Navigation Dots -->
         <div class="slide-dots">
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
         
+        <!-- Slide Arrows -->
         <a class="slide-arrow prev" onclick="changeSlide(-1)">❮</a>
         <a class="slide-arrow next" onclick="changeSlide(1)">❯</a>
     </div>
     
+    <!-- Hero Text -->
     <div class="hero-text">
         <h1>
             <span class="hero-sub">Welcome, Love ❤️</span>
@@ -87,7 +97,7 @@
             future readings, and intuitive guidance.
         </p>
         <div class="hero-buttons">
-            <a href="readings.html" class="btn-hero-primary">
+            <a href="reading.html" class="btn-hero-primary">
                 <i class="fas fa-hand-sparkles"></i> View Readings
             </a>
             <a href="booking.html" class="btn-hero-secondary">
@@ -113,10 +123,10 @@
         <div class="footer-links">
             <h4>Quick Links</h4>
             <a href="index.html">Home</a>
-            <a href="readings.html">Readings</a>
+            <a href="reading.html">Readings</a>
             <a href="about.html">About</a>
-            <a href="crystals.html">Crystals</a>
-            <a href="testimonials.html">Testimonials</a>
+            <a href="crystal.html">Crystals</a>
+            <a href="testimonial.html">Testimonials</a>
             <a href="booking.html">Book Now</a>
         </div>
         <div class="footer-contact">
@@ -131,12 +141,20 @@
     </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
 <script src="slideshow.js"></script>
 <script>
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
+</script>
+
+<script>
+    console.log('🔮 Ethemedium is ready, love! ❤️🛐🧿🔮☮️🌅');
+    console.log('📖 12 Reading Types Available');
+    console.log('🌍 Serving clients in 30+ countries worldwide!');
+    console.log('✨ Sending positive energy to you! ❤️');
 </script>
 </body>
 </html>
