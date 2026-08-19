@@ -3,11 +3,141 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🔮 Ethemedium — Crystals</title>
+    <title>🔮 Ethemedium — Crystals & Ifá Beads</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
+    
+    <style>
+        /* Crystal Page Specific Styles */
+        .crystal-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background: #f5ecec;
+        }
+        
+        .crystal-card-full {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #F0E0E0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .crystal-card-full:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(107, 45, 92, 0.15);
+            border-color: #D4A5A5;
+        }
+        
+        .crystal-card-full.featured {
+            border-color: #C9A84C;
+            background: linear-gradient(135deg, #FFF9F0, #FFF5E6);
+        }
+        
+        .crystal-card-full .cc-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .crystal-card-full h3 {
+            font-size: 1rem;
+            color: #2D1F1F;
+            margin-bottom: 4px;
+        }
+        
+        .crystal-card-full p {
+            font-size: 0.8rem;
+            color: #8A7A7A;
+            margin: 4px 0;
+        }
+        
+        .crystal-card-full .cc-price {
+            font-weight: 700;
+            color: #6B2D5C;
+            font-size: 1.1rem;
+            display: block;
+            margin: 8px 0 12px;
+        }
+        
+        .crystal-card-full .cc-btn {
+            background: #6B2D5C;
+            color: white;
+            padding: 8px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .crystal-card-full .cc-btn:hover {
+            background: #8B4D7A;
+            transform: scale(1.02);
+        }
+        
+        .crystal-card-full .save-tag {
+            background: #E8798A;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        
+        .crystals-note {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #FAF5F5;
+            border-radius: 12px;
+            border: 1px solid #F0E0E0;
+        }
+        
+        .crystals-note p {
+            color: #6B2D5C;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .crystals-note i {
+            margin-right: 8px;
+        }
+        
+        /* Image placeholder when no image */
+        .no-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #F0E0E0, #E8D5D5);
+            color: #8A7A7A;
+            font-size: 3rem;
+            height: 180px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .crystal-image {
+                height: 140px;
+            }
+            .no-image {
+                height: 140px;
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,7 +150,7 @@
         </a>
         <ul class="nav-links">
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="reading.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
+            <li><a href="readings.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
             <li><a href="about.html"><i class="fas fa-star"></i> About</a></li>
             <li><a href="crystal.html" class="active"><i class="fas fa-gem"></i> Crystals</a></li>
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
@@ -38,8 +168,94 @@
     </div>
 </nav>
 
-<!-- ===== YOUR CRYSTAL CONTENT HERE ===== -->
-<!-- Keep your existing crystal shop content -->
+<!-- ===== CRYSTALS PAGE ===== -->
+<section style="padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Page Header -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <span style="display: inline-block; background: #6B2D5C; color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;">💎 Ifá Beads & Crystals</span>
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2D1F1F; margin-top: 8px;">Healing Bracelets & Guidance Crystals ❤️</h1>
+        <p style="color: #8A7A7A;">Protect your energy and attract what you desire</p>
+        <div style="font-size: 1.6rem; letter-spacing: 8px; margin-top: 6px;">🛐 🧿 🔮 ☮️ 🌅</div>
+    </div>
+
+    <!-- Crystals Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px;">
+        
+        <!-- 1. Protection Bracelet -->
+        <div class="crystal-card-full">
+            <!-- Image - Replace src with your actual image path -->
+            <img src="assets/images/protection-bracelet.jpg" alt="Protection Bracelet" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">🛐</div>
+            <div class="cc-icon">🛐</div>
+            <h3>Protection Bracelet</h3>
+            <p>Black Tourmaline + Obsidian</p>
+            <span class="cc-price">$22</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+
+        <!-- 2. Guidance Crystal -->
+        <div class="crystal-card-full">
+            <img src="assets/images/guidance-crystal.jpg" alt="Guidance Crystal" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">🧿</div>
+            <div class="cc-icon">🧿</div>
+            <h3>Guidance Crystal</h3>
+            <p>Amethyst + Clear Quartz</p>
+            <span class="cc-price">$28</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+
+        <!-- 3. Healing Bracelet -->
+        <div class="crystal-card-full">
+            <img src="assets/images/healing-bracelet.jpg" alt="Healing Bracelet" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">🔮</div>
+            <div class="cc-icon">🔮</div>
+            <h3>Healing Bracelet</h3>
+            <p>Rose Quartz + Green Aventurine</p>
+            <span class="cc-price">$25</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+
+        <!-- 4. Peace Bundle -->
+        <div class="crystal-card-full">
+            <img src="assets/images/peace-bundle.jpg" alt="Peace Bundle" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">☮️</div>
+            <div class="cc-icon">☮️</div>
+            <h3>Peace Bundle</h3>
+            <p>Selenite + Lapis Lazuli</p>
+            <span class="cc-price">$35</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+
+        <!-- 5. Full Protection Set (Featured) -->
+        <div class="crystal-card-full featured">
+            <img src="assets/images/full-set.jpg" alt="Full Protection Set" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">🌅</div>
+            <div class="cc-icon">🌅</div>
+            <h3>Full Protection Set <span class="save-tag">Save $25!</span></h3>
+            <p>All 4 bracelets + crystal</p>
+            <span class="cc-price">$85</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+
+        <!-- 6. Ifá Beads (Extra) -->
+        <div class="crystal-card-full">
+            <img src="assets/images/ifa-beads.jpg" alt="Ifá Beads" class="crystal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="no-image" style="display: none;">📿</div>
+            <div class="cc-icon">📿</div>
+            <h3>Ifá Beads</h3>
+            <p>Traditional Ifá divination beads</p>
+            <span class="cc-price">$30</span>
+            <a href="booking.html" class="cc-btn">Add to Cart</a>
+        </div>
+    </div>
+
+    <!-- Note -->
+    <div class="crystals-note">
+        <p><i class="fas fa-moon"></i> All crystals are cleansed and charged under the full moon before shipping, love ❤️</p>
+        <p style="font-size: 0.8rem; color: #8A7A7A; margin-top: 4px;">📦 Worldwide shipping available</p>
+    </div>
+</section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -57,7 +273,7 @@
         <div class="footer-links">
             <h4>Quick Links</h4>
             <a href="index.html">Home</a>
-            <a href="reading.html">Readings</a>
+            <a href="readings.html">Readings</a>
             <a href="about.html">About</a>
             <a href="crystal.html">Crystals</a>
             <a href="testimonial.html">Testimonials</a>
