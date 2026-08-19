@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🔮 Ethemedium — Readings</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon">🔮</span>
+            <span class="logo-text">Ethe<span>medium</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="readings.html" class="active"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
+            <li><a href="about.html"><i class="fas fa-star"></i> About</a></li>
+            <li><a href="crystals.html"><i class="fas fa-gem"></i> Crystals</a></li>
+            <li><a href="testimonials.html"><i class="fas fa-heart"></i> Testimonials</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="booking.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== READINGS PAGE ===== -->
+<section class="page-section">
+    <div class="page-container">
+        <div class="page-header">
+            <span class="page-badge">🔮 Choose Your Reading</span>
+            <h1>What Kind of Reading Do You Want, Love?</h1>
+            <p>Pick the guidance your soul needs right now</p>
+        </div>
+
+        <div class="readings-grid-full">
+            <!-- 1. Love Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">💖</div>
+                <h3>Love Reading</h3>
+                <p>Soulmate, twin flame, relationship blocks, heart healing</p>
+                <span class="rc-price">From $45</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 2. General Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🔮</div>
+                <h3>General Reading</h3>
+                <p>Whatever Spirit wants you to know right now</p>
+                <span class="rc-price">From $40</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 3. Relationship Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">💑</div>
+                <h3>Relationship Reading</h3>
+                <p>Deep dive into current partnership, communication, healing</p>
+                <span class="rc-price">From $55</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 4. Aura Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🌈</div>
+                <h3>Aura Reading</h3>
+                <p>See your energy colors, blockages & chakra alignment</p>
+                <span class="rc-price">From $60</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 5. Career Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">💼</div>
+                <h3>Career Reading</h3>
+                <p>Career path, promotions, business decisions, purpose</p>
+                <span class="rc-price">From $55</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 6. Job Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🏢</div>
+                <h3>Job Reading</h3>
+                <p>Job search, interviews, workplace challenges, next steps</p>
+                <span class="rc-price">From $50</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 7. Finance Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">💰</div>
+                <h3>Finance Reading</h3>
+                <p>Money flow, abundance, investments, financial blocks</p>
+                <span class="rc-price">From $55</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 8. Future Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🌅</div>
+                <h3>Future Reading</h3>
+                <p>What's coming in 3-6 months and how to prepare</p>
+                <span class="rc-price">From $60</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 9. Healing Reading (Featured) -->
+            <div class="reading-card-full featured">
+                <div class="rc-icon">🕊️</div>
+                <h3>Healing Reading <span class="featured-tag">❤️ Most Loved</span></h3>
+                <p>Depression, anxiety, emotional trauma, inner peace</p>
+                <span class="rc-price">From $70</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 10. Intuitive Guidance -->
+            <div class="reading-card-full">
+                <div class="rc-icon">✨</div>
+                <h3>Intuitive Guidance</h3>
+                <p>General life guidance, decision making, spiritual clarity</p>
+                <span class="rc-price">From $50</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 11. Protection Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🛡️</div>
+                <h3>Protection Reading</h3>
+                <p>Energy protection, negative entity removal, spiritual safety</p>
+                <span class="rc-price">From $65</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+
+            <!-- 12. Spiritual Reading -->
+            <div class="reading-card-full">
+                <div class="rc-icon">🙏</div>
+                <h3>Spiritual Reading</h3>
+                <p>Spiritual awakening, purpose, connection with guides</p>
+                <span class="rc-price">From $60</span>
+                <a href="booking.html" class="rc-btn">Choose</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <span class="footer-logo">🔮 Ethemedium</span>
+            <p>Sending positive energy to you if you need healing, love ❤️</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="readings.html">Readings</a>
+            <a href="about.html">About</a>
+            <a href="crystals.html">Crystals</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book Now</a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Ethemedium — Made with love ❤️🛐🧿🔮☮️🌅</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+        document.querySelector('.hamburger').classList.toggle('active');
+    }
+</script>
+</body>
+</html>
