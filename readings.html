@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🔮 Ethemedium — Readings</title>
+    <title>🔮 Ethemedium — Home</title>
     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -19,8 +23,8 @@
             <span class="logo-text">Ethe<span>medium</span></span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="readings.html" class="active"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="readings.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
             <li><a href="about.html"><i class="fas fa-star"></i> About</a></li>
             <li><a href="crystals.html"><i class="fas fa-gem"></i> Crystals</a></li>
             <li><a href="testimonials.html"><i class="fas fa-heart"></i> Testimonials</a></li>
@@ -38,121 +42,67 @@
     </div>
 </nav>
 
-<!-- ===== READINGS PAGE ===== -->
-<section class="page-section" style="padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto;">
-    <div class="page-header" style="text-align: center; margin-bottom: 40px;">
-        <span class="page-badge" style="display: inline-block; background: var(--primary); color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px;">🔮 Choose Your Reading</span>
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-dark);">What Kind of Reading Do You Want, Love?</h1>
-        <p style="color: var(--text-muted);">Pick the guidance your soul needs right now</p>
+<!-- ===== HERO WITH SLIDESHOW ===== -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    
+    <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #6B2D5C, #2D1F3F);">
+            <div class="slide-content">
+                <span class="slide-tag">✨ Divine Guidance</span>
+                <h2>Find Your Path</h2>
+                <p>Let the universe speak through me</p>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #8B4D7A, #4A1F3F);">
+            <div class="slide-content">
+                <span class="slide-tag">❤️ Healing Energy</span>
+                <h2>Release & Heal</h2>
+                <p>Let go of what no longer serves you</p>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #C9A84C, #6B2D5C);">
+            <div class="slide-content">
+                <span class="slide-tag">🔮 Spiritual Connection</span>
+                <h2>Connect With Spirit</h2>
+                <p>Receive messages from your guides</p>
+            </div>
+        </div>
+        
+        <!-- Slide Navigation Dots -->
+        <div class="slide-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        
+        <!-- Slide Arrows -->
+        <a class="slide-arrow prev" onclick="changeSlide(-1)">❮</a>
+        <a class="slide-arrow next" onclick="changeSlide(1)">❯</a>
     </div>
-
-    <div class="readings-grid-full" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
-        <!-- 1. Love Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💖</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Love Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Soulmate, twin flame, relationship blocks</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $45</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 2. General Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🔮</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">General Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Whatever Spirit wants you to know</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $40</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 3. Relationship Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💑</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Relationship Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Deep dive into current partnership</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 4. Aura Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌈</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Aura Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">See your energy colors & chakras</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 5. Career Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💼</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Career Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Career path, promotions, purpose</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 6. Job Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🏢</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Job Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Job search, interviews, next steps</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $50</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 7. Finance Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💰</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Finance Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Money flow, abundance, investments</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 8. Future Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌅</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Future Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">What's coming in 3-6 months</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 9. Healing Reading (Featured) -->
-        <div class="reading-card-full featured" style="background: linear-gradient(135deg, #FFF9F0, #FFF5E6); border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--gold); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🕊️</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Healing Reading <span style="background: var(--gold); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.6rem; font-weight: 600;">❤️ Most Loved</span></h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Depression, anxiety, inner peace</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $70</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 10. Intuitive Guidance -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">✨</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Intuitive Guidance</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Life guidance, decision making, clarity</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $50</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 11. Protection Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🛡️</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Protection Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Energy protection, spiritual safety</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $65</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 12. Spiritual Reading -->
-        <div class="reading-card-full" style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid var(--secondary-light); transition: all 0.3s; position: relative;">
-            <div class="rc-icon" style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🙏</div>
-            <h3 style="font-size: 1rem; color: var(--text-dark);">Spiritual Reading</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Spiritual awakening, purpose, guides</p>
-            <span class="rc-price" style="font-weight: 700; color: var(--primary); font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" class="rc-btn" style="background: var(--primary); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
+    
+    <!-- Hero Text -->
+    <div class="hero-text">
+        <h1>
+            <span class="hero-sub">Welcome, Love ❤️</span>
+            <span class="hero-main">Ethemedium</span>
+            <span class="hero-line">🛐 🧿 🔮 ☮️ 🌅</span>
+        </h1>
+        <p class="hero-desc">
+            Sending positive energy to you if you need healing.<br>
+            I do relationship readings, career readings, finance readings,<br>
+            future readings, and intuitive guidance.
+        </p>
+        <div class="hero-buttons">
+            <a href="readings.html" class="btn-hero-primary">
+                <i class="fas fa-hand-sparkles"></i> View Readings
+            </a>
+            <a href="booking.html" class="btn-hero-secondary">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
         </div>
     </div>
 </section>
@@ -191,11 +141,20 @@
     </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
+<script src="slideshow.js"></script>
 <script>
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
+</script>
+
+<script>
+    console.log('🔮 Ethemedium is ready, love! ❤️🛐🧿🔮☮️🌅');
+    console.log('📖 12 Reading Types Available');
+    console.log('🌍 Serving clients in 30+ countries worldwide!');
+    console.log('✨ Sending positive energy to you! ❤️');
 </script>
 </body>
 </html>
