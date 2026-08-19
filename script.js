@@ -3,7 +3,7 @@
    ============================================ */
 
 // ============================================
-// DATA — Your Readings, Durations & Crystals
+// DATA — All 12 Reading Types
 // ============================================
 
 const READINGS = [
@@ -11,50 +11,85 @@ const READINGS = [
         id: 'love', 
         icon: '💖', 
         name: 'Love Reading', 
-        desc: 'Soulmate, twin flame, relationship blocks',
+        desc: 'Soulmate, twin flame, relationship blocks, heart healing',
         basePrice: 45 
     },
     { 
         id: 'general', 
         icon: '🔮', 
         name: 'General Reading', 
-        desc: 'Whatever Spirit wants you to know',
+        desc: 'Whatever Spirit wants you to know right now',
         basePrice: 40 
     },
     { 
         id: 'relationship', 
         icon: '💑', 
         name: 'Relationship Reading', 
-        desc: 'Deep dive into current partnership',
+        desc: 'Deep dive into current partnership, communication, healing',
         basePrice: 55 
     },
     { 
         id: 'aura', 
         icon: '🌈', 
         name: 'Aura Reading', 
-        desc: 'See your energy colors & chakras',
+        desc: 'See your energy colors, blockages & chakra alignment',
         basePrice: 60 
     },
     { 
-        id: 'job', 
+        id: 'career', 
         icon: '💼', 
         name: 'Career Reading', 
-        desc: 'Career path, promotions, purpose',
+        desc: 'Career path, promotions, business decisions, purpose',
+        basePrice: 55 
+    },
+    { 
+        id: 'job', 
+        icon: '🏢', 
+        name: 'Job Reading', 
+        desc: 'Job search, interviews, workplace challenges, next steps',
+        basePrice: 50 
+    },
+    { 
+        id: 'finance', 
+        icon: '💰', 
+        name: 'Finance Reading', 
+        desc: 'Money flow, abundance, investments, financial blocks',
         basePrice: 55 
     },
     { 
         id: 'future', 
         icon: '🌅', 
         name: 'Future Reading', 
-        desc: "What's coming in 3-6 months",
+        desc: "What's coming in 3-6 months and how to prepare",
         basePrice: 60 
     },
     { 
         id: 'healing', 
         icon: '🕊️', 
-        name: 'Healing Guidance', 
-        desc: 'Depression, anxiety, inner peace',
+        name: 'Healing Reading', 
+        desc: 'Depression, anxiety, emotional trauma, inner peace',
         basePrice: 70 
+    },
+    { 
+        id: 'intuitive', 
+        icon: '✨', 
+        name: 'Intuitive Guidance', 
+        desc: 'General life guidance, decision making, spiritual clarity',
+        basePrice: 50 
+    },
+    { 
+        id: 'protection', 
+        icon: '🛡️', 
+        name: 'Protection Reading', 
+        desc: 'Energy protection, negative entity removal, spiritual safety',
+        basePrice: 65 
+    },
+    { 
+        id: 'spiritual', 
+        icon: '🙏', 
+        name: 'Spiritual Reading', 
+        desc: 'Spiritual awakening, purpose, connection with guides',
+        basePrice: 60 
     }
 ];
 
@@ -246,7 +281,8 @@ function selectReading(id) {
     state.selectedReading = id;
     renderReadings();
     renderDurations();
-    showToast(`✨ Selected ${READINGS.find(r => r.id === id).name}`);
+    const reading = READINGS.find(r => r.id === id);
+    showToast(`✨ Selected ${reading.icon} ${reading.name}`);
 }
 
 /**
@@ -265,11 +301,9 @@ function toggleCart(crystalId) {
     const existing = state.cart.find(item => item.id === crystalId);
 
     if (existing) {
-        // Remove from cart
         state.cart = state.cart.filter(item => item.id !== crystalId);
         showToast(`❌ Removed ${crystal.name} from cart`);
     } else {
-        // Add to cart
         state.cart.push({
             id: crystal.id,
             name: crystal.name,
@@ -285,7 +319,7 @@ function toggleCart(crystalId) {
 }
 
 /**
- * Remove item from cart (called by X button)
+ * Remove item from cart
  */
 function removeFromCart(crystalId) {
     const crystal = CRYSTALS.find(c => c.id === crystalId);
@@ -306,7 +340,6 @@ function bookNow(platform) {
     // Validate: Reading selected
     if (!state.selectedReading) {
         showToast('⚠️ Please select a reading type first, love! ❤️');
-        // Scroll to readings section
         document.querySelector('.readings-grid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
@@ -380,14 +413,12 @@ ${cartSummary}
     if (platform === 'whatsapp') {
         // 🔴 CHANGE THIS TO YOUR WHATSAPP NUMBER
         // Include country code, no + sign
-        // Example: 2348012345678 (Nigeria)
-        const phone = '2348000000000';
+        const phone = '2348000000000'; // Change this!
         url = `https://wa.me/${phone}?text=${encoded}`;
     } else if (platform === 'telegram') {
         // 🔴 CHANGE THIS TO YOUR TELEGRAM USERNAME
         // Without the @ symbol
-        // Example: EthemediumReadings
-        const username = 'YourUsername';
+        const username = 'YourUsername'; // Change this!
         url = `https://t.me/${username}?text=${encoded}`;
     }
 
@@ -405,9 +436,6 @@ ${cartSummary}
 
 let toastTimeout;
 
-/**
- * Show a toast notification
- */
 function showToast(message) {
     const toast = document.getElementById('toast');
     if (!toast) return;
@@ -435,9 +463,6 @@ if (questionsInput) {
 // INITIALIZE
 // ============================================
 
-/**
- * Initialize the entire app
- */
 function init() {
     // Set default reading (first one)
     state.selectedReading = READINGS[0].id;
@@ -449,7 +474,8 @@ function init() {
     renderCart();
     
     console.log('🔮 Ethemedium is ready, love! ❤️🛐🧿🔮☮️🌅');
-    console.log('📱 Readings:', READINGS.length);
+    console.log('📖 Total Readings:', READINGS.length);
+    console.log('📋 Reading Types:', READINGS.map(r => r.name).join(', '));
     console.log('💎 Crystals:', CRYSTALS.length);
     console.log('⏰ Durations:', DURATIONS.map(d => d.minutes + 'min').join(', '));
     console.log('✨ Remember to update your WhatsApp number and Telegram username!');
@@ -466,7 +492,6 @@ if (document.readyState === 'loading') {
 // EXPOSE FUNCTIONS TO GLOBAL SCOPE
 // ============================================
 
-// These are called from HTML onclick attributes
 window.selectReading = selectReading;
 window.selectDuration = selectDuration;
 window.toggleCart = toggleCart;
@@ -474,4 +499,4 @@ window.removeFromCart = removeFromCart;
 window.bookNow = bookNow;
 window.showToast = showToast;
 
-console.log('✨ All functions loaded, love! Ready for bookings! ❤️');
+console.log('✨ All 12 readings loaded, love! Ready for bookings! ❤️');
