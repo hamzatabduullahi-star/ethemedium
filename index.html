@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🔮 Ethemedium — Spiritual Soul Readings</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon">🔮</span>
+            <span class="logo-text">Ethe<span>medium</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="booking.html"><i class="fas fa-hand-sparkles"></i> Book Reading</a></li>
+            <li><a href="#about"><i class="fas fa-star"></i> About</a></li>
+            <li><a href="#testimonials"><i class="fas fa-heart"></i> Testimonials</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="booking.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO WITH SLIDESHOW ===== -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    
+    <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #6B2D5C, #2D1F3F);">
+            <div class="slide-content">
+                <span class="slide-tag">✨ Divine Guidance</span>
+                <h2>Find Your Path</h2>
+                <p>Let the universe speak through me</p>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #8B4D7A, #4A1F3F);">
+            <div class="slide-content">
+                <span class="slide-tag">❤️ Healing Energy</span>
+                <h2>Release & Heal</h2>
+                <p>Let go of what no longer serves you</p>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide fade" style="background: linear-gradient(135deg, #C9A84C, #6B2D5C);">
+            <div class="slide-content">
+                <span class="slide-tag">🔮 Spiritual Connection</span>
+                <h2>Connect With Spirit</h2>
+                <p>Receive messages from your guides</p>
+            </div>
+        </div>
+        
+        <div class="slide-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        
+        <a class="slide-arrow prev" onclick="changeSlide(-1)">❮</a>
+        <a class="slide-arrow next" onclick="changeSlide(1)">❯</a>
+    </div>
+    
+    <div class="hero-text">
+        <h1>
+            <span class="hero-sub">Welcome, Love ❤️</span>
+            <span class="hero-main">Ethemedium</span>
+            <span class="hero-line">🛐 🧿 🔮 ☮️ 🌅</span>
+        </h1>
+        <p class="hero-desc">
+            Sending positive energy to you if you need healing.<br>
+            I do relationship readings, career readings, finance readings,<br>
+            future readings, and intuitive guidance.
+        </p>
+        <div class="hero-buttons">
+            <a href="booking.html" class="btn-hero-primary">
+                <i class="fas fa-hand-sparkles"></i> Book Your Reading
+            </a>
+            <a href="#readings" class="btn-hero-secondary">
+                <i class="fas fa-arrow-right"></i> View Readings
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== READINGS PREVIEW ===== -->
+<section class="readings-preview" id="readings">
+    <div class="section-header">
+        <span class="section-badge">🔮 Choose Your Reading</span>
+        <h2>What Kind of Reading Do You Want, Love?</h2>
+        <p>Pick the guidance your soul needs right now</p>
+    </div>
+    
+    <div class="readings-grid-preview">
+        <div class="reading-preview-card">
+            <div class="rp-icon">💖</div>
+            <h4>Love Reading</h4>
+            <p>Soulmate, twin flame, relationship blocks</p>
+            <span class="rp-price">From $45</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card">
+            <div class="rp-icon">🔮</div>
+            <h4>General Reading</h4>
+            <p>Whatever Spirit wants you to know</p>
+            <span class="rp-price">From $40</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card">
+            <div class="rp-icon">💑</div>
+            <h4>Relationship Reading</h4>
+            <p>Deep dive into current partnership</p>
+            <span class="rp-price">From $55</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card">
+            <div class="rp-icon">🌈</div>
+            <h4>Aura Reading</h4>
+            <p>See your energy colors & chakras</p>
+            <span class="rp-price">From $60</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card">
+            <div class="rp-icon">💼</div>
+            <h4>Career Reading</h4>
+            <p>Career path, promotions, purpose</p>
+            <span class="rp-price">From $55</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card">
+            <div class="rp-icon">🌅</div>
+            <h4>Future Reading</h4>
+            <p>What's coming in 3-6 months</p>
+            <span class="rp-price">From $60</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+        </div>
+        <div class="reading-preview-card featured">
+            <div class="rp-icon">🕊️</div>
+            <h4>Healing Guidance</h4>
+            <p>Depression, anxiety, inner peace</p>
+            <span class="rp-price">From $70</span>
+            <a href="booking.html" class="rp-btn">Choose</a>
+            <span class="featured-badge">❤️ Most Loved</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-image">
+            <div class="about-image-placeholder">
+                <span>🔮</span>
+                <p>Your Spiritual Guide</p>
+            </div>
+        </div>
+        <div class="about-content">
+            <span class="section-badge">🌟 About Me</span>
+            <h2>I'm Here to Guide You, Love ❤️</h2>
+            <p>
+                With years of experience in spiritual guidance, I help people find clarity, 
+                healing, and direction in their lives. Whether you're struggling with love, 
+                career, or just need a sign from the universe — I'm here for you.
+            </p>
+            <div class="about-stats">
+                <div class="stat">
+                    <span class="stat-number">7+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Readings Done</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Confidential</span>
+                </div>
+            </div>
+            <a href="booking.html" class="btn-primary">
+                <i class="fas fa-heart"></i> Book a Session
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CRYSTALS PREVIEW ===== -->
+<section class="crystals-preview">
+    <div class="section-header">
+        <span class="section-badge">💎 Ifá Beads & Crystals</span>
+        <h2>Healing Bracelets & Guidance Crystals ❤️</h2>
+        <p>Protect your energy and attract what you desire</p>
+    </div>
+    
+    <div class="crystals-grid-preview">
+        <div class="crystal-preview-card">
+            <span class="cp-icon">🛐</span>
+            <h4>Protection Bracelet</h4>
+            <p>Black Tourmaline + Obsidian</p>
+            <span class="cp-price">$22</span>
+            <a href="booking.html" class="cp-btn">Add to Cart</a>
+        </div>
+        <div class="crystal-preview-card">
+            <span class="cp-icon">🧿</span>
+            <h4>Guidance Crystal</h4>
+            <p>Amethyst + Clear Quartz</p>
+            <span class="cp-price">$28</span>
+            <a href="booking.html" class="cp-btn">Add to Cart</a>
+        </div>
+        <div class="crystal-preview-card">
+            <span class="cp-icon">🔮</span>
+            <h4>Healing Bracelet</h4>
+            <p>Rose Quartz + Green Aventurine</p>
+            <span class="cp-price">$25</span>
+            <a href="booking.html" class="cp-btn">Add to Cart</a>
+        </div>
+        <div class="crystal-preview-card">
+            <span class="cp-icon">🌅</span>
+            <h4>Full Protection Set</h4>
+            <p>All 4 bracelets + crystal</p>
+            <span class="cp-price">$85</span>
+            <a href="booking.html" class="cp-btn">Add to Cart</a>
+            <span class="save-badge">Save $25!</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="testimonials">
+    <div class="section-header">
+        <span class="section-badge">💬 What Clients Say</span>
+        <h2>Real Words From Real Souls ❤️</h2>
+    </div>
+    
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p>"She helped me heal my heart after a painful breakup. Her reading was so accurate, I cried. Thank you, love! ❤️"</p>
+            <div class="testimonial-author">
+                <span class="ta-name">Sarah M.</span>
+                <span class="ta-location">📍 Lagos</span>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p>"I was lost in my career and didn't know what to do. Her guidance gave me the clarity I needed. I got promoted 2 months later!"</p>
+            <div class="testimonial-author">
+                <span class="ta-name">James R.</span>
+                <span class="ta-location">📍 Abuja</span>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p>"The energy healing session was incredible. I felt so much lighter and at peace. I've been recommending her to everyone."</p>
+            <div class="testimonial-author">
+                <span class="ta-name">Chioma O.</span>
+                <span class="ta-location">📍 Port Harcourt</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+    <div class="cta-content">
+        <span class="cta-badge">✨ Ready, Love?</span>
+        <h2>Book Your Reading Today ❤️</h2>
+        <p>
+            Sending positive energy to you if you need healing.<br>
+            Choose your reading, and I'll read it for you.
+        </p>
+        <div class="cta-buttons">
+            <a href="booking.html" class="btn-hero-primary">
+                <i class="fas fa-hand-sparkles"></i> Book Now
+            </a>
+            <a href="https://wa.me/2348000000000" class="btn-hero-secondary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+        <div class="cta-emoji">
+            🛐 🧿 🔮 ☮️ 🌅
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <span class="footer-logo">🔮 Ethemedium</span>
+            <p>Sending positive energy to you if you need healing, love ❤️</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Book Reading</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Ethemedium — Made with love ❤️🛐🧿🔮☮️🌅</p>
+    </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="slideshow.js"></script>
+<script>
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+        document.querySelector('.hamburger').classList.toggle('active');
+    }
+</script>
+</body>
+</html>
