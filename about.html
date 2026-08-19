@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🔮 Ethemedium — About</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon">🔮</span>
+            <span class="logo-text">Ethe<span>medium</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="readings.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
+            <li><a href="about.html" class="active"><i class="fas fa-star"></i> About</a></li>
+            <li><a href="crystals.html"><i class="fas fa-gem"></i> Crystals</a></li>
+            <li><a href="testimonials.html"><i class="fas fa-heart"></i> Testimonials</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="booking.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== ABOUT PAGE ===== -->
+<section class="page-section">
+    <div class="page-container">
+        <div class="page-header">
+            <span class="page-badge">🌟 About Me</span>
+            <h1>I'm Here to Guide You, Love ❤️</h1>
+            <p>Your trusted spiritual guide with years of experience</p>
+        </div>
+
+        <div class="about-page-content">
+            <div class="about-image-large">
+                <div class="about-image-placeholder-large">
+                    <span>🔮</span>
+                    <p>Your Spiritual Guide</p>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <p>
+                    With years of experience in spiritual guidance, I help people find clarity, 
+                    healing, and direction in their lives. Whether you're struggling with love, 
+                    career, or just need a sign from the universe — I'm here for you.
+                </p>
+                <p>
+                    I've had the honor of reading for clients from all over the world — 
+                    from the United States and Canada to the United Kingdom, Australia, 
+                    Germany, France, and beyond. No matter where you are, the energy 
+                    connects us all.
+                </p>
+                <p>
+                    My journey into spirituality began over 7 years ago, and since then, 
+                    I've helped over 500 clients find peace, clarity, and purpose. 
+                    Every reading is unique, personal, and guided by Spirit.
+                </p>
+            </div>
+
+            <div class="about-stats-large">
+                <div class="stat-large">
+                    <span class="stat-number-large">7+</span>
+                    <span class="stat-label-large">Years Experience</span>
+                </div>
+                <div class="stat-large">
+                    <span class="stat-number-large">500+</span>
+                    <span class="stat-label-large">Readings Done</span>
+                </div>
+                <div class="stat-large">
+                    <span class="stat-number-large">30+</span>
+                    <span class="stat-label-large">Countries Served</span>
+                </div>
+                <div class="stat-large">
+                    <span class="stat-number-large">100%</span>
+                    <span class="stat-label-large">Confidential</span>
+                </div>
+            </div>
+
+            <div class="about-cta">
+                <a href="booking.html" class="btn-primary-large">
+                    <i class="fas fa-heart"></i> Book a Session
+                </a>
+                <a href="readings.html" class="btn-secondary-large">
+                    <i class="fas fa-hand-sparkles"></i> View Readings
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <span class="footer-logo">🔮 Ethemedium</span>
+            <p>Sending positive energy to you if you need healing, love ❤️</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="readings.html">Readings</a>
+            <a href="about.html">About</a>
+            <a href="crystals.html">Crystals</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book Now</a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Ethemedium — Made with love ❤️🛐🧿🔮☮️🌅</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+        document.querySelector('.hamburger').classList.toggle('active');
+    }
+</script>
+</body>
+</html>
