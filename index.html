@@ -36,7 +36,7 @@
 
         /* ===== HERO SLIDESHOW WITH SLIDE EFFECT ===== */
         .hero-text-container { position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 20px; width: 100%; overflow: hidden; }
-        .hero-slides-wrapper { position: relative; width: 100%; min-height: 400px; }
+        .hero-slides-wrapper { position: relative; width: 100%; min-height: 420px; }
         
         .hero-slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transform: translateX(100%); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; padding: 10px; }
         .hero-slide.active { opacity: 1; transform: translateX(0); pointer-events: all; }
@@ -48,16 +48,22 @@
         .hero-slide .hero-line { font-size: 2rem; letter-spacing: 12px; margin-top: 6px; display: block; }
         .hero-slide .hero-desc { font-size: 1.15rem; color: rgba(255,255,255,0.85); margin: 16px 0 28px; line-height: 1.8; font-weight: 300; letter-spacing: 0.5px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
+        /* ===== HERO BUTTONS ===== */
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        
+        .btn-hero-primary { background: white; color: #6B2D5C; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: none; cursor: pointer; }
+        .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,255,255,0.2); }
+        
+        .btn-hero-secondary { background: transparent; color: white; padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
+        .btn-hero-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
+        
+        .btn-hero-about { background: #E8D5A0; color: #4A1F3F; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: none; cursor: pointer; }
+        .btn-hero-about:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(232, 213, 160, 0.3); }
+
         .hero-dots { position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; gap: 12px; }
         .hero-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s ease; border: none; }
         .hero-dot.active { background: white; transform: scale(1.3); }
         .hero-dot:hover { background: rgba(255,255,255,0.7); }
-
-        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
-        .btn-hero-primary { background: white; color: #6B2D5C; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: none; cursor: pointer; }
-        .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,255,255,0.2); }
-        .btn-hero-secondary { background: transparent; color: white; padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
-        .btn-hero-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
 
         /* ===== BOTTOM SLIDESHOW ===== */
         .bottom-slideshow { padding: 80px 20px 60px; max-width: 1000px; margin: 0 auto; text-align: center; }
@@ -106,14 +112,16 @@
             .footer-container { grid-template-columns: 1fr; gap: 20px; }
             .bottom-slide .bs-text { font-size: 1.3rem; }
             .bottom-slide-container { min-height: 120px; }
+            .hero-slides-wrapper { min-height: 380px; }
         }
         @media (max-width: 480px) {
             .hero-slide .hero-main { font-size: 2.2rem; }
             .hero-slide .hero-sub { font-size: 1.2rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; }
+            .btn-hero-primary, .btn-hero-secondary, .btn-hero-about { width: 100%; justify-content: center; }
             .bottom-slide .bs-text { font-size: 1.1rem; }
-            .bottom-slide-container { min-height: 140px; padding: 20px; }
+            .bottom-slide-container { min-height: 160px; padding: 20px; }
+            .hero-slides-wrapper { min-height: 400px; }
         }
     </style>
 </head>
@@ -130,7 +138,6 @@
             <li><a href="crystal.html"><i class="fas fa-gem"></i> Crystals</a></li>
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
-        <!-- REMOVED "Book Now" BUTTON FROM TOP -->
         <div class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
@@ -187,7 +194,7 @@
                     Let me help you connect with your higher self.
                 </p>
                 <div class="hero-buttons">
-                    <a href="about.html" class="btn-hero-primary"><i class="fas fa-star"></i> About Me</a>
+                    <a href="about.html" class="btn-hero-about"><i class="fas fa-star"></i> About Me</a>
                     <a href="booking.html" class="btn-hero-secondary"><i class="fas fa-calendar-check"></i> Book Now</a>
                 </div>
             </div>
