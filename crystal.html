@@ -48,8 +48,11 @@
         .cart-item-remove{background:none;border:none;color:#cc5555;cursor:pointer;font-size:1.1rem;transition:all 0.3s;padding:4px 8px;margin-left:4px;}
         .cart-item-remove:hover{transform:scale(1.2);}
         .cart-total{padding:16px 0;border-top:2px solid #F0E0E0;margin-top:16px;display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;color:#6B2D5C;}
-        .cart-checkout{width:100%;padding:14px;background:#25D366;color:white;border:none;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;}
-        .cart-checkout:hover{background:#1da85a;transform:scale(1.02);}
+        .cart-actions{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+        .cart-btn-crystals{width:100%;padding:14px;background:#25D366;color:white;border:none;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;}
+        .cart-btn-crystals:hover{background:#1da85a;transform:scale(1.02);}
+        .cart-btn-booking{width:100%;padding:14px;background:#6B2D5C;color:white;border:none;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;}
+        .cart-btn-booking:hover{background:#8B4D7A;transform:scale(1.02);}
         .cart-empty{text-align:center;padding:40px 0;color:#8A7A7A;font-size:1.1rem;}
         .cart-empty i{font-size:3rem;display:block;margin-bottom:12px;color:#E0D0D0;}
         .cart-note{text-align:center;font-size:0.75rem;color:#8A7A7A;margin-top:10px;padding:10px;background:#FAF5F5;border-radius:8px;}
@@ -96,9 +99,6 @@
         .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#2D1F1F;color:white;padding:14px 28px;border-radius:50px;font-size:0.9rem;box-shadow:0 8px 30px rgba(0,0,0,0.2);opacity:0;transition:all 0.5s ease;z-index:3000;pointer-events:none;text-align:center;}
         .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-        /* ===== BOOKING BADGE ON CART ===== */
-        .cart-booking-badge{display:inline-block;background:#C9A84C;color:white;padding:2px 12px;border-radius:20px;font-size:0.65rem;font-weight:600;margin-left:6px;}
-
         @media (max-width:600px){.nav-links{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(255,248,245,0.98);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid rgba(212,165,165,0.2);}
         .nav-links.show{display:flex;}
         .hamburger{display:flex;}
@@ -111,7 +111,7 @@
         .cart-item{flex-wrap:wrap;gap:8px;}
         .cart-item-info{flex:1 1 100%;}
         .cart-item-qty{margin-left:auto;}
-    }
+        }
     </style>
 </head>
 <body>
@@ -139,12 +139,17 @@
             <span>Total:</span>
             <span id="cartTotalPrice">$0.00</span>
         </div>
-        <button class="cart-checkout" onclick="orderCrystalsOnly()">
-            <i class="fab fa-whatsapp"></i> Order Crystals Only
-        </button>
+        <div class="cart-actions">
+            <button class="cart-btn-crystals" onclick="orderCrystalsOnly()">
+                <i class="fab fa-whatsapp"></i> Order Crystals Only
+            </button>
+            <button class="cart-btn-booking" onclick="goToBookingWithCrystals()">
+                <i class="fas fa-calendar-check"></i> Book Reading + Crystals
+            </button>
+        </div>
         <div class="cart-note">
             <i class="fas fa-info-circle"></i> 
-            <strong>Want a reading too?</strong> Click "Book Now" above and your crystals will be included! 📖🔮
+            <strong>"Book Reading + Crystals"</strong> sends ONE combined message with both! 📖💎
         </div>
     </div>
 </div>
@@ -174,9 +179,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cartBadge">0</span>
             </div>
-            <a href="booking.html" class="btn-primary" onclick="return handleBookNow()">
-                <i class="fas fa-calendar-check"></i> Book Now
-            </a>
+            <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
@@ -194,116 +197,34 @@
         <div class="emoji-line">🛐 🧿 🔮 ☮️ 🌅</div>
     </div>
 
-    <!-- ===== IFÁ BEADS COLLECTION ===== -->
     <div class="section-divider">
         <h2>📿 Ifá Beads Collection</h2>
         <p>Traditional Ifá divination beads for spiritual protection and guidance</p>
     </div>
 
-    <!-- Product 1 -->
-    <div class="product-card" data-id="hand-set">
-        <img src="IMG_9088.jpeg" alt="Hand Set Ifá Beads">
-        <h3>Hand Set Ifá Beads</h3>
-        <p class="desc">Traditional Ifá divination hand beads for spiritual protection and guidance</p>
-        <span class="price" data-usd="30">$30</span>
-        <button class="btn-add" onclick="addToCart('Hand Set Ifá Beads', 30)">🛒 Add to Cart</button>
-    </div>
+    <div class="product-card"><img src="IMG_9088.jpeg" alt="Hand Set Ifá Beads"><h3>Hand Set Ifá Beads</h3><p class="desc">Traditional Ifá divination hand beads</p><span class="price" data-usd="30">$30</span><button class="btn-add" onclick="addToCart('Hand Set Ifá Beads', 30)">🛒 Add to Cart</button></div>
+    <div class="product-card"><img src="IMG_9089.jpeg" alt="One Hand Ifá Beads"><h3>One Hand Ifá Beads</h3><p class="desc">Single hand Ifá divination beads</p><span class="price" data-usd="25">$25</span><button class="btn-add" onclick="addToCart('One Hand Ifá Beads', 25)">🛒 Add to Cart</button></div>
+    <div class="product-card featured"><img src="IMG_9091.jpeg" alt="Ifá Beads Necklace"><h3>Ifá Beads Necklace <span class="badge badge-popular">⭐ Popular</span></h3><p class="desc">Beautiful Ifá divination necklace</p><span class="price" data-usd="35">$35</span><button class="btn-add" onclick="addToCart('Ifá Beads Necklace', 35)">🛒 Add to Cart</button></div>
+    <div class="product-card"><img src="IMG_9092.jpeg" alt="Necklaces Set Ifá Beads"><h3>Necklaces Set Ifá Beads</h3><p class="desc">Set of Ifá divination necklaces</p><span class="price" data-usd="45">$45</span><button class="btn-add" onclick="addToCart('Necklaces Set Ifá Beads', 45)">🛒 Add to Cart</button></div>
+    <div class="product-card featured"><img src="IMG_9093.jpeg" alt="Full Handset Ifá Beads"><h3>Full Handset Ifá Beads <span class="badge badge-best">⭐ Best Seller</span></h3><p class="desc">Complete full hand Ifá divination beads set</p><span class="price" data-usd="55">$55</span><button class="btn-add" onclick="addToCart('Full Handset Ifá Beads', 55)">🛒 Add to Cart</button></div>
 
-    <!-- Product 2 -->
-    <div class="product-card" data-id="one-hand">
-        <img src="IMG_9089.jpeg" alt="One Hand Ifá Beads">
-        <h3>One Hand Ifá Beads</h3>
-        <p class="desc">Single hand Ifá divination beads for daily spiritual connection</p>
-        <span class="price" data-usd="25">$25</span>
-        <button class="btn-add" onclick="addToCart('One Hand Ifá Beads', 25)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product-card featured" data-id="necklace">
-        <img src="IMG_9091.jpeg" alt="Ifá Beads Necklace">
-        <h3>Ifá Beads Necklace <span class="badge badge-popular">⭐ Popular</span></h3>
-        <p class="desc">Beautiful Ifá divination necklace for spiritual elegance and protection</p>
-        <span class="price" data-usd="35">$35</span>
-        <button class="btn-add" onclick="addToCart('Ifá Beads Necklace', 35)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product-card" data-id="necklaces-set">
-        <img src="IMG_9092.jpeg" alt="Necklaces Set Ifá Beads">
-        <h3>Necklaces Set Ifá Beads</h3>
-        <p class="desc">Complete set of Ifá divination necklaces for full spiritual coverage</p>
-        <span class="price" data-usd="45">$45</span>
-        <button class="btn-add" onclick="addToCart('Necklaces Set Ifá Beads', 45)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 5 -->
-    <div class="product-card featured" data-id="full-handset">
-        <img src="IMG_9093.jpeg" alt="Full Handset Ifá Beads">
-        <h3>Full Handset Ifá Beads <span class="badge badge-best">⭐ Best Seller</span></h3>
-        <p class="desc">Complete full hand Ifá divination beads set for maximum spiritual protection</p>
-        <span class="price" data-usd="55">$55</span>
-        <button class="btn-add" onclick="addToCart('Full Handset Ifá Beads', 55)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- ===== HEALING CRYSTALS & BRACELETS ===== -->
     <div class="section-divider">
         <h2>🔮 Healing Crystals & Bracelets</h2>
         <p>Protect your energy and attract what you desire</p>
     </div>
 
-    <!-- Product 6 -->
-    <div class="product-card" data-id="protection-bracelet">
-        <img src="IMG_9100.jpeg" alt="Protection Bracelet">
-        <h3>Protection Bracelet</h3>
-        <p class="desc">Black Tourmaline + Obsidian — shields against negative energy</p>
-        <span class="price" data-usd="22">$22</span>
-        <button class="btn-add" onclick="addToCart('Protection Bracelet', 22)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 7 -->
-    <div class="product-card" data-id="guidance-crystal">
-        <img src="IMG_9101.jpeg" alt="Guidance Crystal">
-        <h3>Guidance Crystal</h3>
-        <p class="desc">Amethyst + Clear Quartz — enhances intuition and spiritual connection</p>
-        <span class="price" data-usd="28">$28</span>
-        <button class="btn-add" onclick="addToCart('Guidance Crystal', 28)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 8 -->
-    <div class="product-card" data-id="healing-bracelet">
-        <img src="IMG_9102.jpeg" alt="Healing Bracelet">
-        <h3>Healing Bracelet</h3>
-        <p class="desc">Rose Quartz + Green Aventurine — promotes emotional healing and love</p>
-        <span class="price" data-usd="25">$25</span>
-        <button class="btn-add" onclick="addToCart('Healing Bracelet', 25)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 9 -->
-    <div class="product-card" data-id="peace-bundle">
-        <img src="IMG_7800.jpeg" alt="Peace Bundle">
-        <h3>Peace Bundle</h3>
-        <p class="desc">Selenite + Lapis Lazuli — brings peace, clarity, and calm energy</p>
-        <span class="price" data-usd="35">$35</span>
-        <button class="btn-add" onclick="addToCart('Peace Bundle', 35)">🛒 Add to Cart</button>
-    </div>
-
-    <!-- Product 10 -->
-    <div class="product-card featured" data-id="full-protection">
-        <img src="IMG_9104.jpeg" alt="Full Protection Set">
-        <h3>Full Protection Set <span class="badge badge-popular">Save $25!</span></h3>
-        <p class="desc">All 4 bracelets + crystal — complete spiritual protection bundle</p>
-        <span class="price" data-usd="85">$85</span>
-        <button class="btn-add" onclick="addToCart('Full Protection Set', 85)">🛒 Add to Cart</button>
-    </div>
+    <div class="product-card"><img src="IMG_9100.jpeg" alt="Protection Bracelet"><h3>Protection Bracelet</h3><p class="desc">Black Tourmaline + Obsidian — shields against negative energy</p><span class="price" data-usd="22">$22</span><button class="btn-add" onclick="addToCart('Protection Bracelet', 22)">🛒 Add to Cart</button></div>
+    <div class="product-card"><img src="IMG_9101.jpeg" alt="Guidance Crystal"><h3>Guidance Crystal</h3><p class="desc">Amethyst + Clear Quartz — enhances intuition</p><span class="price" data-usd="28">$28</span><button class="btn-add" onclick="addToCart('Guidance Crystal', 28)">🛒 Add to Cart</button></div>
+    <div class="product-card"><img src="IMG_9102.jpeg" alt="Healing Bracelet"><h3>Healing Bracelet</h3><p class="desc">Rose Quartz + Green Aventurine — emotional healing</p><span class="price" data-usd="25">$25</span><button class="btn-add" onclick="addToCart('Healing Bracelet', 25)">🛒 Add to Cart</button></div>
+    <div class="product-card"><img src="IMG_7800.jpeg" alt="Peace Bundle"><h3>Peace Bundle</h3><p class="desc">Selenite + Lapis Lazuli — peace and clarity</p><span class="price" data-usd="35">$35</span><button class="btn-add" onclick="addToCart('Peace Bundle', 35)">🛒 Add to Cart</button></div>
+    <div class="product-card featured"><img src="IMG_9104.jpeg" alt="Full Protection Set"><h3>Full Protection Set <span class="badge badge-popular">Save $25!</span></h3><p class="desc">All 4 bracelets + crystal — complete protection</p><span class="price" data-usd="85">$85</span><button class="btn-add" onclick="addToCart('Full Protection Set', 85)">🛒 Add to Cart</button></div>
 
     <div class="crystals-note">
         <p><i class="fas fa-moon"></i> All crystals and beads are cleansed and charged under the full moon before shipping, love ❤️</p>
         <p style="font-size: 0.8rem; color: #8A7A7A; margin-top: 4px;">📦 Worldwide shipping available</p>
-        <p style="font-size: 0.8rem; color: #6B2D5C; margin-top: 4px;">🙏 Custom Ifá bead sets available upon request</p>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -349,16 +270,12 @@
         GBP: { symbol: '£', rate: 0.78 }
     };
 
-    // 🔴 UPDATE YOUR WHATSAPP NUMBER HERE
-    const WHATSAPP_NUMBER = '2348000000000';
+    const WHATSAPP_NUMBER = '2348000000000'; // 🔴 CHANGE THIS
 
     function addToCart(name, price) {
         const existing = cart.find(item => item.name === name);
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({ name, price, quantity: 1 });
-        }
+        if (existing) { existing.quantity += 1; } 
+        else { cart.push({ name, price, quantity: 1 }); }
         updateCartUI();
         showToast(`✨ Added ${name} to cart, love! ❤️`);
     }
@@ -366,13 +283,8 @@
     function updateQuantity(name, change) {
         const item = cart.find(item => item.name === name);
         if (!item) return;
-        
         item.quantity += change;
-        
-        if (item.quantity <= 0) {
-            cart = cart.filter(i => i.name !== name);
-        }
-        
+        if (item.quantity <= 0) { cart = cart.filter(i => i.name !== name); }
         updateCartUI();
     }
 
@@ -392,12 +304,7 @@
         const totalPriceEl = document.getElementById('cartTotalPrice');
 
         if (cart.length === 0) {
-            cartList.innerHTML = `
-                <div class="cart-empty">
-                    <i class="fas fa-shopping-bag"></i>
-                    Your cart is empty, love ✨
-                </div>
-            `;
+            cartList.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-bag"></i>Your cart is empty, love ✨</div>`;
             totalSection.style.display = 'none';
             return;
         }
@@ -453,7 +360,6 @@
             showToast('⚠️ Your cart is empty, love!');
             return;
         }
-
         closeCart();
 
         const currency = document.getElementById('currencySelect').value;
@@ -479,32 +385,37 @@ ${itemsList}
 
 ━━━━━━━━━━━━━━━━━━━━━
 ✨ Please confirm your order:
-📱 Your Phone: ___________
-📧 Your Email: ___________
+📱 Phone: ___________
+📧 Email: ___________
 📍 Shipping Address: ___________
 
 "Sending positive energy to you! ❤️🛐🧿🔮☮️🌅"
         `.trim();
 
         const encoded = encodeURIComponent(message);
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
-        window.open(url, '_blank');
-        
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
         showToast(`✨ Opening WhatsApp with your order! ❤️`);
     }
 
-    // ===== HANDLE BOOK NOW (WITH CRYSTALS IF IN CART) =====
-    function handleBookNow() {
-        // If there are items in cart, store them to pass to booking page
-        if (cart.length > 0) {
-            const cartData = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
-            // Store in sessionStorage so booking page can access it
-            sessionStorage.setItem('crystalCart', JSON.stringify(cart));
-            sessionStorage.setItem('cartMessage', cartData);
-            // Let the navigation work normally
-            return true;
+    // ===== GO TO BOOKING WITH CRYSTALS (COMBINED) =====
+    function goToBookingWithCrystals() {
+        if (cart.length === 0) {
+            showToast('⚠️ Your cart is empty, love!');
+            return;
         }
-        return true;
+        closeCart();
+
+        // Save cart to sessionStorage for booking page
+        sessionStorage.setItem('crystalCart', JSON.stringify(cart));
+        const cartMessage = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+        sessionStorage.setItem('cartMessage', cartMessage);
+
+        showToast(`📦 Taking your crystals to booking page! ❤️`);
+        
+        // Redirect to booking page
+        setTimeout(() => {
+            window.location.href = 'booking.html';
+        }, 500);
     }
 
     function showToast(message) {
@@ -512,27 +423,22 @@ ${itemsList}
         toast.textContent = message;
         toast.classList.add('show');
         clearTimeout(toast.timeout);
-        toast.timeout = setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
+        toast.timeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
 
-    // ===== CURRENCY CONVERTER =====
+    // ===== CURRENCY =====
     function changeCurrency() {
         const currency = document.getElementById('currencySelect').value;
         currentCurrency = currency;
         const rate = rates[currency].rate;
         const symbol = rates[currency].symbol;
 
-        const prices = document.querySelectorAll('.price');
-        prices.forEach(el => {
+        document.querySelectorAll('.price').forEach(el => {
             const usdPrice = parseFloat(el.getAttribute('data-usd'));
             if (!isNaN(usdPrice)) {
-                const converted = usdPrice * rate;
-                el.textContent = symbol + converted.toFixed(2);
+                el.textContent = symbol + (usdPrice * rate).toFixed(2);
             }
         });
-
         updateCartUI();
     }
 
@@ -547,6 +453,17 @@ ${itemsList}
         changeCurrency();
         updateCartUI();
     });
+
+    window.addToCart = addToCart;
+    window.updateQuantity = updateQuantity;
+    window.removeFromCart = removeFromCart;
+    window.openCart = openCart;
+    window.closeCart = closeCart;
+    window.orderCrystalsOnly = orderCrystalsOnly;
+    window.goToBookingWithCrystals = goToBookingWithCrystals;
+    window.changeCurrency = changeCurrency;
+    window.toggleMenu = toggleMenu;
+    window.showToast = showToast;
 </script>
 </body>
 </html>
