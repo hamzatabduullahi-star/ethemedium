@@ -88,6 +88,14 @@
         .selected-summary .summary-item:last-child { border-bottom: none; }
         .selected-summary .summary-total { font-weight: 700; color: #6B2D5C; padding-top: 6px; margin-top: 6px; border-top: 2px solid #E0D0D0; display: flex; justify-content: space-between; font-size: 1rem; }
 
+        /* ===== PAYMENT CARDS ===== */
+        .payment-card { background: white; border: 2px solid #F0E0E0; border-radius: 12px; padding: 12px 10px; text-align: center; transition: all 0.3s; cursor: pointer; }
+        .payment-card:hover { border-color: #D4A5A5; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(107, 45, 92, 0.08); }
+        .payment-card.selected { border-color: #6B2D5C; background: #FAF5F5; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.1); }
+        .payment-card .icon { font-size: 1.8rem; display: block; }
+        .payment-card h4 { font-size: 0.8rem; color: #2D1F1F; margin-top: 2px; }
+        .payment-card .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.5rem; font-weight: 600; margin-top: 2px; color: white; }
+
         .booking-actions { display: flex; flex-direction: column; gap: 12px; }
         .booking-btn { padding: 16px 24px; border: none; border-radius: 50px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Inter', sans-serif; text-decoration: none; letter-spacing: 0.3px; }
         .booking-btn.whatsapp { background: #25D366; color: white; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
@@ -99,6 +107,7 @@
 
         .booking-note { text-align: center; font-size: 0.8rem; color: #8A7A7A; padding: 4px 0; }
         .booking-note i { margin-right: 6px; }
+
         .booking-footer { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 2px dashed #F0E0E0; }
         .booking-footer .booking-quote { font-style: italic; color: #8A7A7A; font-size: 0.9rem; margin-top: 4px; }
 
@@ -128,19 +137,26 @@
             .footer-container { grid-template-columns: 1fr; gap: 20px; }
             .cart-alert { flex-direction: column; text-align: center; }
             .contact-form { grid-template-columns: 1fr; }
+            .payment-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
         }
         @media (max-width: 480px) {
             .readings-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .reading-card { padding: 10px 8px; }
             .reading-card .icon { font-size: 1.3rem; }
             .booking-btn { font-size: 0.9rem; padding: 14px 16px; }
+            .payment-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+            .payment-card { padding: 8px 6px; }
+            .payment-card .icon { font-size: 1.4rem; }
+            .payment-card h4 { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
+<!-- ===== TOAST ===== -->
 <div id="toast" class="toast">✨ Updated, love!</div>
 
+<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -160,8 +176,10 @@
     </div>
 </nav>
 
+<!-- ===== BOOKING PAGE ===== -->
 <div class="booking-page">
     <div class="booking-container">
+
         <div class="booking-header">
             <span class="booking-badge">🔮 Book Your Reading</span>
             <h1>Choose Your Readings, Love ❤️</h1>
@@ -174,6 +192,7 @@
             <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your readings and crystals. ❤️</p>
         </div>
 
+        <!-- ===== STEP 1: READING TYPE ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">01</span>
@@ -191,6 +210,7 @@
             </div>
         </div>
 
+        <!-- ===== STEP 2: DURATION ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">02</span>
@@ -200,6 +220,7 @@
             <div class="duration-selector" id="durationSelector"></div>
         </div>
 
+        <!-- ===== STEP 3: YOUR DETAILS ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">03</span>
@@ -226,6 +247,7 @@
             </div>
         </div>
 
+        <!-- ===== STEP 4: QUESTIONS ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">04</span>
@@ -235,9 +257,81 @@
             <textarea id="questionsInput" class="questions-area" placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️" rows="4"></textarea>
         </div>
 
+        <!-- ===== STEP 5: PAYMENT METHOD ===== -->
         <div class="booking-step">
             <div class="step-label">
-                <span class="step-num">05</span>
+                <span class="step-num">💳</span>
+                <h3>Payment Method</h3>
+                <span class="step-optional">Choose your payment option</span>
+            </div>
+
+            <div class="payment-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 10px;">
+
+                <!-- PayPal -->
+                <div class="payment-card" onclick="selectPayment('paypal')" id="paypal-card">
+                    <span class="icon">💳</span>
+                    <h4>PayPal</h4>
+                    <span class="badge" style="background: #0070BA;">paypal.me</span>
+                </div>
+
+                <!-- CashApp -->
+                <div class="payment-card" onclick="selectPayment('cashapp')" id="cashapp-card">
+                    <span class="icon">💰</span>
+                    <h4>CashApp</h4>
+                    <span class="badge" style="background: #00C244;">$Ethemedium</span>
+                </div>
+
+                <!-- Venmo -->
+                <div class="payment-card" onclick="selectPayment('venmo')" id="venmo-card">
+                    <span class="icon">🏦</span>
+                    <h4>Venmo</h4>
+                    <span class="badge" style="background: #3D95CE;">@Ethemedium</span>
+                </div>
+
+                <!-- Zelle -->
+                <div class="payment-card" onclick="selectPayment('zelle')" id="zelle-card">
+                    <span class="icon">📱</span>
+                    <h4>Zelle</h4>
+                    <span class="badge" style="background: #6B2D5C;">Email</span>
+                </div>
+
+                <!-- Apple Pay -->
+                <div class="payment-card" onclick="selectPayment('applepay')" id="applepay-card">
+                    <span class="icon">📲</span>
+                    <h4>Apple Pay</h4>
+                    <span class="badge" style="background: #000000;">On Request</span>
+                </div>
+
+                <!-- Bank Transfer -->
+                <div class="payment-card" onclick="selectPayment('bank')" id="bank-card">
+                    <span class="icon">🏛️</span>
+                    <h4>Bank Transfer</h4>
+                    <span class="badge" style="background: #6B2D5C;">On Booking</span>
+                </div>
+
+                <!-- Bitcoin -->
+                <div class="payment-card" onclick="selectPayment('bitcoin')" id="bitcoin-card">
+                    <span class="icon">₿</span>
+                    <h4>Bitcoin</h4>
+                    <span class="badge" style="background: #F7931A;">BTC</span>
+                </div>
+
+            </div>
+
+            <!-- Selected Payment Display -->
+            <div id="selectedPayment" style="margin-top: 12px; padding: 10px 14px; background: #FAF5F5; border-radius: 10px; border: 1px solid #F0E0E0; display: none; text-align: center;">
+                <p style="font-size: 0.85rem; color: #6B2D5C; margin: 0;">
+                    <i class="fas fa-check-circle" style="color: #25D366;"></i> 
+                    Selected: <strong id="paymentMethodDisplay">PayPal</strong>
+                    <span id="paymentDetailDisplay" style="display: block; font-size: 0.75rem; color: #8A7A7A; margin-top: 2px;"></span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== STEP 6: BOOK NOW ===== -->
+        <div class="booking-step">
+            <div class="step-label">
+                <span class="step-num">06</span>
                 <h3>Book Your Session</h3>
                 <span class="step-required">Ready to book?</span>
             </div>
@@ -257,9 +351,11 @@
             <div style="font-size: 1.4rem; letter-spacing: 6px;">🛐 🧿 🔮 ☮️ 🌅</div>
             <p class="booking-quote">"Sending positive energy to you if you need healing, love ❤️"</p>
         </div>
+
     </div>
 </div>
 
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -293,7 +389,14 @@
     </div>
 </footer>
 
+<!-- ============================================================ -->
+<!-- ===== JAVASCRIPT ===== -->
+<!-- ============================================================ -->
 <script>
+    // ============================================
+    // DATA
+    // ============================================
+
     const READINGS = [
         { id: 'love', icon: '💖', name: 'Love Reading', desc: 'Soulmate, twin flame, relationship blocks', basePrice: 45 },
         { id: 'general', icon: '🔮', name: 'General Reading', desc: 'Whatever Spirit wants you to know', basePrice: 40 },
@@ -315,13 +418,36 @@
         { minutes: 60, label: 'Full', priceMultiplier: 1.6 }
     ];
 
+    // ============================================
+    // PAYMENT DETAILS
+    // ============================================
+
+    const paymentDetails = {
+        paypal: { name: 'PayPal', detail: 'paypal.me/ethemedium', icon: '💳' },
+        cashapp: { name: 'CashApp', detail: '$Ethemedium', icon: '💰' },
+        venmo: { name: 'Venmo', detail: '@Ethemedium', icon: '🏦' },
+        zelle: { name: 'Zelle', detail: 'ethemedium@gmail.com', icon: '📱' },
+        applepay: { name: 'Apple Pay', detail: 'Available on request', icon: '📲' },
+        bank: { name: 'Bank Transfer', detail: 'Details provided upon booking', icon: '🏛️' },
+        bitcoin: { name: 'Bitcoin', detail: 'BTC Wallet: bc1... (provided on request)', icon: '₿' }
+    };
+
+    // ============================================
+    // STATE
+    // ============================================
+
     let selectedReadings = {};
     let selectedDuration = 30;
     let crystalCart = [];
     let crystalCartMessage = '';
+    let selectedPayment = null;
 
     const WHATSAPP_NUMBER = '13528287004';
     const TELEGRAM_USERNAME = 'ethe_medium';
+
+    // ============================================
+    // DOM REFS
+    // ============================================
 
     const readingsGrid = document.getElementById('readingsGrid');
     const durationSelector = document.getElementById('durationSelector');
@@ -336,6 +462,10 @@
     const clientPhone = document.getElementById('clientPhone');
     const clientEmail = document.getElementById('clientEmail');
     const clientDateTime = document.getElementById('clientDateTime');
+
+    // ============================================
+    // RENDER FUNCTIONS
+    // ============================================
 
     function renderReadings() {
         readingsGrid.innerHTML = READINGS.map(r => {
@@ -395,17 +525,68 @@
         readingTotal.textContent = `$${total.toFixed(2)}`;
     }
 
+    // ============================================
+    // ACTIONS
+    // ============================================
+
     function updateReadingQty(id, change) {
         const current = selectedReadings[id] || 0;
         const newQty = Math.max(0, current + change);
         if (newQty === 0) { delete selectedReadings[id]; } else { selectedReadings[id] = newQty; }
         renderReadings();
+        showToast(newQty > 0 ? `✨ Updated ${READINGS.find(r => r.id === id).name}` : `❌ Removed ${READINGS.find(r => r.id === id).name}`);
     }
 
     function selectDuration(minutes) {
         selectedDuration = minutes;
         renderDurations();
     }
+
+    // ============================================
+    // PAYMENT SELECTION
+    // ============================================
+
+    function selectPayment(method) {
+        selectedPayment = method;
+
+        document.querySelectorAll('.payment-card').forEach(card => {
+            card.classList.remove('selected');
+            card.style.borderColor = '#F0E0E0';
+            card.style.background = 'white';
+            card.style.boxShadow = 'none';
+        });
+
+        const card = document.getElementById(method + '-card');
+        if (card) {
+            card.classList.add('selected');
+            card.style.borderColor = '#6B2D5C';
+            card.style.background = '#FAF5F5';
+            card.style.boxShadow = '0 0 0 3px rgba(107,45,92,0.1)';
+        }
+
+        const display = document.getElementById('paymentMethodDisplay');
+        const detailDisplay = document.getElementById('paymentDetailDisplay');
+        const container = document.getElementById('selectedPayment');
+
+        if (display && container) {
+            const info = paymentDetails[method];
+            display.textContent = info.name;
+            if (detailDisplay) {
+                detailDisplay.textContent = info.icon + ' ' + info.detail;
+            }
+            container.style.display = 'block';
+        }
+    }
+
+    function getPaymentInfo() {
+        if (!selectedPayment) return 'Not selected yet';
+        const info = paymentDetails[selectedPayment];
+        return `${info.icon} ${info.name}: ${info.detail}`;
+    }
+
+    // ============================================
+    // BOOK NOW
+    // ============================================
 
     function bookNow(platform) {
         const selectedItems = Object.keys(selectedReadings).filter(id => selectedReadings[id] > 0);
@@ -422,6 +603,12 @@
         if (!name) { showToast('⚠️ Please enter your full name, love! ❤️'); clientName?.focus(); return; }
         if (!phone) { showToast('⚠️ Please enter your phone number, love! ❤️'); clientPhone?.focus(); return; }
         if (!email) { showToast('⚠️ Please enter your email address, love! ❤️'); clientEmail?.focus(); return; }
+
+        if (!selectedPayment) {
+            showToast('⚠️ Please select a payment method, love! ❤️');
+            document.querySelector('.payment-grid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
 
         const duration = DURATIONS.find(d => d.minutes === selectedDuration);
         let readingList = '';
@@ -456,6 +643,7 @@ ${itemsList}
 
         const grandTotal = readingTotalPrice + crystalTotal;
         const dateTime = clientDateTime?.value.trim() || 'To be confirmed';
+        const paymentInfo = getPaymentInfo();
 
         const message = `
 🔮 *ETHMEDIUM BOOKING* 🔮
@@ -481,6 +669,9 @@ ${crystalSection}
 💎 *Crystals Total: $${crystalTotal.toFixed(2)}` : '')
         + `
 💵 *Grand Total: $${grandTotal.toFixed(2)}*
+
+💳 *Payment Method:*
+${paymentInfo}
 ━━━━━━━━━━━━━━━━━━━━━
 
 ✨ I'll confirm your booking within 24 hours, love!
@@ -497,9 +688,14 @@ ${crystalSection}
         }
         window.open(url, '_blank');
         showToast(`✨ Opening ${platform.charAt(0).toUpperCase() + platform.slice(1)}... Sending love! ❤️`);
+
         sessionStorage.removeItem('crystalCart');
         sessionStorage.removeItem('cartMessage');
     }
+
+    // ============================================
+    // TOAST
+    // ============================================
 
     let toastTimeout;
     function showToast(message) {
@@ -508,6 +704,10 @@ ${crystalSection}
         clearTimeout(toastTimeout);
         toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
+
+    // ============================================
+    // LOAD CRYSTAL CART
+    // ============================================
 
     function loadCrystalCart() {
         const cartData = sessionStorage.getItem('crystalCart');
@@ -527,16 +727,25 @@ ${crystalSection}
         }
     }
 
+    // ============================================
+    // TOGGLE MENU
+    // ============================================
+
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
+
+    // ============================================
+    // INIT
+    // ============================================
 
     function init() {
         renderReadings();
         renderDurations();
         loadCrystalCart();
         console.log('🔮 Ethemedium Booking Page is ready, love! ❤️🛐🧿🔮☮️🌅');
+        console.log('💳 7 Payment Methods Available: PayPal, CashApp, Venmo, Zelle, Apple Pay, Bank Transfer, Bitcoin');
     }
 
     if (document.readyState === 'loading') {
@@ -545,6 +754,7 @@ ${crystalSection}
 
     window.updateReadingQty = updateReadingQty;
     window.selectDuration = selectDuration;
+    window.selectPayment = selectPayment;
     window.bookNow = bookNow;
     window.showToast = showToast;
     window.toggleMenu = toggleMenu;
