@@ -116,13 +116,10 @@
 </head>
 <body>
 
-<!-- ===== TOAST ===== -->
 <div id="toast" class="toast">✨ Added to cart, love!</div>
 
-<!-- ===== CART OVERLAY ===== -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-<!-- ===== CART SIDEBAR ===== -->
 <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-sidebar-header">
         <h2>🛒 Your Cart</h2>
@@ -154,7 +151,6 @@
     </div>
 </div>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -187,9 +183,7 @@
     </div>
 </nav>
 
-<!-- ===== CRYSTAL PAGE ===== -->
 <section class="crystal-page">
-    
     <div class="page-header">
         <span class="page-badge">💎 Ifá Beads & Crystals</span>
         <h1>Healing Bracelets & Guidance Crystals ❤️</h1>
@@ -248,8 +242,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contact</h4>
-            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://wa.me/13528287004"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/ethe_medium"><i class="fab fa-telegram"></i> Telegram</a>
             <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </div>
@@ -259,7 +253,6 @@
 </footer>
 
 <script>
-    // ===== CART SYSTEM =====
     let cart = [];
     let currentCurrency = 'USD';
 
@@ -270,7 +263,7 @@
         GBP: { symbol: '£', rate: 0.78 }
     };
 
-    const WHATSAPP_NUMBER = '2348000000000'; // 🔴 CHANGE THIS
+    const WHATSAPP_NUMBER = '13528287004';
 
     function addToCart(name, price) {
         const existing = cart.find(item => item.name === name);
@@ -354,7 +347,6 @@
         document.body.style.overflow = 'auto';
     }
 
-    // ===== ORDER CRYSTALS ONLY =====
     function orderCrystalsOnly() {
         if (cart.length === 0) {
             showToast('⚠️ Your cart is empty, love!');
@@ -397,25 +389,17 @@ ${itemsList}
         showToast(`✨ Opening WhatsApp with your order! ❤️`);
     }
 
-    // ===== GO TO BOOKING WITH CRYSTALS (COMBINED) =====
     function goToBookingWithCrystals() {
         if (cart.length === 0) {
             showToast('⚠️ Your cart is empty, love!');
             return;
         }
         closeCart();
-
-        // Save cart to sessionStorage for booking page
         sessionStorage.setItem('crystalCart', JSON.stringify(cart));
         const cartMessage = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
         sessionStorage.setItem('cartMessage', cartMessage);
-
         showToast(`📦 Taking your crystals to booking page! ❤️`);
-        
-        // Redirect to booking page
-        setTimeout(() => {
-            window.location.href = 'booking.html';
-        }, 500);
+        setTimeout(() => { window.location.href = 'booking.html'; }, 500);
     }
 
     function showToast(message) {
@@ -426,7 +410,6 @@ ${itemsList}
         toast.timeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
 
-    // ===== CURRENCY =====
     function changeCurrency() {
         const currency = document.getElementById('currencySelect').value;
         currentCurrency = currency;
@@ -447,7 +430,6 @@ ${itemsList}
         document.querySelector('.hamburger').classList.toggle('active');
     }
 
-    // ===== INIT =====
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('currencySelect').value = 'USD';
         changeCurrency();
