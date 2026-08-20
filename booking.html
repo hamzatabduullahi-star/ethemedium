@@ -48,7 +48,6 @@
         .step-required { font-size: 0.7rem; color: #E8798A; font-weight: 600; margin-left: auto; }
         .step-optional { font-size: 0.7rem; color: #8A7A7A; font-weight: 400; margin-left: auto; }
 
-        /* ===== READING CARDS ===== */
         .readings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
         .reading-card { background: white; border-radius: 14px; padding: 14px 12px; border: 2px solid #F0E0E0; transition: all 0.3s ease; text-align: center; position: relative; }
         .reading-card:hover { border-color: #D4A5A5; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 165, 165, 0.2); }
@@ -74,7 +73,6 @@
         .questions-area:focus { outline: none; border-color: #6B2D5C; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.08); }
         .questions-area::placeholder { color: #b8a8a8; font-style: italic; }
 
-        /* ===== CONTACT FORM ===== */
         .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .contact-form .full-width { grid-column: 1 / -1; }
         .contact-form label { font-size: 0.8rem; font-weight: 600; color: #2D1F1F; display: block; margin-bottom: 4px; }
@@ -101,7 +99,6 @@
 
         .booking-note { text-align: center; font-size: 0.8rem; color: #8A7A7A; padding: 4px 0; }
         .booking-note i { margin-right: 6px; }
-
         .booking-footer { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 2px dashed #F0E0E0; }
         .booking-footer .booking-quote { font-style: italic; color: #8A7A7A; font-size: 0.9rem; margin-top: 4px; }
 
@@ -142,10 +139,8 @@
 </head>
 <body>
 
-<!-- ===== TOAST ===== -->
 <div id="toast" class="toast">✨ Updated, love!</div>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -165,10 +160,8 @@
     </div>
 </nav>
 
-<!-- ===== BOOKING PAGE ===== -->
 <div class="booking-page">
     <div class="booking-container">
-
         <div class="booking-header">
             <span class="booking-badge">🔮 Book Your Reading</span>
             <h1>Choose Your Readings, Love ❤️</h1>
@@ -181,7 +174,6 @@
             <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your readings and crystals. ❤️</p>
         </div>
 
-        <!-- ===== STEP 1: READING TYPE ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">01</span>
@@ -199,7 +191,6 @@
             </div>
         </div>
 
-        <!-- ===== STEP 2: DURATION ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">02</span>
@@ -209,7 +200,6 @@
             <div class="duration-selector" id="durationSelector"></div>
         </div>
 
-        <!-- ===== STEP 3: YOUR DETAILS (NEW) ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">03</span>
@@ -223,7 +213,7 @@
                 </div>
                 <div>
                     <label>Phone Number <span class="required">*</span></label>
-                    <input type="tel" id="clientPhone" placeholder="e.g. +234 801 234 5678" required />
+                    <input type="tel" id="clientPhone" placeholder="e.g. +1 352 828 7004" required />
                 </div>
                 <div>
                     <label>Email Address <span class="required">*</span></label>
@@ -236,7 +226,6 @@
             </div>
         </div>
 
-        <!-- ===== STEP 4: QUESTIONS ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">04</span>
@@ -246,7 +235,6 @@
             <textarea id="questionsInput" class="questions-area" placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️" rows="4"></textarea>
         </div>
 
-        <!-- ===== STEP 5: BOOK NOW ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">05</span>
@@ -269,11 +257,9 @@
             <div style="font-size: 1.4rem; letter-spacing: 6px;">🛐 🧿 🔮 ☮️ 🌅</div>
             <p class="booking-quote">"Sending positive energy to you if you need healing, love ❤️"</p>
         </div>
-
     </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -297,8 +283,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contact</h4>
-            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://wa.me/13528287004"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/ethe_medium"><i class="fab fa-telegram"></i> Telegram</a>
             <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </div>
@@ -307,11 +293,7 @@
     </div>
 </footer>
 
-<!-- ============================================================ -->
-<!-- ===== JAVASCRIPT ===== -->
-<!-- ============================================================ -->
 <script>
-    // ===== DATA =====
     const READINGS = [
         { id: 'love', icon: '💖', name: 'Love Reading', desc: 'Soulmate, twin flame, relationship blocks', basePrice: 45 },
         { id: 'general', icon: '🔮', name: 'General Reading', desc: 'Whatever Spirit wants you to know', basePrice: 40 },
@@ -333,13 +315,14 @@
         { minutes: 60, label: 'Full', priceMultiplier: 1.6 }
     ];
 
-    // ===== STATE =====
     let selectedReadings = {};
     let selectedDuration = 30;
     let crystalCart = [];
     let crystalCartMessage = '';
 
-    // ===== DOM REFS =====
+    const WHATSAPP_NUMBER = '13528287004';
+    const TELEGRAM_USERNAME = 'ethe_medium';
+
     const readingsGrid = document.getElementById('readingsGrid');
     const durationSelector = document.getElementById('durationSelector');
     const questionsInput = document.getElementById('questionsInput');
@@ -354,7 +337,6 @@
     const clientEmail = document.getElementById('clientEmail');
     const clientDateTime = document.getElementById('clientDateTime');
 
-    // ===== RENDER FUNCTIONS =====
     function renderReadings() {
         readingsGrid.innerHTML = READINGS.map(r => {
             const qty = selectedReadings[r.id] || 0;
@@ -413,14 +395,11 @@
         readingTotal.textContent = `$${total.toFixed(2)}`;
     }
 
-    // ===== ACTIONS =====
     function updateReadingQty(id, change) {
         const current = selectedReadings[id] || 0;
         const newQty = Math.max(0, current + change);
-        if (newQty === 0) { delete selectedReadings[id]; } 
-        else { selectedReadings[id] = newQty; }
+        if (newQty === 0) { delete selectedReadings[id]; } else { selectedReadings[id] = newQty; }
         renderReadings();
-        showToast(newQty > 0 ? `✨ Updated ${READINGS.find(r => r.id === id).name}` : `❌ Removed ${READINGS.find(r => r.id === id).name}`);
     }
 
     function selectDuration(minutes) {
@@ -428,9 +407,7 @@
         renderDurations();
     }
 
-    // ===== BOOK NOW =====
     function bookNow(platform) {
-        // Validate: At least one reading
         const selectedItems = Object.keys(selectedReadings).filter(id => selectedReadings[id] > 0);
         if (selectedItems.length === 0) {
             showToast('⚠️ Please select at least one reading, love! ❤️');
@@ -438,7 +415,6 @@
             return;
         }
 
-        // Validate: Contact details
         const name = clientName?.value.trim();
         const phone = clientPhone?.value.trim();
         const email = clientEmail?.value.trim();
@@ -448,8 +424,6 @@
         if (!email) { showToast('⚠️ Please enter your email address, love! ❤️'); clientEmail?.focus(); return; }
 
         const duration = DURATIONS.find(d => d.minutes === selectedDuration);
-
-        // Build reading list
         let readingList = '';
         let readingTotalPrice = 0;
         selectedItems.forEach(id => {
@@ -463,7 +437,6 @@
         const questions = questionsInput ? questionsInput.value.trim() : '';
         const finalQuestions = questions || 'No specific questions — read what Spirit brings through';
 
-        // Crystal section
         let crystalSection = '';
         let crystalTotal = 0;
         if (crystalCart && crystalCart.length > 0) {
@@ -484,7 +457,6 @@ ${itemsList}
         const grandTotal = readingTotalPrice + crystalTotal;
         const dateTime = clientDateTime?.value.trim() || 'To be confirmed';
 
-        // ===== COMPLETE MESSAGE =====
         const message = `
 🔮 *ETHMEDIUM BOOKING* 🔮
 ━━━━━━━━━━━━━━━━━━━━━
@@ -517,25 +489,18 @@ ${crystalSection}
         `.trim();
 
         const encoded = encodeURIComponent(message);
-        const WHATSAPP_NUMBER = '2348000000000'; // 🔴 CHANGE THIS
-        const TELEGRAM_USERNAME = 'YourUsername'; // 🔴 CHANGE THIS
-
         let url = '';
         if (platform === 'whatsapp') {
             url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
         } else if (platform === 'telegram') {
             url = `https://t.me/${TELEGRAM_USERNAME}?text=${encoded}`;
         }
-
         window.open(url, '_blank');
         showToast(`✨ Opening ${platform.charAt(0).toUpperCase() + platform.slice(1)}... Sending love! ❤️`);
-
-        // Clear session
         sessionStorage.removeItem('crystalCart');
         sessionStorage.removeItem('cartMessage');
     }
 
-    // ===== TOAST =====
     let toastTimeout;
     function showToast(message) {
         toast.textContent = message;
@@ -544,7 +509,6 @@ ${crystalSection}
         toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
 
-    // ===== LOAD CRYSTAL CART =====
     function loadCrystalCart() {
         const cartData = sessionStorage.getItem('crystalCart');
         if (cartData) {
@@ -563,13 +527,11 @@ ${crystalSection}
         }
     }
 
-    // ===== TOGGLE MENU =====
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
 
-    // ===== INIT =====
     function init() {
         renderReadings();
         renderDurations();
