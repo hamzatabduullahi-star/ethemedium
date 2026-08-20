@@ -20,8 +20,6 @@
         .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
         .nav-links a { font-size: 0.9rem; font-weight: 500; color: #8A7A7A; transition: all 0.3s; display: flex; align-items: center; gap: 6px; text-decoration: none; }
         .nav-links a:hover, .nav-links a.active { color: #6B2D5C; font-weight: 600; }
-        .btn-primary { background: #6B2D5C; color: white; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border: none; cursor: pointer; }
-        .btn-primary:hover { background: #8B4D7A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107, 45, 92, 0.15); }
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
         .hamburger span { width: 25px; height: 3px; background: #6B2D5C; border-radius: 3px; transition: all 0.3s; }
 
@@ -132,9 +130,7 @@
             <li><a href="crystal.html"><i class="fas fa-gem"></i> Crystals</a></li>
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
-        <div class="nav-cta">
-            <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
-        </div>
+        <!-- REMOVED "Book Now" BUTTON FROM TOP -->
         <div class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
@@ -330,20 +326,13 @@
         
         isHeroAnimating = true;
         
-        // Remove all classes first
         slides.forEach(s => {
             s.classList.remove('active', 'exit-left', 'enter-right');
         });
         
-        if (direction === 'right') {
-            oldSlide.classList.add('exit-left');
-            newSlide.classList.add('enter-right');
-        } else {
-            oldSlide.classList.add('exit-left');
-            newSlide.classList.add('enter-right');
-        }
+        oldSlide.classList.add('exit-left');
+        newSlide.classList.add('enter-right');
         
-        // Force reflow
         void newSlide.offsetWidth;
         
         newSlide.classList.remove('enter-right');
