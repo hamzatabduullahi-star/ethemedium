@@ -8,17 +8,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css"/>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(145deg, #FAF0F0 0%, #F5E6E6 50%, #F0E0E0 100%); font-family: 'Inter', sans-serif; min-height: 100vh; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 165, 165, 0.2); z-index: 1000; padding: 0 20px; height: 70px; display: flex; align-items: center; }
+        .nav-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: #6B2D5C; text-decoration: none; }
+        .nav-logo span { color: #D4A5A5; }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #8A7A7A; transition: all 0.3s; display: flex; align-items: center; gap: 6px; text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: #6B2D5C; font-weight: 600; }
+        .btn-primary { background: #6B2D5C; color: white; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #8B4D7A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107, 45, 92, 0.15); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: #6B2D5C; border-radius: 3px; transition: all 0.3s; }
+
+        .page-section { padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto; }
+        .page-header { text-align: center; margin-bottom: 40px; }
+        .page-badge { display: inline-block; background: #6B2D5C; color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2D1F1F; margin-top: 8px; }
+        .page-header p { color: #8A7A7A; }
+
+        .readings-grid-full { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .reading-card-full { background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s ease; }
+        .reading-card-full:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(107, 45, 92, 0.12); border-color: #D4A5A5; }
+        .reading-card-full.featured { border-color: #C9A84C; background: linear-gradient(135deg, #FFF9F0, #FFF5E6); }
+        .reading-card-full .rc-icon { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+        .reading-card-full h3 { font-size: 1rem; color: #2D1F1F; }
+        .reading-card-full p { font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px; }
+        .reading-card-full .rc-price { font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px; }
+        .reading-card-full .rc-btn { background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none; }
+        .reading-card-full .rc-btn:hover { background: #8B4D7A; transform: scale(1.02); }
+        .reading-card-full .featured-tag { background: #C9A84C; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.6rem; font-weight: 600; margin-left: 6px; }
+
+        .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 40px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: block; margin-bottom: 8px; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-links h4, .footer-contact h4 { color: white; font-size: 1rem; margin-bottom: 12px; }
+        .footer-links a, .footer-contact a { display: block; color: rgba(255,255,255,0.6); font-size: 0.9rem; padding: 4px 0; text-decoration: none; transition: all 0.3s; }
+        .footer-links a:hover, .footer-contact a:hover { color: white; }
+        .footer-socials { display: flex; gap: 14px; margin-top: 12px; }
+        .footer-socials a { color: rgba(255,255,255,0.6); font-size: 1.2rem; transition: all 0.3s; }
+        .footer-socials a:hover { color: white; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.6; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: rgba(255, 248, 245, 0.98); flex-direction: column; padding: 20px; gap: 16px; border-bottom: 1px solid rgba(212, 165, 165, 0.2); }
+            .nav-links.show { display: flex; }
+            .hamburger { display: flex; }
+            .readings-grid-full { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+            .footer-container { grid-template-columns: 1fr; gap: 20px; }
+        }
+        @media (max-width: 480px) {
+            .page-header h1 { font-size: 1.8rem; }
+            .readings-grid-full { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .reading-card-full { padding: 16px 12px; }
+            .reading-card-full .rc-icon { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <span class="logo-icon">🔮</span>
-            <span class="logo-text">Ethe<span>medium</span></span>
-        </a>
-        <ul class="nav-links">
+        <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="readings.html" class="active"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
             <li><a href="about.html"><i class="fas fa-star"></i> About</a></li>
@@ -26,139 +83,37 @@
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
         <div class="nav-cta">
-            <a href="booking.html" class="btn-primary">
-                <i class="fas fa-calendar-check"></i> Book Now
-            </a>
+            <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </div>
 </nav>
 
-<!-- ===== READINGS CONTENT ===== -->
-<section style="padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto;">
-    <div style="text-align: center; margin-bottom: 40px;">
-        <span style="display: inline-block; background: #6B2D5C; color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;">🔮 Choose Your Reading</span>
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2D1F1F; margin-top: 8px;">What Kind of Reading Do You Want, Love?</h1>
-        <p style="color: #8A7A7A;">Pick the guidance your soul needs right now</p>
+<section class="page-section">
+    <div class="page-header">
+        <span class="page-badge">🔮 Choose Your Reading</span>
+        <h1>What Kind of Reading Do You Want, Love?</h1>
+        <p>Pick the guidance your soul needs right now</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
-        
-        <!-- 1. Love Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💖</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Love Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Soulmate, twin flame, relationship blocks</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $45</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 2. General Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🔮</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">General Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Whatever Spirit wants you to know</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $40</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 3. Relationship Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💑</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Relationship Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Deep dive into current partnership</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 4. Aura Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌈</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Aura Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">See your energy colors & chakras</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 5. Career Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💼</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Career Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Career path, promotions, purpose</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 6. Job Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🏢</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Job Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Job search, interviews, next steps</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $50</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 7. Finance Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">💰</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Finance Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Money flow, abundance, investments</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $55</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 8. Future Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🌅</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Future Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">What's coming in 3-6 months</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 9. Healing Reading (Featured) -->
-        <div style="background: linear-gradient(135deg, #FFF9F0, #FFF5E6); border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #C9A84C; transition: all 0.3s; position: relative;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🕊️</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Healing Reading <span style="background: #C9A84C; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.6rem; font-weight: 600;">❤️ Most Loved</span></h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Depression, anxiety, inner peace</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $70</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 10. Intuitive Guidance -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">✨</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Intuitive Guidance</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Life guidance, decision making, clarity</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $50</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 11. Protection Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🛡️</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Protection Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Energy protection, spiritual safety</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $65</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
-
-        <!-- 12. Spiritual Reading -->
-        <div style="background: white; border-radius: 16px; padding: 24px 20px; text-align: center; border: 2px solid #F0E0E0; transition: all 0.3s;">
-            <div style="font-size: 2.5rem; display: block; margin-bottom: 8px;">🙏</div>
-            <h3 style="font-size: 1rem; color: #2D1F1F;">Spiritual Reading</h3>
-            <p style="font-size: 0.8rem; color: #8A7A7A; margin: 4px 0 8px;">Spiritual awakening, purpose, guides</p>
-            <span style="font-weight: 700; color: #6B2D5C; font-size: 1rem; display: block; margin-bottom: 12px;">From $60</span>
-            <a href="booking.html" style="background: #6B2D5C; color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s; display: inline-block; text-decoration: none;">Choose</a>
-        </div>
+    <div class="readings-grid-full">
+        <div class="reading-card-full"><div class="rc-icon">💖</div><h3>Love Reading</h3><p>Soulmate, twin flame, relationship blocks</p><span class="rc-price">From $45</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🔮</div><h3>General Reading</h3><p>Whatever Spirit wants you to know</p><span class="rc-price">From $40</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">💑</div><h3>Relationship Reading</h3><p>Deep dive into current partnership</p><span class="rc-price">From $55</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🌈</div><h3>Aura Reading</h3><p>See your energy colors & chakras</p><span class="rc-price">From $60</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">💼</div><h3>Career Reading</h3><p>Career path, promotions, purpose</p><span class="rc-price">From $55</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🏢</div><h3>Job Reading</h3><p>Job search, interviews, next steps</p><span class="rc-price">From $50</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">💰</div><h3>Finance Reading</h3><p>Money flow, abundance, investments</p><span class="rc-price">From $55</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🌅</div><h3>Future Reading</h3><p>What's coming in 3-6 months</p><span class="rc-price">From $60</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full featured"><div class="rc-icon">🕊️</div><h3>Healing Reading <span class="featured-tag">❤️ Most Loved</span></h3><p>Depression, anxiety, inner peace</p><span class="rc-price">From $70</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">✨</div><h3>Intuitive Guidance</h3><p>Life guidance, decision making, clarity</p><span class="rc-price">From $50</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🛡️</div><h3>Protection Reading</h3><p>Energy protection, spiritual safety</p><span class="rc-price">From $65</span><a href="booking.html" class="rc-btn">Choose</a></div>
+        <div class="reading-card-full"><div class="rc-icon">🙏</div><h3>Spiritual Reading</h3><p>Spiritual awakening, purpose, guides</p><span class="rc-price">From $60</span><a href="booking.html" class="rc-btn">Choose</a></div>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -182,8 +137,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contact</h4>
-            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://wa.me/13528287004"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/ethe_medium"><i class="fab fa-telegram"></i> Telegram</a>
             <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </div>
