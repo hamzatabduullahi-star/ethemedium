@@ -89,12 +89,12 @@
         .selected-summary .summary-total { font-weight: 700; color: #6B2D5C; padding-top: 6px; margin-top: 6px; border-top: 2px solid #E0D0D0; display: flex; justify-content: space-between; font-size: 1rem; }
 
         /* ===== PAYMENT CARDS ===== */
-        .payment-card { background: white; border: 2px solid #F0E0E0; border-radius: 12px; padding: 12px 10px; text-align: center; transition: all 0.3s; cursor: pointer; }
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 10px; }
+        .payment-card { background: white; border: 2px solid #F0E0E0; border-radius: 12px; padding: 14px 10px; text-align: center; transition: all 0.3s; cursor: pointer; }
         .payment-card:hover { border-color: #D4A5A5; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(107, 45, 92, 0.08); }
         .payment-card.selected { border-color: #6B2D5C; background: #FAF5F5; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.1); }
-        .payment-card .icon { font-size: 1.8rem; display: block; }
-        .payment-card h4 { font-size: 0.8rem; color: #2D1F1F; margin-top: 2px; }
-        .payment-card .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.5rem; font-weight: 600; margin-top: 2px; color: white; }
+        .payment-card .icon { font-size: 2rem; display: block; }
+        .payment-card h4 { font-size: 0.85rem; color: #2D1F1F; margin-top: 4px; }
 
         .booking-actions { display: flex; flex-direction: column; gap: 12px; }
         .booking-btn { padding: 16px 24px; border: none; border-radius: 50px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Inter', sans-serif; text-decoration: none; letter-spacing: 0.3px; }
@@ -137,7 +137,7 @@
             .footer-container { grid-template-columns: 1fr; gap: 20px; }
             .cart-alert { flex-direction: column; text-align: center; }
             .contact-form { grid-template-columns: 1fr; }
-            .payment-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .payment-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
         }
         @media (max-width: 480px) {
             .readings-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -145,8 +145,8 @@
             .reading-card .icon { font-size: 1.3rem; }
             .booking-btn { font-size: 0.9rem; padding: 14px 16px; }
             .payment-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-            .payment-card { padding: 8px 6px; }
-            .payment-card .icon { font-size: 1.4rem; }
+            .payment-card { padding: 10px 6px; }
+            .payment-card .icon { font-size: 1.5rem; }
             .payment-card h4 { font-size: 0.7rem; }
         }
     </style>
@@ -265,55 +265,60 @@
                 <span class="step-optional">Choose your payment option</span>
             </div>
 
-            <div class="payment-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 10px;">
+            <div class="payment-grid">
 
                 <!-- PayPal -->
                 <div class="payment-card" onclick="selectPayment('paypal')" id="paypal-card">
                     <span class="icon">💳</span>
                     <h4>PayPal</h4>
-                    <span class="badge" style="background: #0070BA;">paypal.me</span>
                 </div>
 
                 <!-- CashApp -->
                 <div class="payment-card" onclick="selectPayment('cashapp')" id="cashapp-card">
                     <span class="icon">💰</span>
                     <h4>CashApp</h4>
-                    <span class="badge" style="background: #00C244;">$Ethemedium</span>
                 </div>
 
                 <!-- Venmo -->
                 <div class="payment-card" onclick="selectPayment('venmo')" id="venmo-card">
                     <span class="icon">🏦</span>
                     <h4>Venmo</h4>
-                    <span class="badge" style="background: #3D95CE;">@Ethemedium</span>
                 </div>
 
                 <!-- Zelle -->
                 <div class="payment-card" onclick="selectPayment('zelle')" id="zelle-card">
                     <span class="icon">📱</span>
                     <h4>Zelle</h4>
-                    <span class="badge" style="background: #6B2D5C;">Email</span>
                 </div>
 
                 <!-- Apple Pay -->
                 <div class="payment-card" onclick="selectPayment('applepay')" id="applepay-card">
                     <span class="icon">📲</span>
                     <h4>Apple Pay</h4>
-                    <span class="badge" style="background: #000000;">On Request</span>
+                </div>
+
+                <!-- Apple Gift Card -->
+                <div class="payment-card" onclick="selectPayment('applegift')" id="applegift-card">
+                    <span class="icon">🎁</span>
+                    <h4>Apple Gift Card</h4>
+                </div>
+
+                <!-- eTransfer -->
+                <div class="payment-card" onclick="selectPayment('etransfer')" id="etransfer-card">
+                    <span class="icon">💸</span>
+                    <h4>eTransfer</h4>
                 </div>
 
                 <!-- Bank Transfer -->
                 <div class="payment-card" onclick="selectPayment('bank')" id="bank-card">
                     <span class="icon">🏛️</span>
                     <h4>Bank Transfer</h4>
-                    <span class="badge" style="background: #6B2D5C;">On Booking</span>
                 </div>
 
                 <!-- Bitcoin -->
                 <div class="payment-card" onclick="selectPayment('bitcoin')" id="bitcoin-card">
                     <span class="icon">₿</span>
                     <h4>Bitcoin</h4>
-                    <span class="badge" style="background: #F7931A;">BTC</span>
                 </div>
 
             </div>
@@ -428,6 +433,8 @@
         venmo: { name: 'Venmo', detail: '@Ethemedium', icon: '🏦' },
         zelle: { name: 'Zelle', detail: 'ethemedium@gmail.com', icon: '📱' },
         applepay: { name: 'Apple Pay', detail: 'Available on request', icon: '📲' },
+        applegift: { name: 'Apple Gift Card', detail: 'Send gift card code via WhatsApp', icon: '🎁' },
+        etransfer: { name: 'eTransfer', detail: 'Interac e-Transfer available', icon: '💸' },
         bank: { name: 'Bank Transfer', detail: 'Details provided upon booking', icon: '🏛️' },
         bitcoin: { name: 'Bitcoin', detail: 'BTC Wallet: bc1... (provided on request)', icon: '₿' }
     };
@@ -745,7 +752,7 @@ ${paymentInfo}
         renderDurations();
         loadCrystalCart();
         console.log('🔮 Ethemedium Booking Page is ready, love! ❤️🛐🧿🔮☮️🌅');
-        console.log('💳 7 Payment Methods Available: PayPal, CashApp, Venmo, Zelle, Apple Pay, Bank Transfer, Bitcoin');
+        console.log('💳 9 Payment Methods Available: PayPal, CashApp, Venmo, Zelle, Apple Pay, Apple Gift Card, eTransfer, Bank Transfer, Bitcoin');
     }
 
     if (document.readyState === 'loading') {
