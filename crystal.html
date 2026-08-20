@@ -53,6 +53,7 @@
         .cart-empty{text-align:center;padding:40px 0;color:#8A7A7A;font-size:1.1rem;}
         .cart-empty i{font-size:3rem;display:block;margin-bottom:12px;color:#E0D0D0;}
         .cart-note{text-align:center;font-size:0.75rem;color:#8A7A7A;margin-top:10px;padding:10px;background:#FAF5F5;border-radius:8px;}
+        .cart-note strong{color:#6B2D5C;}
 
         .cart-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none;}
         .cart-overlay.show{display:block;}
@@ -95,6 +96,9 @@
         .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#2D1F1F;color:white;padding:14px 28px;border-radius:50px;font-size:0.9rem;box-shadow:0 8px 30px rgba(0,0,0,0.2);opacity:0;transition:all 0.5s ease;z-index:3000;pointer-events:none;text-align:center;}
         .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
+        /* ===== BOOKING BADGE ON CART ===== */
+        .cart-booking-badge{display:inline-block;background:#C9A84C;color:white;padding:2px 12px;border-radius:20px;font-size:0.65rem;font-weight:600;margin-left:6px;}
+
         @media (max-width:600px){.nav-links{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(255,248,245,0.98);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid rgba(212,165,165,0.2);}
         .nav-links.show{display:flex;}
         .hamburger{display:flex;}
@@ -135,11 +139,12 @@
             <span>Total:</span>
             <span id="cartTotalPrice">$0.00</span>
         </div>
-        <button class="cart-checkout" onclick="checkoutCrystals()">
-            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        <button class="cart-checkout" onclick="orderCrystalsOnly()">
+            <i class="fab fa-whatsapp"></i> Order Crystals Only
         </button>
         <div class="cart-note">
-            <i class="fas fa-info-circle"></i> This sends only your crystal/bead order. For readings, click "Book Now" above.
+            <i class="fas fa-info-circle"></i> 
+            <strong>Want a reading too?</strong> Click "Book Now" above and your crystals will be included! 📖🔮
         </div>
     </div>
 </div>
@@ -169,7 +174,9 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cartBadge">0</span>
             </div>
-            <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
+            <a href="booking.html" class="btn-primary" onclick="return handleBookNow()">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
@@ -440,8 +447,8 @@
         document.body.style.overflow = 'auto';
     }
 
-    // ===== CHECKOUT: ONLY CRYSTALS =====
-    function checkoutCrystals() {
+    // ===== ORDER CRYSTALS ONLY =====
+    function orderCrystalsOnly() {
         if (cart.length === 0) {
             showToast('⚠️ Your cart is empty, love!');
             return;
@@ -484,6 +491,20 @@ ${itemsList}
         window.open(url, '_blank');
         
         showToast(`✨ Opening WhatsApp with your order! ❤️`);
+    }
+
+    // ===== HANDLE BOOK NOW (WITH CRYSTALS IF IN CART) =====
+    function handleBookNow() {
+        // If there are items in cart, store them to pass to booking page
+        if (cart.length > 0) {
+            const cartData = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+            // Store in sessionStorage so booking page can access it
+            sessionStorage.setItem('crystalCart', JSON.stringify(cart));
+            sessionStorage.setItem('cartMessage', cartData);
+            // Let the navigation work normally
+            return true;
+        }
+        return true;
     }
 
     function showToast(message) {
