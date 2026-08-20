@@ -13,7 +13,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: linear-gradient(145deg, #FAF0F0 0%, #F5E6E6 50%, #F0E0E0 100%); font-family: 'Inter', sans-serif; min-height: 100vh; }
         
-        /* ===== NAVIGATION ===== */
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 165, 165, 0.2); z-index: 1000; padding: 0 20px; height: 70px; display: flex; align-items: center; }
         .nav-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: #6B2D5C; text-decoration: none; }
@@ -26,7 +25,6 @@
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
         .hamburger span { width: 25px; height: 3px; background: #6B2D5C; border-radius: 3px; transition: all 0.3s; }
 
-        /* ===== ABOUT PAGE ===== */
         .about-page { padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
         .about-container { background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px rgba(107, 45, 92, 0.12); border: 1px solid rgba(212, 165, 165, 0.2); }
 
@@ -38,7 +36,6 @@
         .about-image { text-align: center; margin-bottom: 30px; }
         .about-image-placeholder { display: inline-block; background: linear-gradient(135deg, #6B2D5C, #8B4D7A); border-radius: 50%; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; box-shadow: 0 8px 30px rgba(107, 45, 92, 0.2); }
         .about-image-placeholder span { display: block; }
-        .about-image-placeholder p { font-size: 0.8rem; font-family: 'Inter', sans-serif; margin-top: 4px; }
 
         .about-content { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.8; color: #2D1F1F; }
         .about-content .intro { font-size: 1.25rem; font-weight: 500; color: #6B2D5C; border-left: 3px solid #D4A5A5; padding-left: 18px; margin-bottom: 18px; }
@@ -62,7 +59,6 @@
         .about-footer .quote { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #6B2D5C; margin-top: 4px; font-weight: 400; }
         .about-footer .quote-sub { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: #8A7A7A; font-style: italic; }
 
-        /* ===== FOOTER ===== */
         .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 40px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: block; margin-bottom: 8px; }
@@ -95,7 +91,6 @@
 </head>
 <body>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -115,25 +110,20 @@
     </div>
 </nav>
 
-<!-- ===== ABOUT PAGE ===== -->
 <section class="about-page">
     <div class="about-container">
-
-        <!-- Header -->
         <div class="about-header">
             <span class="about-badge">🌟 About Me</span>
             <h1>I'm Here to Guide You</h1>
             <p class="subtitle">✨ Your trusted spiritual guide with years of experience ✨</p>
         </div>
 
-        <!-- Image -->
         <div class="about-image">
             <div class="about-image-placeholder">
                 <span>🔮</span>
             </div>
         </div>
 
-        <!-- Content -->
         <div class="about-content">
             <p class="intro">
                 <i class="fas fa-heart" style="color:#E8798A;"></i> 
@@ -141,7 +131,6 @@
                 healing, and direction in their lives. Whether you're struggling with love, 
                 career, or just need a sign from the universe — I'm here for you.
             </p>
-            
             <p>
                 I've had the honor of reading for clients from all over the world — 
                 from the <span class="highlight">United States</span> and 
@@ -152,7 +141,6 @@
                 <span class="highlight">France</span>, and beyond. 
                 No matter where you are, the energy connects us all.
             </p>
-            
             <p>
                 My journey into spirituality began over 7 years ago, and since then, 
                 I've helped over <span class="highlight">500 clients</span> find peace, 
@@ -160,7 +148,6 @@
             </p>
         </div>
 
-        <!-- Stats -->
         <div class="about-stats">
             <div class="stat-card">
                 <span class="stat-number">7+</span>
@@ -180,7 +167,6 @@
             </div>
         </div>
 
-        <!-- CTA -->
         <div class="about-cta">
             <a href="booking.html" class="btn-about-primary">
                 <i class="fas fa-heart"></i> Book a Session
@@ -190,17 +176,14 @@
             </a>
         </div>
 
-        <!-- Footer Quote -->
         <div class="about-footer">
             <div class="emoji-line">🛐 🧿 🔮 ☮️ 🌅</div>
             <div class="quote">"Sending positive energy to you if you need healing, love ❤️"</div>
             <p class="quote-sub">— Ethemedium</p>
         </div>
-
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -224,8 +207,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contact</h4>
-            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://wa.me/13528287004"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/ethe_medium"><i class="fab fa-telegram"></i> Telegram</a>
             <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </div>
