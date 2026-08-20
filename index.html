@@ -12,7 +12,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: linear-gradient(145deg, #FAF0F0 0%, #F5E6E6 50%, #F0E0E0 100%); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
         
-        /* ===== NAVIGATION ===== */
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 165, 165, 0.2); z-index: 1000; padding: 0 20px; height: 70px; display: flex; align-items: center; }
         .nav-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: #6B2D5C; text-decoration: none; }
@@ -23,7 +22,6 @@
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
         .hamburger span { width: 25px; height: 3px; background: #6B2D5C; border-radius: 3px; transition: all 0.3s; }
 
-        /* ===== HERO SECTION ===== */
         .hero { height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #4A1F3F 0%, #6B2D5C 40%, #8B4D7A 100%); }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1; }
         
@@ -34,7 +32,6 @@
         .hero-bg-shapes span:nth-child(3) { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 10s; }
         @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(30px, -30px) scale(1.1); } 50% { transform: translate(-20px, 20px) scale(0.9); } 75% { transform: translate(40px, 10px) scale(1.05); } }
 
-        /* ===== HERO SLIDESHOW WITH SLIDE EFFECT ===== */
         .hero-text-container { position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 20px; width: 100%; overflow: hidden; }
         .hero-slides-wrapper { position: relative; width: 100%; min-height: 420px; }
         
@@ -48,15 +45,11 @@
         .hero-slide .hero-line { font-size: 2rem; letter-spacing: 12px; margin-top: 6px; display: block; }
         .hero-slide .hero-desc { font-size: 1.15rem; color: rgba(255,255,255,0.85); margin: 16px 0 28px; line-height: 1.8; font-weight: 300; letter-spacing: 0.5px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        /* ===== HERO BUTTONS ===== */
         .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
-        
         .btn-hero-primary { background: white; color: #6B2D5C; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: none; cursor: pointer; }
         .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,255,255,0.2); }
-        
         .btn-hero-secondary { background: transparent; color: white; padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
         .btn-hero-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
-        
         .btn-hero-about { background: #E8D5A0; color: #4A1F3F; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: none; cursor: pointer; }
         .btn-hero-about:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(232, 213, 160, 0.3); }
 
@@ -65,7 +58,6 @@
         .hero-dot.active { background: white; transform: scale(1.3); }
         .hero-dot:hover { background: rgba(255,255,255,0.7); }
 
-        /* ===== BOTTOM SLIDESHOW ===== */
         .bottom-slideshow { padding: 80px 20px 60px; max-width: 1000px; margin: 0 auto; text-align: center; }
         .bottom-slideshow .section-label { display: inline-block; background: #6B2D5C; color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
         .bottom-slideshow h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #2D1F1F; margin-bottom: 4px; }
@@ -89,7 +81,6 @@
         .bottom-arrow { background: white; border: 2px solid #F0E0E0; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 1.2rem; color: #6B2D5C; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
         .bottom-arrow:hover { background: #6B2D5C; color: white; border-color: #6B2D5C; }
 
-        /* ===== FOOTER ===== */
         .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 40px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: block; margin-bottom: 8px; }
@@ -216,35 +207,26 @@
     <p class="sub">Words to inspire, heal, and guide you on your journey</p>
 
     <div class="bottom-slide-container">
-        <!-- Bottom Slide 1 -->
         <div class="bottom-slide active" data-index="0">
             <span class="bs-icon">🕊️</span>
             <div class="bs-text">"Trust the timing of your life. Everything unfolds exactly when it should."</div>
             <div class="bs-sub">— Spiritual Guidance</div>
         </div>
-        
-        <!-- Bottom Slide 2 -->
         <div class="bottom-slide" data-index="1">
             <span class="bs-icon">🌟</span>
             <div class="bs-text">"Your energy speaks louder than your words. Protect your peace, love."</div>
             <div class="bs-sub">— Energy Healing</div>
         </div>
-        
-        <!-- Bottom Slide 3 -->
         <div class="bottom-slide" data-index="2">
             <span class="bs-icon">💖</span>
             <div class="bs-text">"The universe always has your back. Trust the signs, follow your heart."</div>
             <div class="bs-sub">— Divine Guidance</div>
         </div>
-        
-        <!-- Bottom Slide 4 -->
         <div class="bottom-slide" data-index="3">
             <span class="bs-icon">🌅</span>
             <div class="bs-text">"Healing is not linear. Be gentle with yourself, love. You are exactly where you need to be."</div>
             <div class="bs-sub">— Healing Journey</div>
         </div>
-        
-        <!-- Bottom Slide 5 -->
         <div class="bottom-slide" data-index="4">
             <span class="bs-icon">🔮</span>
             <div class="bs-text">"Sending positive energy to you if you need healing. You are never alone."</div>
@@ -252,7 +234,6 @@
         </div>
     </div>
 
-    <!-- Bottom Dots -->
     <div class="bottom-dots">
         <button class="bottom-dot active" onclick="changeBottomSlide(0)"></button>
         <button class="bottom-dot" onclick="changeBottomSlide(1)"></button>
@@ -261,7 +242,6 @@
         <button class="bottom-dot" onclick="changeBottomSlide(4)"></button>
     </div>
 
-    <!-- Bottom Arrows -->
     <div class="bottom-arrows">
         <button class="bottom-arrow" onclick="changeBottomSlide(-1)"><i class="fas fa-chevron-left"></i></button>
         <button class="bottom-arrow" onclick="changeBottomSlide(1)"><i class="fas fa-chevron-right"></i></button>
@@ -292,8 +272,8 @@
         </div>
         <div class="footer-contact">
             <h4>Contact</h4>
-            <a href="https://wa.me/2348000000000"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://t.me/YourUsername"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://wa.me/13528287004"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/ethe_medium"><i class="fab fa-telegram"></i> Telegram</a>
             <a href="mailto:spiritualsoul@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </div>
@@ -303,142 +283,66 @@
 </footer>
 
 <script>
-    // ===== HERO SLIDESHOW WITH SLIDE EFFECT =====
-    let heroIndex = 0;
-    let heroTimer;
-    let isHeroAnimating = false;
-
+    let heroIndex = 0, heroTimer, isHeroAnimating = false;
     function changeHeroSlide(index) {
         if (isHeroAnimating) return;
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.hero-dot');
-        
         if (typeof index === 'number' && index >= 0 && index < slides.length) {
-            const direction = index > heroIndex ? 'right' : 'left';
-            animateHeroSlide(heroIndex, index, direction);
+            animateHeroSlide(heroIndex, index);
             heroIndex = index;
         }
-        
-        dots.forEach((d, i) => {
-            d.classList.toggle('active', i === heroIndex);
-        });
-        
+        dots.forEach((d, i) => d.classList.toggle('active', i === heroIndex));
         resetHeroTimer();
     }
-
-    function animateHeroSlide(oldIndex, newIndex, direction) {
+    function animateHeroSlide(oldIndex, newIndex) {
         const slides = document.querySelectorAll('.hero-slide');
         const oldSlide = slides[oldIndex];
         const newSlide = slides[newIndex];
-        
         isHeroAnimating = true;
-        
-        slides.forEach(s => {
-            s.classList.remove('active', 'exit-left', 'enter-right');
-        });
-        
+        slides.forEach(s => s.classList.remove('active', 'exit-left', 'enter-right'));
         oldSlide.classList.add('exit-left');
         newSlide.classList.add('enter-right');
-        
         void newSlide.offsetWidth;
-        
         newSlide.classList.remove('enter-right');
         newSlide.classList.add('active');
-        
-        setTimeout(() => {
-            oldSlide.classList.remove('exit-left');
-            isHeroAnimating = false;
-        }, 800);
+        setTimeout(() => { oldSlide.classList.remove('exit-left'); isHeroAnimating = false; }, 800);
     }
+    function nextHeroSlide() { const slides = document.querySelectorAll('.hero-slide'); changeHeroSlide((heroIndex + 1) % slides.length); }
+    function resetHeroTimer() { clearInterval(heroTimer); heroTimer = setInterval(nextHeroSlide, 6000); }
 
-    function nextHeroSlide() {
-        const slides = document.querySelectorAll('.hero-slide');
-        const next = (heroIndex + 1) % slides.length;
-        changeHeroSlide(next);
-    }
-
-    function resetHeroTimer() {
-        clearInterval(heroTimer);
-        heroTimer = setInterval(nextHeroSlide, 6000);
-    }
-
-    // ===== BOTTOM SLIDESHOW WITH SLIDE EFFECT =====
-    let bottomIndex = 0;
-    let bottomTimer;
-    let isBottomAnimating = false;
-
+    let bottomIndex = 0, bottomTimer, isBottomAnimating = false;
     function changeBottomSlide(index) {
         if (isBottomAnimating) return;
         const slides = document.querySelectorAll('.bottom-slide');
         const dots = document.querySelectorAll('.bottom-dot');
-        
         let targetIndex;
-        if (typeof index === 'number' && index >= 0 && index < slides.length) {
-            targetIndex = index;
-        } else if (index === -1) {
-            targetIndex = (bottomIndex - 1 + slides.length) % slides.length;
-        } else if (index === 1) {
-            targetIndex = (bottomIndex + 1) % slides.length;
-        } else {
-            return;
-        }
-        
-        const direction = targetIndex > bottomIndex ? 'right' : 'left';
-        animateBottomSlide(bottomIndex, targetIndex, direction);
+        if (typeof index === 'number' && index >= 0 && index < slides.length) targetIndex = index;
+        else if (index === -1) targetIndex = (bottomIndex - 1 + slides.length) % slides.length;
+        else if (index === 1) targetIndex = (bottomIndex + 1) % slides.length;
+        else return;
+        animateBottomSlide(bottomIndex, targetIndex);
         bottomIndex = targetIndex;
-        
-        dots.forEach((d, i) => {
-            d.classList.toggle('active', i === bottomIndex);
-        });
-        
+        dots.forEach((d, i) => d.classList.toggle('active', i === bottomIndex));
         resetBottomTimer();
     }
-
-    function animateBottomSlide(oldIndex, newIndex, direction) {
+    function animateBottomSlide(oldIndex, newIndex) {
         const slides = document.querySelectorAll('.bottom-slide');
         const oldSlide = slides[oldIndex];
         const newSlide = slides[newIndex];
-        
         isBottomAnimating = true;
-        
-        slides.forEach(s => {
-            s.classList.remove('active', 'exit-left', 'enter-right');
-        });
-        
+        slides.forEach(s => s.classList.remove('active', 'exit-left', 'enter-right'));
         oldSlide.classList.add('exit-left');
         newSlide.classList.add('enter-right');
-        
         void newSlide.offsetWidth;
-        
         newSlide.classList.remove('enter-right');
         newSlide.classList.add('active');
-        
-        setTimeout(() => {
-            oldSlide.classList.remove('exit-left');
-            isBottomAnimating = false;
-        }, 700);
+        setTimeout(() => { oldSlide.classList.remove('exit-left'); isBottomAnimating = false; }, 700);
     }
-
-    function nextBottomSlide() {
-        const slides = document.querySelectorAll('.bottom-slide');
-        const next = (bottomIndex + 1) % slides.length;
-        changeBottomSlide(next);
-    }
-
-    function resetBottomTimer() {
-        clearInterval(bottomTimer);
-        bottomTimer = setInterval(nextBottomSlide, 5000);
-    }
-
-    function toggleMenu() {
-        document.querySelector('.nav-links').classList.toggle('show');
-        document.querySelector('.hamburger').classList.toggle('active');
-    }
-
-    // ===== INIT =====
-    resetHeroTimer();
-    resetBottomTimer();
-    
+    function nextBottomSlide() { const slides = document.querySelectorAll('.bottom-slide'); changeBottomSlide((bottomIndex + 1) % slides.length); }
+    function resetBottomTimer() { clearInterval(bottomTimer); bottomTimer = setInterval(nextBottomSlide, 5000); }
+    function toggleMenu() { document.querySelector('.nav-links').classList.toggle('show'); document.querySelector('.hamburger').classList.toggle('active'); }
+    resetHeroTimer(); resetBottomTimer();
     console.log('🔮 Ethemedium Homepage is ready, love! ❤️🛐🧿🔮☮️🌅');
 </script>
 </body>
