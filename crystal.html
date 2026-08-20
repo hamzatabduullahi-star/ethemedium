@@ -17,39 +17,44 @@
         .nav-links{display:flex;list-style:none;gap:30px;align-items:center;}
         .nav-links a{font-size:0.9rem;font-weight:500;color:#8A7A7A;transition:all 0.3s;display:flex;align-items:center;gap:6px;text-decoration:none;}
         .nav-links a:hover,.nav-links a.active{color:#6B2D5C;font-weight:600;}
-        .btn-primary{background:#6B2D5C;color:white;padding:10px 24px;border-radius:50px;font-weight:600;font-size:0.85rem;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+        .btn-primary{background:#6B2D5C;color:white;padding:10px 24px;border-radius:50px;font-weight:600;font-size:0.85rem;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:none;cursor:pointer;}
         .btn-primary:hover{background:#8B4D7A;transform:translateY(-2px);box-shadow:0 8px 32px rgba(107,45,92,0.15);}
         .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
         .hamburger span{width:25px;height:3px;background:#6B2D5C;border-radius:3px;transition:all 0.3s;}
 
         /* ===== CURRENCY SELECTOR ===== */
-        .currency-selector {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            padding: 6px 14px;
-            border-radius: 50px;
-            border: 1px solid #E0D0D0;
-        }
-        .currency-selector label {
-            font-size: 0.75rem;
-            color: #8A7A7A;
-            font-weight: 500;
-        }
-        .currency-selector select {
-            border: none;
-            background: transparent;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #6B2D5C;
-            cursor: pointer;
-            outline: none;
-            font-family: 'Inter', sans-serif;
-        }
-        .currency-selector select option {
-            padding: 4px;
-        }
+        .currency-selector{display:flex;align-items:center;gap:8px;background:white;padding:6px 14px;border-radius:50px;border:1px solid #E0D0D0;}
+        .currency-selector label{font-size:0.75rem;color:#8A7A7A;font-weight:500;}
+        .currency-selector select{border:none;background:transparent;font-size:0.85rem;font-weight:600;color:#6B2D5C;cursor:pointer;outline:none;font-family:'Inter',sans-serif;}
+        .currency-selector select option{padding:4px;}
+
+        /* ===== CART ICON ===== */
+        .cart-icon{position:relative;cursor:pointer;font-size:1.3rem;color:#6B2D5C;transition:all 0.3s;}
+        .cart-icon:hover{color:#8B4D7A;transform:scale(1.1);}
+        .cart-badge{position:absolute;top:-8px;right:-10px;background:#E8798A;color:white;border-radius:50%;width:20px;height:20px;font-size:0.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+        /* ===== CART SIDEBAR ===== */
+        .cart-sidebar{position:fixed;top:0;right:-400px;width:380px;max-width:90vw;height:100%;background:white;box-shadow:-8px 0 30px rgba(0,0,0,0.15);z-index:2000;transition:right 0.4s ease;padding:20px;overflow-y:auto;}
+        .cart-sidebar.open{right:0;}
+        .cart-sidebar-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:2px solid #F0E0E0;margin-bottom:16px;}
+        .cart-sidebar-header h2{font-family:'Playfair Display',serif;color:#6B2D5C;font-size:1.5rem;}
+        .cart-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:#8A7A7A;transition:all 0.3s;}
+        .cart-close:hover{color:#6B2D5C;transform:rotate(90deg);}
+        .cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0E0E0;}
+        .cart-item-info{display:flex;flex-direction:column;}
+        .cart-item-name{font-weight:600;color:#2D1F1F;font-size:0.95rem;}
+        .cart-item-price{color:#6B2D5C;font-weight:600;font-size:0.9rem;}
+        .cart-item-remove{background:none;border:none;color:#cc5555;cursor:pointer;font-size:1.1rem;transition:all 0.3s;padding:4px 8px;}
+        .cart-item-remove:hover{transform:scale(1.2);}
+        .cart-total{padding:16px 0;border-top:2px solid #F0E0E0;margin-top:16px;display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;color:#6B2D5C;}
+        .cart-checkout{width:100%;padding:14px;background:#6B2D5C;color:white;border:none;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;}
+        .cart-checkout:hover{background:#8B4D7A;transform:scale(1.02);}
+        .cart-empty{text-align:center;padding:40px 0;color:#8A7A7A;font-size:1.1rem;}
+        .cart-empty i{font-size:3rem;display:block;margin-bottom:12px;color:#E0D0D0;}
+
+        /* ===== OVERLAY ===== */
+        .cart-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none;}
+        .cart-overlay.show{display:block;}
 
         .crystal-page{padding:100px 20px 60px;max-width:800px;margin:0 auto;}
         .page-header{text-align:center;margin-bottom:40px;}
@@ -67,8 +72,9 @@
         .product-card h3{font-size:1.3rem;color:#2D1F1F;margin-bottom:6px;font-family:'Playfair Display',serif;}
         .product-card .desc{font-size:0.9rem;color:#8A7A7A;margin-bottom:8px;line-height:1.5;}
         .product-card .price{font-weight:700;color:#6B2D5C;font-size:1.4rem;display:block;margin:8px 0 16px;}
-        .product-card .btn-add{background:#6B2D5C;color:white;padding:12px 40px;border:none;border-radius:50px;font-size:0.95rem;font-weight:600;transition:all 0.3s ease;display:inline-block;text-decoration:none;cursor:pointer;}
+        .product-card .btn-add{background:#6B2D5C;color:white;padding:12px 40px;border:none;border-radius:50px;font-size:0.95rem;font-weight:600;transition:all 0.3s ease;display:inline-block;text-decoration:none;cursor:pointer;font-family:'Inter',sans-serif;}
         .product-card .btn-add:hover{background:#8B4D7A;transform:scale(1.02);}
+        .product-card .btn-added{background:#2d7a5a;}
         .badge{padding:3px 14px;border-radius:20px;font-size:0.7rem;font-weight:600;color:white;display:inline-block;margin-bottom:6px;}
         .badge-popular{background:#C9A84C;}
         .badge-best{background:#E8798A;}
@@ -86,6 +92,9 @@
         .footer-socials a{color:rgba(255,255,255,0.6);font-size:1.2rem;transition:all 0.3s;}
         .footer-socials a:hover{color:white;}
         .footer-bottom{max-width:1200px;margin:0 auto;text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.6;margin-top:20px;}
+        .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#2D1F1F;color:white;padding:14px 28px;border-radius:50px;font-size:0.9rem;box-shadow:0 8px 30px rgba(0,0,0,0.2);opacity:0;transition:all 0.5s ease;z-index:3000;pointer-events:none;text-align:center;}
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
         @media (max-width:600px){.nav-links{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(255,248,245,0.98);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid rgba(212,165,165,0.2);}
         .nav-links.show{display:flex;}
         .hamburger{display:flex;}
@@ -94,10 +103,40 @@
         .footer-container{grid-template-columns:1fr;gap:20px;}
         .currency-selector{padding:4px 10px;}
         .currency-selector select{font-size:0.75rem;}
+        .cart-sidebar{width:100%;max-width:100%;}
     }
     </style>
 </head>
 <body>
+
+<!-- ===== TOAST ===== -->
+<div id="toast" class="toast">✨ Added to cart, love!</div>
+
+<!-- ===== CART OVERLAY ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-sidebar-header">
+        <h2>🛒 Your Cart</h2>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cartItemsList">
+        <div class="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            Your cart is empty, love ✨
+        </div>
+    </div>
+    <div id="cartTotalSection" style="display:none;">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotalPrice">$0.00</span>
+        </div>
+        <button class="cart-checkout" onclick="checkout()">
+            <i class="fas fa-arrow-right"></i> Proceed to Booking
+        </button>
+    </div>
+</div>
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
@@ -111,7 +150,6 @@
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
         <div class="nav-cta" style="display:flex;align-items:center;gap:12px;">
-            <!-- Currency Selector -->
             <div class="currency-selector">
                 <label><i class="fas fa-globe"></i></label>
                 <select id="currencySelect" onchange="changeCurrency()">
@@ -120,6 +158,10 @@
                     <option value="AUD">🇦🇺 AUD (AU$)</option>
                     <option value="GBP">🇬🇧 GBP (£)</option>
                 </select>
+            </div>
+            <div class="cart-icon" onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
             </div>
             <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
         </div>
@@ -145,49 +187,49 @@
         <p>Traditional Ifá divination beads for spiritual protection and guidance</p>
     </div>
 
-    <!-- Product 1: Hand Set Ifá Beads -->
-    <div class="product-card">
+    <!-- Product 1 -->
+    <div class="product-card" data-id="hand-set">
         <img src="IMG_9088.jpeg" alt="Hand Set Ifá Beads">
         <h3>Hand Set Ifá Beads</h3>
         <p class="desc">Traditional Ifá divination hand beads for spiritual protection and guidance</p>
         <span class="price" data-usd="30">$30</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Hand Set Ifá Beads', 30, 'IMG_9088.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 2: One Hand Ifá Beads -->
-    <div class="product-card">
+    <!-- Product 2 -->
+    <div class="product-card" data-id="one-hand">
         <img src="IMG_9089.jpeg" alt="One Hand Ifá Beads">
         <h3>One Hand Ifá Beads</h3>
         <p class="desc">Single hand Ifá divination beads for daily spiritual connection</p>
         <span class="price" data-usd="25">$25</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('One Hand Ifá Beads', 25, 'IMG_9089.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 3: Ifá Beads Necklace -->
-    <div class="product-card featured">
+    <!-- Product 3 -->
+    <div class="product-card featured" data-id="necklace">
         <img src="IMG_9091.jpeg" alt="Ifá Beads Necklace">
         <h3>Ifá Beads Necklace <span class="badge badge-popular">⭐ Popular</span></h3>
         <p class="desc">Beautiful Ifá divination necklace for spiritual elegance and protection</p>
         <span class="price" data-usd="35">$35</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Ifá Beads Necklace', 35, 'IMG_9091.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 4: Necklaces Set Ifá Beads -->
-    <div class="product-card">
+    <!-- Product 4 -->
+    <div class="product-card" data-id="necklaces-set">
         <img src="IMG_9092.jpeg" alt="Necklaces Set Ifá Beads">
         <h3>Necklaces Set Ifá Beads</h3>
         <p class="desc">Complete set of Ifá divination necklaces for full spiritual coverage</p>
         <span class="price" data-usd="45">$45</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Necklaces Set Ifá Beads', 45, 'IMG_9092.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 5: Full Handset Ifá Beads -->
-    <div class="product-card featured">
+    <!-- Product 5 -->
+    <div class="product-card featured" data-id="full-handset">
         <img src="IMG_9093.jpeg" alt="Full Handset Ifá Beads">
         <h3>Full Handset Ifá Beads <span class="badge badge-best">⭐ Best Seller</span></h3>
         <p class="desc">Complete full hand Ifá divination beads set for maximum spiritual protection</p>
         <span class="price" data-usd="55">$55</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Full Handset Ifá Beads', 55, 'IMG_9093.jpeg')">🛒 Add to Cart</button>
     </div>
 
     <!-- ===== HEALING CRYSTALS & BRACELETS ===== -->
@@ -196,49 +238,49 @@
         <p>Protect your energy and attract what you desire</p>
     </div>
 
-    <!-- Product 6: Protection Bracelet -->
-    <div class="product-card">
+    <!-- Product 6 -->
+    <div class="product-card" data-id="protection-bracelet">
         <img src="IMG_9100.jpeg" alt="Protection Bracelet">
         <h3>Protection Bracelet</h3>
         <p class="desc">Black Tourmaline + Obsidian — shields against negative energy</p>
         <span class="price" data-usd="22">$22</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Protection Bracelet', 22, 'IMG_9100.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 7: Guidance Crystal -->
-    <div class="product-card">
+    <!-- Product 7 -->
+    <div class="product-card" data-id="guidance-crystal">
         <img src="IMG_9101.jpeg" alt="Guidance Crystal">
         <h3>Guidance Crystal</h3>
         <p class="desc">Amethyst + Clear Quartz — enhances intuition and spiritual connection</p>
         <span class="price" data-usd="28">$28</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Guidance Crystal', 28, 'IMG_9101.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 8: Healing Bracelet -->
-    <div class="product-card">
+    <!-- Product 8 -->
+    <div class="product-card" data-id="healing-bracelet">
         <img src="IMG_9102.jpeg" alt="Healing Bracelet">
         <h3>Healing Bracelet</h3>
         <p class="desc">Rose Quartz + Green Aventurine — promotes emotional healing and love</p>
         <span class="price" data-usd="25">$25</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Healing Bracelet', 25, 'IMG_9102.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 9: Peace Bundle -->
-    <div class="product-card">
+    <!-- Product 9 -->
+    <div class="product-card" data-id="peace-bundle">
         <img src="IMG_7800.jpeg" alt="Peace Bundle">
         <h3>Peace Bundle</h3>
         <p class="desc">Selenite + Lapis Lazuli — brings peace, clarity, and calm energy</p>
         <span class="price" data-usd="35">$35</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Peace Bundle', 35, 'IMG_7800.jpeg')">🛒 Add to Cart</button>
     </div>
 
-    <!-- Product 10: Full Protection Set -->
-    <div class="product-card featured">
+    <!-- Product 10 -->
+    <div class="product-card featured" data-id="full-protection">
         <img src="IMG_9104.jpeg" alt="Full Protection Set">
         <h3>Full Protection Set <span class="badge badge-popular">Save $25!</span></h3>
         <p class="desc">All 4 bracelets + crystal — complete spiritual protection bundle</p>
         <span class="price" data-usd="85">$85</span>
-        <a href="booking.html" class="btn-add">Add to Cart</a>
+        <button class="btn-add" onclick="addToCart('Full Protection Set', 85, 'IMG_9104.jpeg')">🛒 Add to Cart</button>
     </div>
 
     <div class="crystals-note">
@@ -283,12 +325,10 @@
 </footer>
 
 <script>
-    function toggleMenu() {
-        document.querySelector('.nav-links').classList.toggle('show');
-        document.querySelector('.hamburger').classList.toggle('active');
-    }
+    // ===== CART SYSTEM =====
+    let cart = [];
+    let currentCurrency = 'USD';
 
-    // ===== CURRENCY CONVERTER =====
     const rates = {
         USD: { symbol: '$', rate: 1.00 },
         CAD: { symbol: 'CA$', rate: 1.36 },
@@ -296,23 +336,133 @@
         GBP: { symbol: '£', rate: 0.78 }
     };
 
+    function addToCart(name, price, image) {
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ name, price, image, quantity: 1 });
+        }
+        updateCartUI();
+        showToast(`✨ Added ${name} to cart, love! ❤️`);
+    }
+
+    function removeFromCart(name) {
+        cart = cart.filter(item => item.name !== name);
+        updateCartUI();
+        showToast(`❌ Removed from cart`);
+    }
+
+    function updateCartUI() {
+        const badge = document.getElementById('cartBadge');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.textContent = totalItems;
+
+        const cartList = document.getElementById('cartItemsList');
+        const totalSection = document.getElementById('cartTotalSection');
+        const totalPriceEl = document.getElementById('cartTotalPrice');
+
+        if (cart.length === 0) {
+            cartList.innerHTML = `
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-bag"></i>
+                    Your cart is empty, love ✨
+                </div>
+            `;
+            totalSection.style.display = 'none';
+            return;
+        }
+
+        let html = '';
+        let total = 0;
+        const currency = document.getElementById('currencySelect').value;
+        const rate = rates[currency].rate;
+        const symbol = rates[currency].symbol;
+
+        cart.forEach(item => {
+            const priceInCurrency = item.price * rate;
+            total += priceInCurrency * item.quantity;
+            html += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <span class="cart-item-name">${item.name} x${item.quantity}</span>
+                        <span class="cart-item-price">${symbol}${priceInCurrency.toFixed(2)}</span>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+            `;
+        });
+
+        cartList.innerHTML = html;
+        totalSection.style.display = 'block';
+        totalPriceEl.textContent = `${symbol}${total.toFixed(2)}`;
+    }
+
+    function openCart() {
+        document.getElementById('cartSidebar').classList.add('open');
+        document.getElementById('cartOverlay').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+        document.getElementById('cartSidebar').classList.remove('open');
+        document.getElementById('cartOverlay').classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            showToast('⚠️ Your cart is empty, love!');
+            return;
+        }
+        closeCart();
+        // Redirect to booking page with cart items
+        const items = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+        window.location.href = `booking.html?cart=${encodeURIComponent(items)}`;
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toast.timeout);
+        toast.timeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // ===== CURRENCY CONVERTER =====
     function changeCurrency() {
         const currency = document.getElementById('currencySelect').value;
+        currentCurrency = currency;
+        const rate = rates[currency].rate;
+        const symbol = rates[currency].symbol;
+
         const prices = document.querySelectorAll('.price');
-        
         prices.forEach(el => {
             const usdPrice = parseFloat(el.getAttribute('data-usd'));
             if (!isNaN(usdPrice)) {
-                const converted = usdPrice * rates[currency].rate;
-                el.textContent = rates[currency].symbol + converted.toFixed(2);
+                const converted = usdPrice * rate;
+                el.textContent = symbol + converted.toFixed(2);
             }
         });
+
+        // Update cart
+        updateCartUI();
     }
 
-    // Set default to USD
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+        document.querySelector('.hamburger').classList.toggle('active');
+    }
+
+    // ===== INIT =====
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('currencySelect').value = 'USD';
         changeCurrency();
+        updateCartUI();
     });
 </script>
 </body>
