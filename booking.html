@@ -22,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* ===== NAVIGATION ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -57,10 +56,7 @@
             color: #6B2D5C;
             text-decoration: none;
         }
-
-        .nav-logo span {
-            color: #D4A5A5;
-        }
+        .nav-logo span { color: #D4A5A5; }
 
         .nav-links {
             display: flex;
@@ -68,7 +64,6 @@
             gap: 30px;
             align-items: center;
         }
-
         .nav-links a {
             font-size: 0.9rem;
             font-weight: 500;
@@ -79,12 +74,7 @@
             gap: 6px;
             text-decoration: none;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #6B2D5C;
-            font-weight: 600;
-        }
+        .nav-links a:hover, .nav-links a.active { color: #6B2D5C; font-weight: 600; }
 
         .btn-primary {
             background: #6B2D5C;
@@ -101,7 +91,6 @@
             border: none;
             cursor: pointer;
         }
-
         .btn-primary:hover {
             background: #8B4D7A;
             transform: translateY(-2px);
@@ -115,7 +104,6 @@
             cursor: pointer;
             padding: 5px;
         }
-
         .hamburger span {
             width: 25px;
             height: 3px;
@@ -124,12 +112,7 @@
             transition: all 0.3s;
         }
 
-        /* ===== BOOKING PAGE ===== */
-        .booking-page {
-            padding: 90px 20px 40px;
-            min-height: 100vh;
-        }
-
+        .booking-page { padding: 90px 20px 40px; min-height: 100vh; }
         .booking-container {
             max-width: 820px;
             margin: 0 auto;
@@ -147,7 +130,6 @@
             margin-bottom: 24px;
             border-bottom: 2px dashed #F0E0E0;
         }
-
         .booking-badge {
             display: inline-block;
             background: #6B2D5C;
@@ -159,25 +141,14 @@
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
-
         .booking-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             color: #2D1F1F;
         }
+        .booking-header p { color: #8A7A7A; margin-top: 4px; }
+        .booking-emoji { font-size: 1.6rem; letter-spacing: 8px; margin-top: 6px; }
 
-        .booking-header p {
-            color: #8A7A7A;
-            margin-top: 4px;
-        }
-
-        .booking-emoji {
-            font-size: 1.6rem;
-            letter-spacing: 8px;
-            margin-top: 6px;
-        }
-
-        /* ===== CRYSTAL CART ALERT ===== */
         .cart-alert {
             background: linear-gradient(135deg, #FFF9F0, #FFF5E6);
             border: 2px solid #C9A84C;
@@ -188,29 +159,15 @@
             align-items: center;
             gap: 12px;
         }
+        .cart-alert i { font-size: 1.5rem; color: #C9A84C; }
+        .cart-alert p { color: #6B2D5C; font-size: 0.9rem; margin: 0; }
+        .cart-alert strong { color: #2D1F1F; }
 
-        .cart-alert i {
-            font-size: 1.5rem;
-            color: #C9A84C;
-        }
-
-        .cart-alert p {
-            color: #6B2D5C;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .cart-alert strong {
-            color: #2D1F1F;
-        }
-
-        /* ===== BOOKING STEPS ===== */
         .booking-step {
             margin-bottom: 28px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgba(212, 165, 165, 0.15);
         }
-
         .booking-step:last-of-type {
             border-bottom: none;
             margin-bottom: 0;
@@ -224,7 +181,6 @@
             margin-bottom: 14px;
             flex-wrap: wrap;
         }
-
         .step-num {
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
@@ -239,33 +195,20 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .step-label h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
             color: #2D1F1F;
             font-weight: 600;
         }
+        .step-required { font-size: 0.7rem; color: #E8798A; font-weight: 600; margin-left: auto; }
+        .step-optional { font-size: 0.7rem; color: #8A7A7A; font-weight: 400; margin-left: auto; }
 
-        .step-required {
-            font-size: 0.7rem;
-            color: #E8798A;
-            font-weight: 600;
-            margin-left: auto;
-        }
-
-        .step-optional {
-            font-size: 0.7rem;
-            color: #8A7A7A;
-            font-weight: 400;
-            margin-left: auto;
-        }
-
-        /* ===== READING CARDS ===== */
+        /* ===== READING CARDS WITH QUANTITY ===== */
         .readings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
         }
 
         .reading-card {
@@ -274,7 +217,6 @@
             padding: 16px 14px;
             border: 2px solid #F0E0E0;
             transition: all 0.3s ease;
-            cursor: pointer;
             text-align: center;
             position: relative;
         }
@@ -285,24 +227,14 @@
             box-shadow: 0 6px 20px rgba(212, 165, 165, 0.2);
         }
 
-        .reading-card.selected {
+        .reading-card.has-items {
             border-color: #6B2D5C;
             background: #FAF5F5;
-            box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.12);
+            box-shadow: 0 0 0 2px rgba(107, 45, 92, 0.1);
         }
 
-        .reading-card .icon {
-            font-size: 1.8rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .reading-card h4 {
-            font-size: 0.85rem;
-            color: #2D1F1F;
-            font-weight: 600;
-        }
-
+        .reading-card .icon { font-size: 1.8rem; display: block; margin-bottom: 4px; }
+        .reading-card h4 { font-size: 0.85rem; color: #2D1F1F; font-weight: 600; }
         .reading-card .desc {
             font-size: 0.65rem;
             color: #8A7A7A;
@@ -310,24 +242,44 @@
             margin: 2px 0 4px;
             line-height: 1.3;
         }
+        .reading-card .price { font-weight: 700; color: #6B2D5C; font-size: 0.9rem; display: block; }
 
-        .reading-card .price {
+        .reading-qty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .reading-qty button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #E0D0D0;
+            background: white;
+            cursor: pointer;
+            font-size: 1rem;
             font-weight: 700;
             color: #6B2D5C;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .reading-card .check-mark {
-            position: absolute;
-            top: 4px;
-            right: 6px;
-            color: #6B2D5C;
-            font-size: 0.9rem;
-            display: none;
+        .reading-qty button:hover {
+            background: #6B2D5C;
+            color: white;
+            border-color: #6B2D5C;
         }
-
-        .reading-card.selected .check-mark {
-            display: block;
+        .reading-qty span {
+            font-weight: 600;
+            font-size: 1rem;
+            min-width: 24px;
+            text-align: center;
+            color: #2D1F1F;
+        }
+        .reading-qty .qty-zero {
+            color: #ccc;
         }
 
         /* ===== DURATION SELECTOR ===== */
@@ -336,7 +288,6 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
-
         .duration-btn {
             background: white;
             border: 2px solid #F0E0E0;
@@ -346,37 +297,19 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .duration-btn:hover {
             border-color: #D4A5A5;
             transform: translateY(-2px);
         }
-
         .duration-btn.active {
             border-color: #6B2D5C;
             background: #FAF5F5;
             box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.1);
         }
+        .duration-btn .time { font-weight: 700; font-size: 1.1rem; color: #2D1F1F; }
+        .duration-btn .label { font-size: 0.7rem; color: #8A7A7A; }
+        .duration-btn .price-display { font-size: 0.85rem; font-weight: 600; color: #6B2D5C; margin-top: 2px; }
 
-        .duration-btn .time {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #2D1F1F;
-        }
-
-        .duration-btn .label {
-            font-size: 0.7rem;
-            color: #8A7A7A;
-        }
-
-        .duration-btn .price-display {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #6B2D5C;
-            margin-top: 2px;
-        }
-
-        /* ===== QUESTIONS AREA ===== */
         .questions-area {
             width: 100%;
             padding: 16px 18px;
@@ -390,25 +323,53 @@
             color: #2D1F1F;
             line-height: 1.6;
         }
-
         .questions-area:focus {
             outline: none;
             border-color: #6B2D5C;
             box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.08);
         }
+        .questions-area::placeholder { color: #b8a8a8; font-style: italic; }
 
-        .questions-area::placeholder {
-            color: #b8a8a8;
-            font-style: italic;
+        /* ===== SELECTED READINGS SUMMARY ===== */
+        .selected-summary {
+            background: #FAF5F5;
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-top: 10px;
+            border: 1px solid #F0E0E0;
+            display: none;
+        }
+        .selected-summary.visible { display: block; }
+        .selected-summary h4 {
+            font-size: 0.85rem;
+            color: #6B2D5C;
+            margin-bottom: 6px;
+        }
+        .selected-summary .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            font-size: 0.85rem;
+            color: #2D1F1F;
+            border-bottom: 1px dashed rgba(212, 165, 165, 0.2);
+        }
+        .selected-summary .summary-item:last-child { border-bottom: none; }
+        .selected-summary .summary-total {
+            font-weight: 700;
+            color: #6B2D5C;
+            padding-top: 6px;
+            margin-top: 6px;
+            border-top: 2px solid #E0D0D0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
         }
 
-        /* ===== BOOKING ACTIONS ===== */
         .booking-actions {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .booking-btn {
             padding: 16px 24px;
             border: none;
@@ -425,38 +386,26 @@
             text-decoration: none;
             letter-spacing: 0.3px;
         }
-
         .booking-btn.whatsapp {
             background: #25D366;
             color: white;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
         }
-
         .booking-btn.whatsapp:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
         }
-
         .booking-btn.telegram {
             background: #0088cc;
             color: white;
             box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3);
         }
-
         .booking-btn.telegram:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(0, 136, 204, 0.4);
         }
-
-        .booking-btn i {
-            font-size: 1.5rem;
-        }
-
-        .booking-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
-        }
+        .booking-btn i { font-size: 1.5rem; }
+        .booking-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
 
         .booking-note {
             text-align: center;
@@ -464,10 +413,7 @@
             color: #8A7A7A;
             padding: 4px 0;
         }
-
-        .booking-note i {
-            margin-right: 6px;
-        }
+        .booking-note i { margin-right: 6px; }
 
         .booking-footer {
             text-align: center;
@@ -475,7 +421,6 @@
             margin-top: 24px;
             border-top: 2px dashed #F0E0E0;
         }
-
         .booking-footer .booking-quote {
             font-style: italic;
             color: #8A7A7A;
@@ -483,14 +428,12 @@
             margin-top: 4px;
         }
 
-        /* ===== FOOTER ===== */
         .footer {
             background: #4A1F3F;
             color: rgba(255,255,255,0.8);
             padding: 40px 20px 20px;
             margin-top: 40px;
         }
-
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -498,7 +441,6 @@
             grid-template-columns: 2fr 1fr 1fr;
             gap: 40px;
         }
-
         .footer-logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
@@ -506,21 +448,9 @@
             display: block;
             margin-bottom: 8px;
         }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .footer-links h4,
-        .footer-contact h4 {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 12px;
-        }
-
-        .footer-links a,
-        .footer-contact a {
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-links h4, .footer-contact h4 { color: white; font-size: 1rem; margin-bottom: 12px; }
+        .footer-links a, .footer-contact a {
             display: block;
             color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
@@ -528,28 +458,10 @@
             text-decoration: none;
             transition: all 0.3s;
         }
-
-        .footer-links a:hover,
-        .footer-contact a:hover {
-            color: white;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 14px;
-            margin-top: 12px;
-        }
-
-        .footer-socials a {
-            color: rgba(255,255,255,0.6);
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-
-        .footer-socials a:hover {
-            color: white;
-        }
-
+        .footer-links a:hover, .footer-contact a:hover { color: white; }
+        .footer-socials { display: flex; gap: 14px; margin-top: 12px; }
+        .footer-socials a { color: rgba(255,255,255,0.6); font-size: 1.2rem; transition: all 0.3s; }
+        .footer-socials a:hover { color: white; }
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
@@ -561,7 +473,6 @@
             margin-top: 20px;
         }
 
-        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -580,13 +491,8 @@
             text-align: center;
             max-width: 90%;
         }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -600,74 +506,33 @@
                 gap: 16px;
                 border-bottom: 1px solid rgba(212, 165, 165, 0.2);
             }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .booking-container {
-                padding: 20px 16px;
-            }
-
-            .booking-header h1 {
-                font-size: 1.5rem;
-            }
-
-            .readings-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .duration-selector {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .cart-alert {
-                flex-direction: column;
-                text-align: center;
-            }
+            .nav-links.show { display: flex; }
+            .hamburger { display: flex; }
+            .booking-container { padding: 20px 16px; }
+            .booking-header h1 { font-size: 1.5rem; }
+            .readings-grid { grid-template-columns: 1fr 1fr; }
+            .duration-selector { grid-template-columns: 1fr 1fr 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 20px; }
+            .cart-alert { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            .readings-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-
-            .reading-card {
-                padding: 12px 10px;
-            }
-
-            .reading-card .icon {
-                font-size: 1.5rem;
-            }
-
-            .booking-btn {
-                font-size: 0.9rem;
-                padding: 14px 16px;
-            }
+            .readings-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .reading-card { padding: 12px 10px; }
+            .reading-card .icon { font-size: 1.5rem; }
+            .booking-btn { font-size: 0.9rem; padding: 14px 16px; }
         }
     </style>
 </head>
 <body>
 
 <!-- ===== TOAST ===== -->
-<div id="toast" class="toast">✨ Message sent, love!</div>
+<div id="toast" class="toast">✨ Updated, love!</div>
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            🔮 Ethe<span>medium</span>
-        </a>
+        <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="readings.html"><i class="fas fa-hand-sparkles"></i> Readings</a></li>
@@ -676,14 +541,10 @@
             <li><a href="testimonial.html"><i class="fas fa-heart"></i> Testimonials</a></li>
         </ul>
         <div class="nav-cta">
-            <a href="booking.html" class="btn-primary">
-                <i class="fas fa-calendar-check"></i> Book Now
-            </a>
+            <a href="booking.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Now</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </div>
 </nav>
@@ -692,29 +553,35 @@
 <div class="booking-page">
     <div class="booking-container">
 
-        <!-- ===== HEADER ===== -->
         <div class="booking-header">
             <span class="booking-badge">🔮 Book Your Reading</span>
-            <h1>Choose Your Reading, Love ❤️</h1>
-            <p id="bookingSubtitle">Sending positive energy to you if you need healing</p>
+            <h1>Choose Your Readings, Love ❤️</h1>
+            <p id="bookingSubtitle">Select multiple readings! Add as many as you want.</p>
             <div class="booking-emoji">🛐 🧿 🔮 ☮️ 🌅</div>
         </div>
 
-        <!-- ===== CRYSTAL CART ALERT (if crystals were added) ===== -->
         <div id="cartAlert" class="cart-alert" style="display: none;">
             <i class="fas fa-shopping-bag"></i>
-            <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your reading and crystals. ❤️</p>
+            <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your readings and crystals. ❤️</p>
         </div>
 
-        <!-- ===== STEP 1: READING TYPE ===== -->
+        <!-- ===== STEP 1: READING TYPE (MULTIPLE) ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">01</span>
-                <h3>Choose Your Reading</h3>
-                <span class="step-required">*Required</span>
+                <h3>Choose Your Readings</h3>
+                <span class="step-required">Select one or more</span>
             </div>
             <div class="readings-grid" id="readingsGrid">
                 <!-- Generated by JavaScript -->
+            </div>
+            <div class="selected-summary" id="selectedSummary">
+                <h4>📋 Your Selected Readings:</h4>
+                <div id="summaryList"></div>
+                <div class="summary-total">
+                    <span>Reading Total:</span>
+                    <span id="readingTotal">$0.00</span>
+                </div>
             </div>
         </div>
 
@@ -737,12 +604,7 @@
                 <h3>Your Questions</h3>
                 <span class="step-optional">Optional</span>
             </div>
-            <textarea 
-                id="questionsInput" 
-                class="questions-area" 
-                placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️"
-                rows="4"
-            ></textarea>
+            <textarea id="questionsInput" class="questions-area" placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️" rows="4"></textarea>
         </div>
 
         <!-- ===== STEP 4: BOOK NOW ===== -->
@@ -759,16 +621,11 @@
                 <button class="booking-btn telegram" onclick="bookNow('telegram')">
                     <i class="fab fa-telegram-plane"></i> Book via Telegram
                 </button>
-                <div class="booking-note">
-                    <i class="fas fa-lock"></i> Your information is private and confidential, love ❤️
-                </div>
-                <div class="booking-note">
-                    <i class="fas fa-clock"></i> You'll receive a confirmation within 24 hours
-                </div>
+                <div class="booking-note"><i class="fas fa-lock"></i> Your information is private and confidential, love ❤️</div>
+                <div class="booking-note"><i class="fas fa-clock"></i> You'll receive a confirmation within 24 hours</div>
             </div>
         </div>
 
-        <!-- ===== FOOTER NOTE ===== -->
         <div class="booking-footer">
             <div style="font-size: 1.4rem; letter-spacing: 6px;">🛐 🧿 🔮 ☮️ 🌅</div>
             <p class="booking-quote">"Sending positive energy to you if you need healing, love ❤️"</p>
@@ -816,7 +673,7 @@
 <!-- ============================================================ -->
 <script>
     // ============================================
-    // DATA — 12 Reading Types
+    // DATA
     // ============================================
 
     const READINGS = [
@@ -844,13 +701,10 @@
     // STATE
     // ============================================
 
-    let state = {
-        selectedReading: null,
-        selectedDuration: 30,
-        questions: '',
-        crystalCart: [],
-        crystalCartMessage: ''
-    };
+    let selectedReadings = {}; // { readingId: quantity }
+    let selectedDuration = 30;
+    let crystalCart = [];
+    let crystalCartMessage = '';
 
     // ============================================
     // DOM REFS
@@ -862,54 +716,96 @@
     const toast = document.getElementById('toast');
     const cartAlert = document.getElementById('cartAlert');
     const bookingSubtitle = document.getElementById('bookingSubtitle');
+    const selectedSummary = document.getElementById('selectedSummary');
+    const summaryList = document.getElementById('summaryList');
+    const readingTotal = document.getElementById('readingTotal');
 
     // ============================================
     // RENDER FUNCTIONS
     // ============================================
 
     function renderReadings() {
-        readingsGrid.innerHTML = READINGS.map(r => `
-            <div class="reading-card ${state.selectedReading === r.id ? 'selected' : ''}" 
-                 onclick="selectReading('${r.id}')">
-                <span class="icon">${r.icon}</span>
-                <h4>${r.name}</h4>
-                <span class="desc">${r.desc}</span>
-                <span class="price">$${r.basePrice}</span>
-                <span class="check-mark">✅</span>
-            </div>
-        `).join('');
+        readingsGrid.innerHTML = READINGS.map(r => {
+            const qty = selectedReadings[r.id] || 0;
+            const hasItems = qty > 0;
+            return `
+                <div class="reading-card ${hasItems ? 'has-items' : ''}">
+                    <span class="icon">${r.icon}</span>
+                    <h4>${r.name}</h4>
+                    <span class="desc">${r.desc}</span>
+                    <span class="price">$${r.basePrice}</span>
+                    <div class="reading-qty">
+                        <button onclick="updateReadingQty('${r.id}', -1)">−</button>
+                        <span class="${qty === 0 ? 'qty-zero' : ''}">${qty}</span>
+                        <button onclick="updateReadingQty('${r.id}', 1)">+</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        updateSummary();
     }
 
     function renderDurations() {
-        const reading = READINGS.find(r => r.id === state.selectedReading);
-        const basePrice = reading ? reading.basePrice : 45;
-
         durationSelector.innerHTML = DURATIONS.map(d => {
-            const price = Math.round(basePrice * d.priceMultiplier);
-            const active = state.selectedDuration === d.minutes ? 'active' : '';
+            const active = selectedDuration === d.minutes ? 'active' : '';
             return `
                 <div class="duration-btn ${active}" onclick="selectDuration(${d.minutes})">
                     <div class="time">${d.minutes} min</div>
                     <div class="label">${d.label}</div>
-                    <div class="price-display">$${price}</div>
                 </div>
             `;
         }).join('');
+    }
+
+    function updateSummary() {
+        const items = [];
+        let total = 0;
+
+        READINGS.forEach(r => {
+            const qty = selectedReadings[r.id] || 0;
+            if (qty > 0) {
+                const price = r.basePrice * qty;
+                total += price;
+                items.push({ name: r.name, icon: r.icon, qty, price: r.basePrice, total: price });
+            }
+        });
+
+        if (items.length === 0) {
+            selectedSummary.classList.remove('visible');
+            return;
+        }
+
+        selectedSummary.classList.add('visible');
+        summaryList.innerHTML = items.map(item => `
+            <div class="summary-item">
+                <span>${item.icon} ${item.name} x${item.qty}</span>
+                <span>$${item.total.toFixed(2)}</span>
+            </div>
+        `).join('');
+
+        readingTotal.textContent = `$${total.toFixed(2)}`;
     }
 
     // ============================================
     // ACTION FUNCTIONS
     // ============================================
 
-    function selectReading(id) {
-        state.selectedReading = id;
+    function updateReadingQty(id, change) {
+        const current = selectedReadings[id] || 0;
+        const newQty = Math.max(0, current + change);
+
+        if (newQty === 0) {
+            delete selectedReadings[id];
+        } else {
+            selectedReadings[id] = newQty;
+        }
+
         renderReadings();
-        renderDurations();
-        showToast(`✨ Selected ${READINGS.find(r => r.id === id).name}`);
+        showToast(newQty > 0 ? `✨ Updated ${READINGS.find(r => r.id === id).name}` : `❌ Removed ${READINGS.find(r => r.id === id).name}`);
     }
 
     function selectDuration(minutes) {
-        state.selectedDuration = minutes;
+        selectedDuration = minutes;
         renderDurations();
     }
 
@@ -918,17 +814,28 @@
     // ============================================
 
     function bookNow(platform) {
-        // Validate: Reading selected
-        if (!state.selectedReading) {
-            showToast('⚠️ Please select a reading type first, love! ❤️');
+        // Validate: At least one reading selected
+        const selectedItems = Object.keys(selectedReadings).filter(id => selectedReadings[id] > 0);
+        if (selectedItems.length === 0) {
+            showToast('⚠️ Please select at least one reading, love! ❤️');
             document.querySelector('.readings-grid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             return;
         }
 
-        // Get reading and duration details
-        const reading = READINGS.find(r => r.id === state.selectedReading);
-        const duration = DURATIONS.find(d => d.minutes === state.selectedDuration);
-        const readingPrice = Math.round(reading.basePrice * duration.priceMultiplier);
+        // Get duration
+        const duration = DURATIONS.find(d => d.minutes === selectedDuration);
+
+        // Build reading list
+        let readingList = '';
+        let readingTotalPrice = 0;
+
+        selectedItems.forEach(id => {
+            const reading = READINGS.find(r => r.id === id);
+            const qty = selectedReadings[id];
+            const price = reading.basePrice * qty;
+            readingTotalPrice += price;
+            readingList += `  • ${reading.icon} ${reading.name} x${qty} = $${price.toFixed(2)}\n`;
+        });
 
         // Get questions
         const questions = questionsInput ? questionsInput.value.trim() : '';
@@ -938,13 +845,11 @@
         let crystalSection = '';
         let crystalTotal = 0;
 
-        if (state.crystalCart && state.crystalCart.length > 0) {
-            const currency = 'USD';
-            const symbol = '$';
-            let itemsList = state.crystalCart.map(item => {
+        if (crystalCart && crystalCart.length > 0) {
+            let itemsList = crystalCart.map(item => {
                 const itemTotal = item.price * item.quantity;
                 crystalTotal += itemTotal;
-                return `  • ${item.name} x${item.quantity} = ${symbol}${itemTotal.toFixed(2)}`;
+                return `  • ${item.name} x${item.quantity} = $${itemTotal.toFixed(2)}`;
             }).join('\n');
 
             crystalSection = `
@@ -952,27 +857,31 @@
 🛒 *Crystals & Beads Order:*
 ${itemsList}
 
-💎 *Crystals Total: ${symbol}${crystalTotal.toFixed(2)}*
+💎 *Crystals Total: $${crystalTotal.toFixed(2)}*
 `;
         }
 
         // ===== GRAND TOTAL =====
-        const grandTotal = readingPrice + crystalTotal;
+        const grandTotal = readingTotalPrice + crystalTotal;
 
         // ===== BUILD COMPLETE MESSAGE =====
         const message = `
 🔮 *ETHMEDIUM BOOKING* 🔮
 ━━━━━━━━━━━━━━━━━━━━━
 
-📖 *Reading Type:* ${reading.icon} ${reading.name}
+📖 *Readings Selected:*
+${readingList}
 ⏰ *Duration:* ${duration.minutes} minutes (${duration.label})
-💰 *Reading Price:* $${readingPrice}
 
 💭 *Your Questions:*
 ${finalQuestions}
 ${crystalSection}
 ━━━━━━━━━━━━━━━━━━━━━
-💵 *Grand Total:* $${grandTotal.toFixed(2)}
+📚 *Reading Total: $${readingTotalPrice.toFixed(2)}`
+        + (crystalTotal > 0 ? `
+💎 *Crystals Total: $${crystalTotal.toFixed(2)}` : '')
+        + `
+💵 *Grand Total: $${grandTotal.toFixed(2)}*
 ━━━━━━━━━━━━━━━━━━━━━
 
 ✨ Ready to book, love! Please confirm:
@@ -989,12 +898,10 @@ ${crystalSection}
         // Build URL based on platform
         let url = '';
         if (platform === 'whatsapp') {
-            // 🔴 CHANGE THIS TO YOUR WHATSAPP NUMBER
-            const phone = '2348000000000';
+            const phone = '2348000000000'; // 🔴 CHANGE THIS
             url = `https://wa.me/${phone}?text=${encoded}`;
         } else if (platform === 'telegram') {
-            // 🔴 CHANGE THIS TO YOUR TELEGRAM USERNAME
-            const username = 'YourUsername';
+            const username = 'YourUsername'; // 🔴 CHANGE THIS
             url = `https://t.me/${username}?text=${encoded}`;
         }
 
@@ -1035,19 +942,15 @@ ${crystalSection}
 
         if (cartData) {
             try {
-                state.crystalCart = JSON.parse(cartData);
-                state.crystalCartMessage = cartMessage || '';
+                crystalCart = JSON.parse(cartData);
+                crystalCartMessage = cartMessage || '';
 
-                if (state.crystalCart.length > 0) {
-                    // Show cart alert
+                if (crystalCart.length > 0) {
                     cartAlert.style.display = 'flex';
-                    
-                    // Update subtitle
-                    const itemCount = state.crystalCart.reduce((sum, item) => sum + item.quantity, 0);
-                    bookingSubtitle.textContent = `📦 You have ${itemCount} crystal item(s) in your cart! Your booking will include both your reading and crystals. ❤️`;
+                    const itemCount = crystalCart.reduce((sum, item) => sum + item.quantity, 0);
+                    bookingSubtitle.textContent = `📦 You have ${itemCount} crystal item(s) in your cart! Your booking will include both your readings and crystals. ❤️`;
 
-                    // Pre-fill questions with crystal order
-                    const itemsList = state.crystalCart.map(item => `${item.name} x${item.quantity}`).join(', ');
+                    const itemsList = crystalCart.map(item => `${item.name} x${item.quantity}`).join(', ');
                     if (questionsInput) {
                         questionsInput.value = `🛒 Also ordering: ${itemsList}\n\n`;
                     }
@@ -1056,16 +959,6 @@ ${crystalSection}
                 console.log('Error loading cart:', e);
             }
         }
-    }
-
-    // ============================================
-    // AUTO-SAVE QUESTIONS
-    // ============================================
-
-    if (questionsInput) {
-        questionsInput.addEventListener('input', function() {
-            state.questions = this.value;
-        });
     }
 
     // ============================================
@@ -1082,22 +975,13 @@ ${crystalSection}
     // ============================================
 
     function init() {
-        // Set default reading
-        state.selectedReading = READINGS[0].id;
-        
-        // Render everything
         renderReadings();
         renderDurations();
-        
-        // Load crystal cart from session
         loadCrystalCart();
-        
         console.log('🔮 Ethemedium Booking Page is ready, love! ❤️🛐🧿🔮☮️🌅');
-        console.log('📖 12 Reading Types Available');
-        console.log('💎 Crystal cart loaded:', state.crystalCart.length > 0 ? state.crystalCart.length + ' items' : 'Empty');
+        console.log('📖 Multiple readings can now be selected!');
     }
 
-    // Run when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
@@ -1105,7 +989,7 @@ ${crystalSection}
     }
 
     // Expose functions to global scope
-    window.selectReading = selectReading;
+    window.updateReadingQty = updateReadingQty;
     window.selectDuration = selectDuration;
     window.bookNow = bookNow;
     window.showToast = showToast;
