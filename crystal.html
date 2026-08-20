@@ -34,17 +34,21 @@
         .cart-badge{position:absolute;top:-8px;right:-10px;background:#E8798A;color:white;border-radius:50%;width:20px;height:20px;font-size:0.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
 
         /* ===== CART SIDEBAR ===== */
-        .cart-sidebar{position:fixed;top:0;right:-400px;width:380px;max-width:90vw;height:100%;background:white;box-shadow:-8px 0 30px rgba(0,0,0,0.15);z-index:2000;transition:right 0.4s ease;padding:20px;overflow-y:auto;}
+        .cart-sidebar{position:fixed;top:0;right:-420px;width:400px;max-width:92vw;height:100%;background:white;box-shadow:-8px 0 30px rgba(0,0,0,0.15);z-index:2000;transition:right 0.4s ease;padding:20px;overflow-y:auto;}
         .cart-sidebar.open{right:0;}
         .cart-sidebar-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:2px solid #F0E0E0;margin-bottom:16px;}
         .cart-sidebar-header h2{font-family:'Playfair Display',serif;color:#6B2D5C;font-size:1.5rem;}
         .cart-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:#8A7A7A;transition:all 0.3s;}
         .cart-close:hover{color:#6B2D5C;transform:rotate(90deg);}
         .cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0E0E0;}
-        .cart-item-info{display:flex;flex-direction:column;}
+        .cart-item-info{display:flex;flex-direction:column;flex:1;}
         .cart-item-name{font-weight:600;color:#2D1F1F;font-size:0.95rem;}
         .cart-item-price{color:#6B2D5C;font-weight:600;font-size:0.9rem;}
-        .cart-item-remove{background:none;border:none;color:#cc5555;cursor:pointer;font-size:1.1rem;transition:all 0.3s;padding:4px 8px;}
+        .cart-item-qty{display:flex;align-items:center;gap:6px;}
+        .cart-item-qty button{width:28px;height:28px;border-radius:50%;border:1px solid #E0D0D0;background:white;cursor:pointer;font-size:1rem;font-weight:700;color:#6B2D5C;transition:all 0.3s;display:flex;align-items:center;justify-content:center;}
+        .cart-item-qty button:hover{background:#6B2D5C;color:white;border-color:#6B2D5C;}
+        .cart-item-qty span{font-weight:600;font-size:1rem;min-width:24px;text-align:center;color:#2D1F1F;}
+        .cart-item-remove{background:none;border:none;color:#cc5555;cursor:pointer;font-size:1.1rem;transition:all 0.3s;padding:4px 8px;margin-left:4px;}
         .cart-item-remove:hover{transform:scale(1.2);}
         .cart-total{padding:16px 0;border-top:2px solid #F0E0E0;margin-top:16px;display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;color:#6B2D5C;}
         .cart-checkout{width:100%;padding:14px;background:#6B2D5C;color:white;border:none;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;}
@@ -74,7 +78,6 @@
         .product-card .price{font-weight:700;color:#6B2D5C;font-size:1.4rem;display:block;margin:8px 0 16px;}
         .product-card .btn-add{background:#6B2D5C;color:white;padding:12px 40px;border:none;border-radius:50px;font-size:0.95rem;font-weight:600;transition:all 0.3s ease;display:inline-block;text-decoration:none;cursor:pointer;font-family:'Inter',sans-serif;}
         .product-card .btn-add:hover{background:#8B4D7A;transform:scale(1.02);}
-        .product-card .btn-added{background:#2d7a5a;}
         .badge{padding:3px 14px;border-radius:20px;font-size:0.7rem;font-weight:600;color:white;display:inline-block;margin-bottom:6px;}
         .badge-popular{background:#C9A84C;}
         .badge-best{background:#E8798A;}
@@ -104,6 +107,9 @@
         .currency-selector{padding:4px 10px;}
         .currency-selector select{font-size:0.75rem;}
         .cart-sidebar{width:100%;max-width:100%;}
+        .cart-item{flex-wrap:wrap;gap:8px;}
+        .cart-item-info{flex:1 1 100%;}
+        .cart-item-qty{margin-left:auto;}
     }
     </style>
 </head>
@@ -347,6 +353,19 @@
         showToast(`✨ Added ${name} to cart, love! ❤️`);
     }
 
+    function updateQuantity(name, change) {
+        const item = cart.find(item => item.name === name);
+        if (!item) return;
+        
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+            cart = cart.filter(i => i.name !== name);
+        }
+        
+        updateCartUI();
+    }
+
     function removeFromCart(name) {
         cart = cart.filter(item => item.name !== name);
         updateCartUI();
@@ -381,16 +400,22 @@
 
         cart.forEach(item => {
             const priceInCurrency = item.price * rate;
-            total += priceInCurrency * item.quantity;
+            const itemTotal = priceInCurrency * item.quantity;
+            total += itemTotal;
             html += `
                 <div class="cart-item">
                     <div class="cart-item-info">
-                        <span class="cart-item-name">${item.name} x${item.quantity}</span>
-                        <span class="cart-item-price">${symbol}${priceInCurrency.toFixed(2)}</span>
+                        <span class="cart-item-name">${item.name}</span>
+                        <span class="cart-item-price">${symbol}${priceInCurrency.toFixed(2)} each</span>
                     </div>
-                    <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">
-                        <i class="fas fa-times-circle"></i>
-                    </button>
+                    <div class="cart-item-qty">
+                        <button onclick="updateQuantity('${item.name}', -1)">−</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.name}', 1)">+</button>
+                        <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
                 </div>
             `;
         });
@@ -418,7 +443,6 @@
             return;
         }
         closeCart();
-        // Redirect to booking page with cart items
         const items = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
         window.location.href = `booking.html?cart=${encodeURIComponent(items)}`;
     }
@@ -449,7 +473,6 @@
             }
         });
 
-        // Update cart
         updateCartUI();
     }
 
