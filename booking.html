@@ -10,502 +10,118 @@
     <link rel="stylesheet" href="style.css"/>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(145deg, #FAF0F0 0%, #F5E6E6 50%, #F0E0E0 100%);
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 248, 245, 0.92);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 165, 165, 0.2);
-            z-index: 1000;
-            padding: 0 20px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #6B2D5C;
-            text-decoration: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(145deg, #FAF0F0 0%, #F5E6E6 50%, #F0E0E0 100%); font-family: 'Inter', sans-serif; min-height: 100vh; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 165, 165, 0.2); z-index: 1000; padding: 0 20px; height: 70px; display: flex; align-items: center; }
+        .nav-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: #6B2D5C; text-decoration: none; }
         .nav-logo span { color: #D4A5A5; }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #8A7A7A;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-        }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #8A7A7A; transition: all 0.3s; display: flex; align-items: center; gap: 6px; text-decoration: none; }
         .nav-links a:hover, .nav-links a.active { color: #6B2D5C; font-weight: 600; }
-
-        .btn-primary {
-            background: #6B2D5C;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background: #8B4D7A;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(107, 45, 92, 0.15);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #6B2D5C;
-            border-radius: 3px;
-            transition: all 0.3s;
-        }
+        .btn-primary { background: #6B2D5C; color: white; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #8B4D7A; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107, 45, 92, 0.15); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: #6B2D5C; border-radius: 3px; transition: all 0.3s; }
 
         .booking-page { padding: 90px 20px 40px; min-height: 100vh; }
-        .booking-container {
-            max-width: 820px;
-            margin: 0 auto;
-            background: rgba(255, 248, 245, 0.92);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 32px 28px;
-            box-shadow: 0 20px 60px rgba(107, 45, 92, 0.12);
-            border: 1px solid rgba(212, 165, 165, 0.2);
-        }
+        .booking-container { max-width: 820px; margin: 0 auto; background: rgba(255, 248, 245, 0.92); backdrop-filter: blur(20px); border-radius: 24px; padding: 32px 28px; box-shadow: 0 20px 60px rgba(107, 45, 92, 0.12); border: 1px solid rgba(212, 165, 165, 0.2); }
 
-        .booking-header {
-            text-align: center;
-            padding-bottom: 24px;
-            margin-bottom: 24px;
-            border-bottom: 2px dashed #F0E0E0;
-        }
-        .booking-badge {
-            display: inline-block;
-            background: #6B2D5C;
-            color: white;
-            padding: 4px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        .booking-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #2D1F1F;
-        }
+        .booking-header { text-align: center; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 2px dashed #F0E0E0; }
+        .booking-badge { display: inline-block; background: #6B2D5C; color: white; padding: 4px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
+        .booking-header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #2D1F1F; }
         .booking-header p { color: #8A7A7A; margin-top: 4px; }
         .booking-emoji { font-size: 1.6rem; letter-spacing: 8px; margin-top: 6px; }
 
-        .cart-alert {
-            background: linear-gradient(135deg, #FFF9F0, #FFF5E6);
-            border: 2px solid #C9A84C;
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .cart-alert { background: linear-gradient(135deg, #FFF9F0, #FFF5E6); border: 2px solid #C9A84C; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
         .cart-alert i { font-size: 1.5rem; color: #C9A84C; }
         .cart-alert p { color: #6B2D5C; font-size: 0.9rem; margin: 0; }
         .cart-alert strong { color: #2D1F1F; }
 
-        .booking-step {
-            margin-bottom: 28px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid rgba(212, 165, 165, 0.15);
-        }
-        .booking-step:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+        .booking-step { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(212, 165, 165, 0.15); }
+        .booking-step:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-        .step-label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-        .step-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: white;
-            background: #6B2D5C;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .step-label h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #2D1F1F;
-            font-weight: 600;
-        }
+        .step-label { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+        .step-num { font-family: 'Playfair Display', serif; font-size: 0.8rem; font-weight: 700; color: white; background: #6B2D5C; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-label h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2D1F1F; font-weight: 600; }
         .step-required { font-size: 0.7rem; color: #E8798A; font-weight: 600; margin-left: auto; }
         .step-optional { font-size: 0.7rem; color: #8A7A7A; font-weight: 400; margin-left: auto; }
 
-        /* ===== READING CARDS WITH QUANTITY ===== */
-        .readings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 14px;
-        }
-
-        .reading-card {
-            background: white;
-            border-radius: 14px;
-            padding: 16px 14px;
-            border: 2px solid #F0E0E0;
-            transition: all 0.3s ease;
-            text-align: center;
-            position: relative;
-        }
-
-        .reading-card:hover {
-            border-color: #D4A5A5;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 165, 165, 0.2);
-        }
-
-        .reading-card.has-items {
-            border-color: #6B2D5C;
-            background: #FAF5F5;
-            box-shadow: 0 0 0 2px rgba(107, 45, 92, 0.1);
-        }
-
+        /* ===== READING CARDS ===== */
+        .readings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+        .reading-card { background: white; border-radius: 14px; padding: 14px 12px; border: 2px solid #F0E0E0; transition: all 0.3s ease; text-align: center; position: relative; }
+        .reading-card:hover { border-color: #D4A5A5; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 165, 165, 0.2); }
+        .reading-card.has-items { border-color: #6B2D5C; background: #FAF5F5; box-shadow: 0 0 0 2px rgba(107, 45, 92, 0.1); }
         .reading-card .icon { font-size: 1.8rem; display: block; margin-bottom: 4px; }
         .reading-card h4 { font-size: 0.85rem; color: #2D1F1F; font-weight: 600; }
-        .reading-card .desc {
-            font-size: 0.65rem;
-            color: #8A7A7A;
-            display: block;
-            margin: 2px 0 4px;
-            line-height: 1.3;
-        }
-        .reading-card .price { font-weight: 700; color: #6B2D5C; font-size: 0.9rem; display: block; }
+        .reading-card .desc { font-size: 0.6rem; color: #8A7A7A; display: block; margin: 2px 0 4px; line-height: 1.3; }
+        .reading-card .price { font-weight: 700; color: #6B2D5C; font-size: 0.85rem; display: block; }
+        .reading-qty { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+        .reading-qty button { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #E0D0D0; background: white; cursor: pointer; font-size: 0.9rem; font-weight: 700; color: #6B2D5C; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+        .reading-qty button:hover { background: #6B2D5C; color: white; border-color: #6B2D5C; }
+        .reading-qty span { font-weight: 600; font-size: 1rem; min-width: 24px; text-align: center; color: #2D1F1F; }
+        .reading-qty .qty-zero { color: #ccc; }
 
-        .reading-qty {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        .reading-qty button {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 2px solid #E0D0D0;
-            background: white;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #6B2D5C;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .reading-qty button:hover {
-            background: #6B2D5C;
-            color: white;
-            border-color: #6B2D5C;
-        }
-        .reading-qty span {
-            font-weight: 600;
-            font-size: 1rem;
-            min-width: 24px;
-            text-align: center;
-            color: #2D1F1F;
-        }
-        .reading-qty .qty-zero {
-            color: #ccc;
-        }
-
-        /* ===== DURATION SELECTOR ===== */
-        .duration-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        .duration-btn {
-            background: white;
-            border: 2px solid #F0E0E0;
-            border-radius: 14px;
-            padding: 14px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .duration-btn:hover {
-            border-color: #D4A5A5;
-            transform: translateY(-2px);
-        }
-        .duration-btn.active {
-            border-color: #6B2D5C;
-            background: #FAF5F5;
-            box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.1);
-        }
+        .duration-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .duration-btn { background: white; border: 2px solid #F0E0E0; border-radius: 14px; padding: 14px 10px; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+        .duration-btn:hover { border-color: #D4A5A5; transform: translateY(-2px); }
+        .duration-btn.active { border-color: #6B2D5C; background: #FAF5F5; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.1); }
         .duration-btn .time { font-weight: 700; font-size: 1.1rem; color: #2D1F1F; }
         .duration-btn .label { font-size: 0.7rem; color: #8A7A7A; }
-        .duration-btn .price-display { font-size: 0.85rem; font-weight: 600; color: #6B2D5C; margin-top: 2px; }
 
-        .questions-area {
-            width: 100%;
-            padding: 16px 18px;
-            border: 2px solid #F0E0E0;
-            border-radius: 14px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            resize: vertical;
-            transition: all 0.3s ease;
-            background: white;
-            color: #2D1F1F;
-            line-height: 1.6;
-        }
-        .questions-area:focus {
-            outline: none;
-            border-color: #6B2D5C;
-            box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.08);
-        }
+        .questions-area { width: 100%; padding: 14px 16px; border: 2px solid #F0E0E0; border-radius: 14px; font-family: 'Inter', sans-serif; font-size: 0.95rem; resize: vertical; transition: all 0.3s ease; background: white; color: #2D1F1F; line-height: 1.6; }
+        .questions-area:focus { outline: none; border-color: #6B2D5C; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.08); }
         .questions-area::placeholder { color: #b8a8a8; font-style: italic; }
 
-        /* ===== SELECTED READINGS SUMMARY ===== */
-        .selected-summary {
-            background: #FAF5F5;
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-top: 10px;
-            border: 1px solid #F0E0E0;
-            display: none;
-        }
-        .selected-summary.visible { display: block; }
-        .selected-summary h4 {
-            font-size: 0.85rem;
-            color: #6B2D5C;
-            margin-bottom: 6px;
-        }
-        .selected-summary .summary-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 3px 0;
-            font-size: 0.85rem;
-            color: #2D1F1F;
-            border-bottom: 1px dashed rgba(212, 165, 165, 0.2);
-        }
-        .selected-summary .summary-item:last-child { border-bottom: none; }
-        .selected-summary .summary-total {
-            font-weight: 700;
-            color: #6B2D5C;
-            padding-top: 6px;
-            margin-top: 6px;
-            border-top: 2px solid #E0D0D0;
-            display: flex;
-            justify-content: space-between;
-            font-size: 1rem;
-        }
+        /* ===== CONTACT FORM ===== */
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .contact-form .full-width { grid-column: 1 / -1; }
+        .contact-form label { font-size: 0.8rem; font-weight: 600; color: #2D1F1F; display: block; margin-bottom: 4px; }
+        .contact-form label .required { color: #E8798A; }
+        .contact-form input { width: 100%; padding: 12px 14px; border: 2px solid #F0E0E0; border-radius: 12px; font-size: 0.95rem; font-family: 'Inter', sans-serif; transition: all 0.3s; background: white; }
+        .contact-form input:focus { outline: none; border-color: #6B2D5C; box-shadow: 0 0 0 3px rgba(107, 45, 92, 0.08); }
+        .contact-form input::placeholder { color: #b8a8a8; }
 
-        .booking-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .booking-btn {
-            padding: 16px 24px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
-            letter-spacing: 0.3px;
-        }
-        .booking-btn.whatsapp {
-            background: #25D366;
-            color: white;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-        }
-        .booking-btn.whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
-        }
-        .booking-btn.telegram {
-            background: #0088cc;
-            color: white;
-            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3);
-        }
-        .booking-btn.telegram:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(0, 136, 204, 0.4);
-        }
+        .selected-summary { background: #FAF5F5; border-radius: 12px; padding: 14px 18px; margin-top: 10px; border: 1px solid #F0E0E0; display: none; }
+        .selected-summary.visible { display: block; }
+        .selected-summary h4 { font-size: 0.85rem; color: #6B2D5C; margin-bottom: 6px; }
+        .selected-summary .summary-item { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.85rem; color: #2D1F1F; border-bottom: 1px dashed rgba(212, 165, 165, 0.2); }
+        .selected-summary .summary-item:last-child { border-bottom: none; }
+        .selected-summary .summary-total { font-weight: 700; color: #6B2D5C; padding-top: 6px; margin-top: 6px; border-top: 2px solid #E0D0D0; display: flex; justify-content: space-between; font-size: 1rem; }
+
+        .booking-actions { display: flex; flex-direction: column; gap: 12px; }
+        .booking-btn { padding: 16px 24px; border: none; border-radius: 50px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Inter', sans-serif; text-decoration: none; letter-spacing: 0.3px; }
+        .booking-btn.whatsapp { background: #25D366; color: white; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+        .booking-btn.whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); }
+        .booking-btn.telegram { background: #0088cc; color: white; box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3); }
+        .booking-btn.telegram:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(0, 136, 204, 0.4); }
         .booking-btn i { font-size: 1.5rem; }
         .booking-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
 
-        .booking-note {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #8A7A7A;
-            padding: 4px 0;
-        }
+        .booking-note { text-align: center; font-size: 0.8rem; color: #8A7A7A; padding: 4px 0; }
         .booking-note i { margin-right: 6px; }
 
-        .booking-footer {
-            text-align: center;
-            padding-top: 24px;
-            margin-top: 24px;
-            border-top: 2px dashed #F0E0E0;
-        }
-        .booking-footer .booking-quote {
-            font-style: italic;
-            color: #8A7A7A;
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
+        .booking-footer { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 2px dashed #F0E0E0; }
+        .booking-footer .booking-quote { font-style: italic; color: #8A7A7A; font-size: 0.9rem; margin-top: 4px; }
 
-        .footer {
-            background: #4A1F3F;
-            color: rgba(255,255,255,0.8);
-            padding: 40px 20px 20px;
-            margin-top: 40px;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: white;
-            display: block;
-            margin-bottom: 8px;
-        }
+        .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 40px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: block; margin-bottom: 8px; }
         .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
         .footer-links h4, .footer-contact h4 { color: white; font-size: 1rem; margin-bottom: 12px; }
-        .footer-links a, .footer-contact a {
-            display: block;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-            padding: 4px 0;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
+        .footer-links a, .footer-contact a { display: block; color: rgba(255,255,255,0.6); font-size: 0.9rem; padding: 4px 0; text-decoration: none; transition: all 0.3s; }
         .footer-links a:hover, .footer-contact a:hover { color: white; }
         .footer-socials { display: flex; gap: 14px; margin-top: 12px; }
         .footer-socials a { color: rgba(255,255,255,0.6); font-size: 1.2rem; transition: all 0.3s; }
         .footer-socials a:hover { color: white; }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin-top: 20px;
-        }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.6; margin-top: 20px; }
 
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #2D1F1F;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transition: all 0.5s ease;
-            z-index: 999;
-            pointer-events: none;
-            text-align: center;
-            max-width: 90%;
-        }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #2D1F1F; color: white; padding: 14px 28px; border-radius: 50px; font-size: 0.9rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); opacity: 0; transition: all 0.5s ease; z-index: 999; pointer-events: none; text-align: center; max-width: 90%; }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 248, 245, 0.98);
-                flex-direction: column;
-                padding: 20px;
-                gap: 16px;
-                border-bottom: 1px solid rgba(212, 165, 165, 0.2);
-            }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: rgba(255, 248, 245, 0.98); flex-direction: column; padding: 20px; gap: 16px; border-bottom: 1px solid rgba(212, 165, 165, 0.2); }
             .nav-links.show { display: flex; }
             .hamburger { display: flex; }
             .booking-container { padding: 20px 16px; }
@@ -514,12 +130,12 @@
             .duration-selector { grid-template-columns: 1fr 1fr 1fr; }
             .footer-container { grid-template-columns: 1fr; gap: 20px; }
             .cart-alert { flex-direction: column; text-align: center; }
+            .contact-form { grid-template-columns: 1fr; }
         }
-
         @media (max-width: 480px) {
             .readings-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .reading-card { padding: 12px 10px; }
-            .reading-card .icon { font-size: 1.5rem; }
+            .reading-card { padding: 10px 8px; }
+            .reading-card .icon { font-size: 1.3rem; }
             .booking-btn { font-size: 0.9rem; padding: 14px 16px; }
         }
     </style>
@@ -565,16 +181,14 @@
             <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your readings and crystals. ❤️</p>
         </div>
 
-        <!-- ===== STEP 1: READING TYPE (MULTIPLE) ===== -->
+        <!-- ===== STEP 1: READING TYPE ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">01</span>
                 <h3>Choose Your Readings</h3>
                 <span class="step-required">Select one or more</span>
             </div>
-            <div class="readings-grid" id="readingsGrid">
-                <!-- Generated by JavaScript -->
-            </div>
+            <div class="readings-grid" id="readingsGrid"></div>
             <div class="selected-summary" id="selectedSummary">
                 <h4>📋 Your Selected Readings:</h4>
                 <div id="summaryList"></div>
@@ -592,25 +206,50 @@
                 <h3>Select Duration</h3>
                 <span class="step-required">*Required</span>
             </div>
-            <div class="duration-selector" id="durationSelector">
-                <!-- Generated by JavaScript -->
-            </div>
+            <div class="duration-selector" id="durationSelector"></div>
         </div>
 
-        <!-- ===== STEP 3: QUESTIONS ===== -->
+        <!-- ===== STEP 3: YOUR DETAILS (NEW) ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">03</span>
+                <h3>Your Details</h3>
+                <span class="step-required">*Required</span>
+            </div>
+            <div class="contact-form">
+                <div class="full-width">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="clientName" placeholder="e.g. Sarah Johnson" required />
+                </div>
+                <div>
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="clientPhone" placeholder="e.g. +234 801 234 5678" required />
+                </div>
+                <div>
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" id="clientEmail" placeholder="e.g. sarah@email.com" required />
+                </div>
+                <div class="full-width">
+                    <label>Preferred Date & Time <span class="optional">(Optional)</span></label>
+                    <input type="text" id="clientDateTime" placeholder="e.g. Monday 25th, 3pm EST" />
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== STEP 4: QUESTIONS ===== -->
+        <div class="booking-step">
+            <div class="step-label">
+                <span class="step-num">04</span>
                 <h3>Your Questions</h3>
                 <span class="step-optional">Optional</span>
             </div>
             <textarea id="questionsInput" class="questions-area" placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️" rows="4"></textarea>
         </div>
 
-        <!-- ===== STEP 4: BOOK NOW ===== -->
+        <!-- ===== STEP 5: BOOK NOW ===== -->
         <div class="booking-step">
             <div class="step-label">
-                <span class="step-num">04</span>
+                <span class="step-num">05</span>
                 <h3>Book Your Session</h3>
                 <span class="step-required">Ready to book?</span>
             </div>
@@ -672,10 +311,7 @@
 <!-- ===== JAVASCRIPT ===== -->
 <!-- ============================================================ -->
 <script>
-    // ============================================
-    // DATA
-    // ============================================
-
+    // ===== DATA =====
     const READINGS = [
         { id: 'love', icon: '💖', name: 'Love Reading', desc: 'Soulmate, twin flame, relationship blocks', basePrice: 45 },
         { id: 'general', icon: '🔮', name: 'General Reading', desc: 'Whatever Spirit wants you to know', basePrice: 40 },
@@ -697,19 +333,13 @@
         { minutes: 60, label: 'Full', priceMultiplier: 1.6 }
     ];
 
-    // ============================================
-    // STATE
-    // ============================================
-
-    let selectedReadings = {}; // { readingId: quantity }
+    // ===== STATE =====
+    let selectedReadings = {};
     let selectedDuration = 30;
     let crystalCart = [];
     let crystalCartMessage = '';
 
-    // ============================================
-    // DOM REFS
-    // ============================================
-
+    // ===== DOM REFS =====
     const readingsGrid = document.getElementById('readingsGrid');
     const durationSelector = document.getElementById('durationSelector');
     const questionsInput = document.getElementById('questionsInput');
@@ -719,11 +349,12 @@
     const selectedSummary = document.getElementById('selectedSummary');
     const summaryList = document.getElementById('summaryList');
     const readingTotal = document.getElementById('readingTotal');
+    const clientName = document.getElementById('clientName');
+    const clientPhone = document.getElementById('clientPhone');
+    const clientEmail = document.getElementById('clientEmail');
+    const clientDateTime = document.getElementById('clientDateTime');
 
-    // ============================================
-    // RENDER FUNCTIONS
-    // ============================================
-
+    // ===== RENDER FUNCTIONS =====
     function renderReadings() {
         readingsGrid.innerHTML = READINGS.map(r => {
             const qty = selectedReadings[r.id] || 0;
@@ -760,7 +391,6 @@
     function updateSummary() {
         const items = [];
         let total = 0;
-
         READINGS.forEach(r => {
             const qty = selectedReadings[r.id] || 0;
             if (qty > 0) {
@@ -769,12 +399,10 @@
                 items.push({ name: r.name, icon: r.icon, qty, price: r.basePrice, total: price });
             }
         });
-
         if (items.length === 0) {
             selectedSummary.classList.remove('visible');
             return;
         }
-
         selectedSummary.classList.add('visible');
         summaryList.innerHTML = items.map(item => `
             <div class="summary-item">
@@ -782,24 +410,15 @@
                 <span>$${item.total.toFixed(2)}</span>
             </div>
         `).join('');
-
         readingTotal.textContent = `$${total.toFixed(2)}`;
     }
 
-    // ============================================
-    // ACTION FUNCTIONS
-    // ============================================
-
+    // ===== ACTIONS =====
     function updateReadingQty(id, change) {
         const current = selectedReadings[id] || 0;
         const newQty = Math.max(0, current + change);
-
-        if (newQty === 0) {
-            delete selectedReadings[id];
-        } else {
-            selectedReadings[id] = newQty;
-        }
-
+        if (newQty === 0) { delete selectedReadings[id]; } 
+        else { selectedReadings[id] = newQty; }
         renderReadings();
         showToast(newQty > 0 ? `✨ Updated ${READINGS.find(r => r.id === id).name}` : `❌ Removed ${READINGS.find(r => r.id === id).name}`);
     }
@@ -809,12 +428,9 @@
         renderDurations();
     }
 
-    // ============================================
-    // BOOK NOW FUNCTION
-    // ============================================
-
+    // ===== BOOK NOW =====
     function bookNow(platform) {
-        // Validate: At least one reading selected
+        // Validate: At least one reading
         const selectedItems = Object.keys(selectedReadings).filter(id => selectedReadings[id] > 0);
         if (selectedItems.length === 0) {
             showToast('⚠️ Please select at least one reading, love! ❤️');
@@ -822,13 +438,20 @@
             return;
         }
 
-        // Get duration
+        // Validate: Contact details
+        const name = clientName?.value.trim();
+        const phone = clientPhone?.value.trim();
+        const email = clientEmail?.value.trim();
+
+        if (!name) { showToast('⚠️ Please enter your full name, love! ❤️'); clientName?.focus(); return; }
+        if (!phone) { showToast('⚠️ Please enter your phone number, love! ❤️'); clientPhone?.focus(); return; }
+        if (!email) { showToast('⚠️ Please enter your email address, love! ❤️'); clientEmail?.focus(); return; }
+
         const duration = DURATIONS.find(d => d.minutes === selectedDuration);
 
         // Build reading list
         let readingList = '';
         let readingTotalPrice = 0;
-
         selectedItems.forEach(id => {
             const reading = READINGS.find(r => r.id === id);
             const qty = selectedReadings[id];
@@ -837,21 +460,18 @@
             readingList += `  • ${reading.icon} ${reading.name} x${qty} = $${price.toFixed(2)}\n`;
         });
 
-        // Get questions
         const questions = questionsInput ? questionsInput.value.trim() : '';
         const finalQuestions = questions || 'No specific questions — read what Spirit brings through';
 
-        // ===== BUILD CRYSTAL ORDER SECTION =====
+        // Crystal section
         let crystalSection = '';
         let crystalTotal = 0;
-
         if (crystalCart && crystalCart.length > 0) {
             let itemsList = crystalCart.map(item => {
                 const itemTotal = item.price * item.quantity;
                 crystalTotal += itemTotal;
                 return `  • ${item.name} x${item.quantity} = $${itemTotal.toFixed(2)}`;
             }).join('\n');
-
             crystalSection = `
 ━━━━━━━━━━━━━━━━━━━━━
 🛒 *Crystals & Beads Order:*
@@ -861,14 +481,21 @@ ${itemsList}
 `;
         }
 
-        // ===== GRAND TOTAL =====
         const grandTotal = readingTotalPrice + crystalTotal;
+        const dateTime = clientDateTime?.value.trim() || 'To be confirmed';
 
-        // ===== BUILD COMPLETE MESSAGE =====
+        // ===== COMPLETE MESSAGE =====
         const message = `
 🔮 *ETHMEDIUM BOOKING* 🔮
 ━━━━━━━━━━━━━━━━━━━━━
 
+👤 *Client Details:*
+📛 Name: ${name}
+📱 Phone: ${phone}
+📧 Email: ${email}
+📅 Preferred Date/Time: ${dateTime}
+
+━━━━━━━━━━━━━━━━━━━━━
 📖 *Readings Selected:*
 ${readingList}
 ⏰ *Duration:* ${duration.minutes} minutes (${duration.label})
@@ -884,111 +511,76 @@ ${crystalSection}
 💵 *Grand Total: $${grandTotal.toFixed(2)}*
 ━━━━━━━━━━━━━━━━━━━━━
 
-✨ Ready to book, love! Please confirm:
-📅 Preferred Date & Time: ___________
-📱 Your Phone: ___________
-💌 Your Email: ___________
+✨ I'll confirm your booking within 24 hours, love!
 
 "Sending positive energy to you! ❤️🛐🧿🔮☮️🌅"
         `.trim();
 
-        // Encode for URL
         const encoded = encodeURIComponent(message);
+        const WHATSAPP_NUMBER = '2348000000000'; // 🔴 CHANGE THIS
+        const TELEGRAM_USERNAME = 'YourUsername'; // 🔴 CHANGE THIS
 
-        // Build URL based on platform
         let url = '';
         if (platform === 'whatsapp') {
-            const phone = '2348000000000'; // 🔴 CHANGE THIS
-            url = `https://wa.me/${phone}?text=${encoded}`;
+            url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
         } else if (platform === 'telegram') {
-            const username = 'YourUsername'; // 🔴 CHANGE THIS
-            url = `https://t.me/${username}?text=${encoded}`;
+            url = `https://t.me/${TELEGRAM_USERNAME}?text=${encoded}`;
         }
 
-        // Open in new tab
         window.open(url, '_blank');
+        showToast(`✨ Opening ${platform.charAt(0).toUpperCase() + platform.slice(1)}... Sending love! ❤️`);
 
-        // Show confirmation
-        const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
-        showToast(`✨ Opening ${platformName}... Sending love! ❤️`);
-
-        // Clear crystal cart from session after booking
+        // Clear session
         sessionStorage.removeItem('crystalCart');
         sessionStorage.removeItem('cartMessage');
     }
 
-    // ============================================
-    // TOAST NOTIFICATION
-    // ============================================
-
+    // ===== TOAST =====
     let toastTimeout;
-
     function showToast(message) {
         toast.textContent = message;
         toast.classList.add('show');
         clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
+        toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
 
-    // ============================================
-    // LOAD CRYSTAL CART FROM SESSION
-    // ============================================
-
+    // ===== LOAD CRYSTAL CART =====
     function loadCrystalCart() {
         const cartData = sessionStorage.getItem('crystalCart');
-        const cartMessage = sessionStorage.getItem('cartMessage');
-
         if (cartData) {
             try {
                 crystalCart = JSON.parse(cartData);
-                crystalCartMessage = cartMessage || '';
-
                 if (crystalCart.length > 0) {
                     cartAlert.style.display = 'flex';
                     const itemCount = crystalCart.reduce((sum, item) => sum + item.quantity, 0);
                     bookingSubtitle.textContent = `📦 You have ${itemCount} crystal item(s) in your cart! Your booking will include both your readings and crystals. ❤️`;
-
                     const itemsList = crystalCart.map(item => `${item.name} x${item.quantity}`).join(', ');
                     if (questionsInput) {
                         questionsInput.value = `🛒 Also ordering: ${itemsList}\n\n`;
                     }
                 }
-            } catch (e) {
-                console.log('Error loading cart:', e);
-            }
+            } catch (e) { console.log('Error loading cart:', e); }
         }
     }
 
-    // ============================================
-    // TOGGLE MENU
-    // ============================================
-
+    // ===== TOGGLE MENU =====
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
 
-    // ============================================
-    // INITIALIZE
-    // ============================================
-
+    // ===== INIT =====
     function init() {
         renderReadings();
         renderDurations();
         loadCrystalCart();
         console.log('🔮 Ethemedium Booking Page is ready, love! ❤️🛐🧿🔮☮️🌅');
-        console.log('📖 Multiple readings can now be selected!');
     }
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    } else { init(); }
 
-    // Expose functions to global scope
     window.updateReadingQty = updateReadingQty;
     window.selectDuration = selectDuration;
     window.bookNow = bookNow;
