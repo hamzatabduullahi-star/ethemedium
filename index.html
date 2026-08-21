@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +82,26 @@
         .bottom-arrow { background: white; border: 2px solid #F0E0E0; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 1.2rem; color: #6B2D5C; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
         .bottom-arrow:hover { background: #6B2D5C; color: white; border-color: #6B2D5C; }
 
-        .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 40px; }
+        /* ===== QR CODE SECTION ===== */
+        .qr-section { max-width: 1000px; margin: 0 auto; padding: 40px 20px 50px; display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; border-top: 2px dashed #E0D0D0; border-bottom: 2px dashed #E0D0D0; }
+        .qr-box { text-align: center; }
+        .qr-box h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #6B2D5C; margin-bottom: 8px; }
+        .qr-box .qr-sub { font-size: 0.75rem; color: #8A7A7A; margin-top: 4px; }
+        .qr-image { width: 130px; height: 130px; border-radius: 16px; border: 3px solid #D4A5A5; padding: 6px; background: white; transition: all 0.3s ease; }
+        .qr-image:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(107, 45, 92, 0.15); }
+        .qr-features { text-align: left; color: #2D1F1F; }
+        .qr-features h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #6B2D5C; margin-bottom: 8px; }
+        .qr-features p { font-size: 0.9rem; line-height: 2; color: #4A3A3A; }
+        .qr-features i { color: #25D366; width: 22px; }
+
+        @media (max-width: 768px) {
+            .qr-section { flex-direction: column; text-align: center; gap: 24px; padding: 30px 16px 40px; }
+            .qr-features { text-align: center; }
+            .qr-features p { line-height: 1.8; }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer { background: #4A1F3F; color: rgba(255,255,255,0.8); padding: 40px 20px 20px; margin-top: 0; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; display: block; margin-bottom: 8px; }
         .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
@@ -113,12 +133,12 @@
             .bottom-slide .bs-text { font-size: 1.1rem; }
             .bottom-slide-container { min-height: 160px; padding: 20px; }
             .hero-slides-wrapper { min-height: 400px; }
+            .qr-image { width: 110px; height: 110px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -135,7 +155,6 @@
     </div>
 </nav>
 
-<!-- ===== HERO SECTION ===== -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-bg-shapes">
@@ -144,7 +163,6 @@
     
     <div class="hero-text-container">
         <div class="hero-slides-wrapper">
-            <!-- Slide 1 -->
             <div class="hero-slide active" data-index="0">
                 <span class="hero-sub">Welcome, Love ❤️</span>
                 <span class="hero-main">Ethemedium</span>
@@ -160,7 +178,6 @@
                 </div>
             </div>
             
-            <!-- Slide 2 -->
             <div class="hero-slide" data-index="1">
                 <span class="hero-sub">✨ Find Your Path</span>
                 <span class="hero-main">Divine Guidance</span>
@@ -175,7 +192,6 @@
                 </div>
             </div>
             
-            <!-- Slide 3 -->
             <div class="hero-slide" data-index="2">
                 <span class="hero-sub">💫 Trust the Process</span>
                 <span class="hero-main">Spiritual Awakening</span>
@@ -191,7 +207,6 @@
             </div>
         </div>
         
-        <!-- Hero Dots -->
         <div class="hero-dots">
             <button class="hero-dot active" onclick="changeHeroSlide(0)"></button>
             <button class="hero-dot" onclick="changeHeroSlide(1)"></button>
@@ -200,7 +215,6 @@
     </div>
 </section>
 
-<!-- ===== BOTTOM SLIDESHOW ===== -->
 <section class="bottom-slideshow">
     <span class="section-label">💬 Words of Wisdom</span>
     <h2>Messages from the Heart ❤️</h2>
@@ -248,7 +262,25 @@
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<section class="qr-section">
+    <div class="qr-box">
+        <h4>📱 Scan to Visit</h4>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://hamzatabduullahi-star.github.io/ethemedium/" 
+             alt="Scan QR Code" 
+             class="qr-image" />
+        <p class="qr-sub">Scan with your phone camera</p>
+    </div>
+    <div class="qr-features">
+        <h4>✨ Quick Access</h4>
+        <p>
+            <i class="fas fa-check-circle"></i> Book a reading instantly<br>
+            <i class="fas fa-check-circle"></i> Shop crystals & beads<br>
+            <i class="fas fa-check-circle"></i> Get spiritual guidance<br>
+            <i class="fas fa-check-circle"></i> 100% confidential
+        </p>
+    </div>
+</section>
+
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -341,9 +373,16 @@
     }
     function nextBottomSlide() { const slides = document.querySelectorAll('.bottom-slide'); changeBottomSlide((bottomIndex + 1) % slides.length); }
     function resetBottomTimer() { clearInterval(bottomTimer); bottomTimer = setInterval(nextBottomSlide, 5000); }
-    function toggleMenu() { document.querySelector('.nav-links').classList.toggle('show'); document.querySelector('.hamburger').classList.toggle('active'); }
-    resetHeroTimer(); resetBottomTimer();
+
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+        document.querySelector('.hamburger').classList.toggle('active');
+    }
+
+    resetHeroTimer();
+    resetBottomTimer();
     console.log('🔮 Ethemedium Homepage is ready, love! ❤️🛐🧿🔮☮️🌅');
 </script>
 </body>
 </html>
+-->
