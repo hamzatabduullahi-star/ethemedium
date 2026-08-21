@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,10 +154,8 @@
 </head>
 <body>
 
-<!-- ===== TOAST ===== -->
 <div id="toast" class="toast">✨ Updated, love!</div>
 
-<!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🔮 Ethe<span>medium</span></a>
@@ -176,7 +175,6 @@
     </div>
 </nav>
 
-<!-- ===== BOOKING PAGE ===== -->
 <div class="booking-page">
     <div class="booking-container">
 
@@ -192,7 +190,6 @@
             <p>📦 <strong>Crystals in your cart!</strong> Your booking will include both your readings and crystals. ❤️</p>
         </div>
 
-        <!-- ===== STEP 1: READING TYPE ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">01</span>
@@ -210,7 +207,6 @@
             </div>
         </div>
 
-        <!-- ===== STEP 2: DURATION ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">02</span>
@@ -220,7 +216,6 @@
             <div class="duration-selector" id="durationSelector"></div>
         </div>
 
-        <!-- ===== STEP 3: YOUR DETAILS ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">03</span>
@@ -247,7 +242,6 @@
             </div>
         </div>
 
-        <!-- ===== STEP 4: QUESTIONS ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">04</span>
@@ -257,7 +251,6 @@
             <textarea id="questionsInput" class="questions-area" placeholder="💭 Tell me what's on your heart, love... Any specific questions? I'll read it for you ❤️" rows="4"></textarea>
         </div>
 
-        <!-- ===== STEP 5: PAYMENT METHOD ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">💳</span>
@@ -266,64 +259,44 @@
             </div>
 
             <div class="payment-grid">
-
-                <!-- PayPal -->
                 <div class="payment-card" onclick="selectPayment('paypal')" id="paypal-card">
                     <span class="icon">💳</span>
                     <h4>PayPal</h4>
                 </div>
-
-                <!-- CashApp -->
                 <div class="payment-card" onclick="selectPayment('cashapp')" id="cashapp-card">
                     <span class="icon">💰</span>
                     <h4>CashApp</h4>
                 </div>
-
-                <!-- Venmo -->
                 <div class="payment-card" onclick="selectPayment('venmo')" id="venmo-card">
                     <span class="icon">🏦</span>
                     <h4>Venmo</h4>
                 </div>
-
-                <!-- Zelle -->
                 <div class="payment-card" onclick="selectPayment('zelle')" id="zelle-card">
                     <span class="icon">📱</span>
                     <h4>Zelle</h4>
                 </div>
-
-                <!-- Apple Pay -->
                 <div class="payment-card" onclick="selectPayment('applepay')" id="applepay-card">
                     <span class="icon">📲</span>
                     <h4>Apple Pay</h4>
                 </div>
-
-                <!-- Apple Gift Card -->
                 <div class="payment-card" onclick="selectPayment('applegift')" id="applegift-card">
                     <span class="icon">🎁</span>
                     <h4>Apple Gift Card</h4>
                 </div>
-
-                <!-- eTransfer -->
                 <div class="payment-card" onclick="selectPayment('etransfer')" id="etransfer-card">
                     <span class="icon">💸</span>
                     <h4>eTransfer</h4>
                 </div>
-
-                <!-- Bank Transfer -->
                 <div class="payment-card" onclick="selectPayment('bank')" id="bank-card">
                     <span class="icon">🏛️</span>
                     <h4>Bank Transfer</h4>
                 </div>
-
-                <!-- Bitcoin -->
                 <div class="payment-card" onclick="selectPayment('bitcoin')" id="bitcoin-card">
                     <span class="icon">₿</span>
                     <h4>Bitcoin</h4>
                 </div>
-
             </div>
 
-            <!-- Selected Payment Display -->
             <div id="selectedPayment" style="margin-top: 12px; padding: 10px 14px; background: #FAF5F5; border-radius: 10px; border: 1px solid #F0E0E0; display: none; text-align: center;">
                 <p style="font-size: 0.85rem; color: #6B2D5C; margin: 0;">
                     <i class="fas fa-check-circle" style="color: #25D366;"></i> 
@@ -333,7 +306,6 @@
             </div>
         </div>
 
-        <!-- ===== STEP 6: BOOK NOW ===== -->
         <div class="booking-step">
             <div class="step-label">
                 <span class="step-num">06</span>
@@ -360,7 +332,6 @@
     </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -394,14 +365,7 @@
     </div>
 </footer>
 
-<!-- ============================================================ -->
-<!-- ===== JAVASCRIPT ===== -->
-<!-- ============================================================ -->
 <script>
-    // ============================================
-    // DATA
-    // ============================================
-
     const READINGS = [
         { id: 'love', icon: '💖', name: 'Love Reading', desc: 'Soulmate, twin flame, relationship blocks', basePrice: 45 },
         { id: 'general', icon: '🔮', name: 'General Reading', desc: 'Whatever Spirit wants you to know', basePrice: 40 },
@@ -423,10 +387,6 @@
         { minutes: 60, label: 'Full', priceMultiplier: 1.6 }
     ];
 
-    // ============================================
-    // PAYMENT DETAILS
-    // ============================================
-
     const paymentDetails = {
         paypal: { name: 'PayPal', detail: 'paypal.me/ethemedium', icon: '💳' },
         cashapp: { name: 'CashApp', detail: '$Ethemedium', icon: '💰' },
@@ -439,10 +399,6 @@
         bitcoin: { name: 'Bitcoin', detail: 'BTC Wallet: bc1... (provided on request)', icon: '₿' }
     };
 
-    // ============================================
-    // STATE
-    // ============================================
-
     let selectedReadings = {};
     let selectedDuration = 30;
     let crystalCart = [];
@@ -451,10 +407,6 @@
 
     const WHATSAPP_NUMBER = '13528287004';
     const TELEGRAM_USERNAME = 'ethe_medium';
-
-    // ============================================
-    // DOM REFS
-    // ============================================
 
     const readingsGrid = document.getElementById('readingsGrid');
     const durationSelector = document.getElementById('durationSelector');
@@ -469,10 +421,6 @@
     const clientPhone = document.getElementById('clientPhone');
     const clientEmail = document.getElementById('clientEmail');
     const clientDateTime = document.getElementById('clientDateTime');
-
-    // ============================================
-    // RENDER FUNCTIONS
-    // ============================================
 
     function renderReadings() {
         readingsGrid.innerHTML = READINGS.map(r => {
@@ -532,10 +480,6 @@
         readingTotal.textContent = `$${total.toFixed(2)}`;
     }
 
-    // ============================================
-    // ACTIONS
-    // ============================================
-
     function updateReadingQty(id, change) {
         const current = selectedReadings[id] || 0;
         const newQty = Math.max(0, current + change);
@@ -548,10 +492,6 @@
         selectedDuration = minutes;
         renderDurations();
     }
-
-    // ============================================
-    // PAYMENT SELECTION
-    // ============================================
 
     function selectPayment(method) {
         selectedPayment = method;
@@ -590,10 +530,6 @@
         const info = paymentDetails[selectedPayment];
         return `${info.icon} ${info.name}: ${info.detail}`;
     }
-
-    // ============================================
-    // BOOK NOW
-    // ============================================
 
     function bookNow(platform) {
         const selectedItems = Object.keys(selectedReadings).filter(id => selectedReadings[id] > 0);
@@ -700,10 +636,6 @@ ${paymentInfo}
         sessionStorage.removeItem('cartMessage');
     }
 
-    // ============================================
-    // TOAST
-    // ============================================
-
     let toastTimeout;
     function showToast(message) {
         toast.textContent = message;
@@ -711,10 +643,6 @@ ${paymentInfo}
         clearTimeout(toastTimeout);
         toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
-
-    // ============================================
-    // LOAD CRYSTAL CART
-    // ============================================
 
     function loadCrystalCart() {
         const cartData = sessionStorage.getItem('crystalCart');
@@ -734,25 +662,16 @@ ${paymentInfo}
         }
     }
 
-    // ============================================
-    // TOGGLE MENU
-    // ============================================
-
     function toggleMenu() {
         document.querySelector('.nav-links').classList.toggle('show');
         document.querySelector('.hamburger').classList.toggle('active');
     }
-
-    // ============================================
-    // INIT
-    // ============================================
 
     function init() {
         renderReadings();
         renderDurations();
         loadCrystalCart();
         console.log('🔮 Ethemedium Booking Page is ready, love! ❤️🛐🧿🔮☮️🌅');
-        console.log('💳 9 Payment Methods Available: PayPal, CashApp, Venmo, Zelle, Apple Pay, Apple Gift Card, eTransfer, Bank Transfer, Bitcoin');
     }
 
     if (document.readyState === 'loading') {
@@ -768,3 +687,4 @@ ${paymentInfo}
 </script>
 </body>
 </html>
+-->
